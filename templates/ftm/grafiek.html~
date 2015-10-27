@@ -1,0 +1,9 @@
+<html>
+<body>
+{% load staticfiles %}
+<p>
+Tijdreeks voor x={{x}} en y = {{y}}
+</p>
+<img src="{% static '{{plotje}}' %}" alt="Tijdstijghoogtelijn"/>
+</body>
+</html>

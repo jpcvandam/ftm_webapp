@@ -1,0 +1,257 @@
+john@john-Satellite-C660:~$ ssh ftm@ftmod.nl
+ftm@ftmod.nl's password: 
+Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.13.0-55-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+Last login: Tue Oct 13 19:56:34 2015 from ip4da8747d.direct-adsl.nl
+ftm@localhost:~$ sudo /etc/init.d/apache2 restart
+[sudo] password for ftm: 
+ * Restarting web server apache2                                                AH00548: NameVirtualHost has no effect and will be removed in the next release /etc/apache2/plesk.conf.d/server.conf:6
+                                                                         [ OK ]
+ftm@localhost:~$ logout
+Connection to ftmod.nl closed.
+john@john-Satellite-C660:~$ cd ftm
+john@john-Satellite-C660:~/ftm$ source bin/activate
+(ftm)john@john-Satellite-C660:~/ftm$ cd ftm
+(ftm)john@john-Satellite-C660:~/ftm/ftm$ cd ftm
+(ftm)john@john-Satellite-C660:~/ftm/ftm/ftm$ ls
+data                      __init__.py      plot_GWS.pyc       urls.py
+FTM.py                    __init__.pyc     raster.py          urls.py~
+FTM_rekenhart (kopie).py  lees_raster.py   raster.pyc         urls.pyc
+FTM_rekenhart.py          lees_raster.py~  settings.py        views.py
+FTM_rekenhart.py~         migrations       settings.py~       views.py~
+FTM_rekenhart.pyc         models.py        settings.pyc       views.pyc
+GT.py                     models.py~       static             waterbalans_in.py
+GT.pyc                    models.pyc       supersnel_ftm.py   wsgi.py
+GxG.py                    plot_GWS.py      supersnel_ftm.py~  wsgi.pyc
+GxG.pyc                   plot_GWS.py~     templates
+(ftm)john@john-Satellite-C660:~/ftm/ftm/ftm$ python
+Python 2.7.6 (default, Jun 22 2015, 17:58:13) 
+[GCC 4.8.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import FTM_rekenhart
+>>> delta(0.079, 157)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'delta' is not defined
+>>> from FTM_rekenhart import *
+>>> delta(0.079, 157)
+0.92253897458853984
+>>> omega(157, 0.079)
+12.161380989599245
+>>> from FTM_rekenhart (kopie) import *
+  File "<stdin>", line 1
+    from FTM_rekenhart (kopie) import *
+                       ^
+SyntaxError: invalid syntax
+>>> from FTM_rekenhart_(kopie) import *
+  File "<stdin>", line 1
+    from FTM_rekenhart_(kopie) import *
+                       ^
+SyntaxError: invalid syntax
+>>> from FTM_rekenhart_(kopie) import *
+  File "<stdin>", line 1
+    from FTM_rekenhart_(kopie) import *
+                       ^
+SyntaxError: invalid syntax
+>>> from FTM_rekenhart_kopie import *
+>>> cw(157, 0.041, -99)
+-98.3563
+>>> gwst_op_t(0.079, 157, -37.72399724, 0.041, -99, 48)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'gwst_op_t' is not defined
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 48)
+(-42.420637584847711, 0)
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+(-42.420637584847711, 0)
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 3)
+(-42.420637584847711, 0)
+>>> gws(0.079, 157, -37.72399724, 0.041, -99, 3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'gws' is not defined
+>>> gws(0.079, 157, -37.72399724, 0.041, -99, 3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'gws' is not defined
+>>> gws(0.079, 157, -37.72399724, 0.041, -99, 3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'gws' is not defined
+>>> from FTM_rekenhart_kopie import *
+>>> gws(0.079, 157, -37.72399724, 0.041, -99, 3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'gws' is not defined
+>>> gws(0.079, 157, -37.72399724, 0.041, -99, 3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'gws' is not defined
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 3)
+(-42.420637584847711, 0)
+>>> gws(0.079, 157, -37.72399724, 0.041, -99, 3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'gws' is not defined
+>>> 
+john@john-Satellite-C660:~$ cd ftm
+john@john-Satellite-C660:~/ftm$ source bin/activate
+(ftm)john@john-Satellite-C660:~/ftm$ cd ftm
+(ftm)john@john-Satellite-C660:~/ftm/ftm$ cd ftm
+(ftm)john@john-Satellite-C660:~/ftm/ftm/ftm$ python
+Python 2.7.6 (default, Jun 22 2015, 17:58:13) 
+[GCC 4.8.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from FTM_rekenhart_kopie import *
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 24, in gws_op_t
+    delta = delta(bergingscoefficient, drainageweerstand)
+UnboundLocalError: local variable 'delta' referenced before assignment
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 24, in gws_op_t
+    d = delta(bergingscoefficient, drainageweerstand)
+UnboundLocalError: local variable 'delta' referenced before assignment
+>>> from FTM_rekenhart_kopie import *
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 24, in gws_op_t
+    d = delta(bergingscoefficient, drainageweerstand)
+UnboundLocalError: local variable 'delta' referenced before assignment
+>>> 
+(ftm)john@john-Satellite-C660:~/ftm/ftm/ftm$ python
+Python 2.7.6 (default, Jun 22 2015, 17:58:13) 
+[GCC 4.8.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from FTM_rekenhart_kopie import *
+>>> from FTM_rekenhart_kopie import *
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+(-42.420637584847711, 0, 0.92253897458853984, 12.161380989599245, -98.3563)
+>>> from FTM_rekenhart_kopie import *
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+(-42.420637584847711, 0, 0.92253897458853984, 12.161380989599245, -98.3563)
+>>> from FTM_rekenhart_kopie import *
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+(-42.420637584847711, 0, 0.92253897458853984, 12.161380989599245, -98.3563)
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+(-42.420637584847711, 0, 0.92253897458853984, 12.161380989599245, -98.3563)
+>>> from FTM_rekenhart_kopie import *
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+(-42.420637584847711, 0, 0.92253897458853984, 12.161380989599245, -98.3563)
+>>> 
+(ftm)john@john-Satellite-C660:~/ftm/ftm/ftm$ python
+Python 2.7.6 (default, Jun 22 2015, 17:58:13) 
+[GCC 4.8.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from FTM_rekenhart_kopie import *
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 25, in gws_op_t
+    omega = drainageweerstand * (1.0 - delta(bergingscoefficient, drainageweerstand))
+TypeError: 'numpy.float64' object is not callable
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+  File "<stdin>", line 1
+    gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+                                                             ^
+SyntaxError: invalid syntax
+>>> 
+(ftm)john@john-Satellite-C660:~/ftm/ftm/ftm$ python
+Python 2.7.6 (default, Jun 22 2015, 17:58:13) 
+[GCC 4.8.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from FTM_rekenhart_kopie_import *
+  File "<stdin>", line 1
+    from FTM_rekenhart_kopie_import *
+                                    ^
+SyntaxError: invalid syntax
+>>> from FTM_rekenhart_kopie import *
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 25, in gws_op_t
+    omega = drainageweerstand * (1.0 - delta(bergingscoefficient, drainageweerstand))
+TypeError: 'numpy.float64' object is not callable
+>>> from FTM_rekenhart_kopie import *
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 25, in gws_op_t
+    omega = drainageweerstand * (1.0 - delta(bergingscoefficient, drainageweerstand))
+TypeError: 'numpy.float64' object is not callable
+>>> from FTM_rekenhart_kopie import *
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 25, in gws_op_t
+    omega = drainageweerstand * (1.0 - delta)
+TypeError: 'numpy.float64' object is not callable
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 25, in gws_op_t
+    omega = drainageweerstand * (1.0 - float(delta))
+TypeError: 'numpy.float64' object is not callable
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 25, in gws_op_t
+    omega = drainageweerstand * (1.0 - float(delta(bergingscoefficient, drainageweerstand)))
+TypeError: 'numpy.float64' object is not callable
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 25, in gws_op_t
+    omega = drainageweerstand * (1.0 - float(delta(bergingscoefficient, drainageweerstand)))
+TypeError: 'numpy.float64' object is not callable
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 25, in gws_op_t
+    omega = drainageweerstand * (1.0 - float(d))
+TypeError: 'numpy.float64' object is not callable
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 25, in gws_op_t
+    omega = drainageweerstand * (1.0 - delta(bergingscoefficient, drainageweerstand))
+TypeError: 'numpy.float64' object is not callable
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 25, in gws_op_t
+    omega = drainageweerstand * (1.0 - delta(bergingscoefficient, drainageweerstand))
+TypeError: 'numpy.float64' object is not callable
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 25, in gws_op_t
+    omega = drainageweerstand * (1.0 - np.exp(-1.0 /( bergingscoefficient * drainageweerstand)))
+TypeError: 'numpy.float64' object is not callable
+>>> gws_op_t(0.079, 157, -37.72399724, 0.041, -99, 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "FTM_rekenhart_kopie.py", line 25, in gws_op_t
+    omega = drainageweerstand(1.0 - np.exp(-1.0 /(bergingscoefficient * drainageweerstand)))
+TypeError: 'numpy.float64' object is not callable
+>>> gws(0.079, 157, -37.72399724, 0.041, -99, 30)
+(-42.420637584847711, 0)
+>>> gws(0.079, float(157), -37.72399724, 0.041, float(-99), float(30))
+(-38.77222328796794, 0)
+>>> gws(0.079, 157, -37.72399724, 0.041, -99, 30)
+(-42.420637584847711, 0)
+>>>  gws(0.079, float(157), -37.72399724, 0.041, float(-99), float(30))
+  File "<stdin>", line 1
+    gws(0.079, float(157), -37.72399724, 0.041, float(-99), float(30))
+    ^
+IndentationError: unexpected indent
+>>> gws(0.079, float(157), -37.72399724, 0.041, float(-99), float(30))
+(-38.77222328796794, 0)
+>>> 
+
+

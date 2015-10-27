@@ -1,0 +1,17 @@
+2015-10-27 15:09:21.710866start programma en inlezen meteo
+2015-10-27 15:09:21.742527inlezen bodem
+[ 0.0973478]
+[ 164.2845]
+[-0.455]
+[-146.]
+2015-10-27 15:09:21.887233array vullen met nullen
+2015-10-27 15:09:21.887428beginnen met rekenen
+2015-10-27 15:09:22.490326data aanmaken voor series
+2015-10-27 15:09:22.493208array naar series
+2015-10-27 15:09:22.493393frames maken van grondwaterstanden en afstroming
+2015-10-27 15:09:22.495388dataframes samenvoegen en wegschrijven naar een csv
+2015-10-27 15:09:22.693074GxG berekenen
+2015-10-27 15:09:23.460532plotten
+2015-10-27 15:09:26.226171print de gt
+('72', 'VIId')
+2015-10-27 15:09:26.226491einde

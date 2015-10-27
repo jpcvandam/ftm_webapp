@@ -1,0 +1,69 @@
+# SOURCE: ROYAL NETHERLANDS METEOROLOGICAL INSTITUTE (KNMI)
+# Comment: These time series are inhomogeneous because of station relocations and changes in observation techniques. As a result, these series are not suitable for trend analysis. For climate change studies we refer to the homogenized series of monthly temperatures of De Bilt <http://www.knmi.nl/klimatologie/onderzoeksgegevens/homogeen_260/index.html> or the Central Netherlands Temperature <http://www.knmi.nl/klimatologie/onderzoeksgegevens/CNT/>.
+# 
+# 
+# STN      LON(east)   LAT(north)     ALT(m)  NAME
+# 235:         4.785       52.924       0.50  DE KOOY
+# 
+# YYYYMMDD = Date (YYYY=year MM=month DD=day); 
+# DDVEC    = Vector mean wind direction in degrees (360=north, 90=east, 180=south, 270=west, 0=calm/variable); 
+# FHVEC    = Vector mean windspeed (in 0.1 m/s); 
+# FG       = Daily mean windspeed (in 0.1 m/s); 
+# FHX      = Maximum hourly mean windspeed (in 0.1 m/s); 
+# FHXH     = Hourly division in which FHX was measured; 
+# FHN      = Minimum hourly mean windspeed (in 0.1 m/s); 
+# FHNH     = Hourly division in which FHN was measured; 
+# FXX      = Maximum wind gust (in 0.1 m/s); 
+# FXXH     = Hourly division in which FXX was measured; 
+# TG       = Daily mean temperature in (0.1 degrees Celsius); 
+# TN       = Minimum temperature (in 0.1 degrees Celsius); 
+# TNH      = Hourly division in which TN was measured; 
+# TX       = Maximum temperature (in 0.1 degrees Celsius); 
+# TXH      = Hourly division in which TX was measured; 
+# T10N     = Minimum temperature at 10 cm above surface (in 0.1 degrees Celsius); 
+# T10NH    = 6-hourly division in which T10N was measured; 6=0-6 UT, 12=6-12 UT, 18=12-18 UT, 24=18-24 UT
+# SQ       = Sunshine duration (in 0.1 hour) calculated from global radiation (-1 for <0.05 hour); 
+# SP       = Percentage of maximum potential sunshine duration; 
+# Q        = Global radiation (in J/cm2); 
+# DR       = Precipitation duration (in 0.1 hour); 
+# RH       = Daily precipitation amount (in 0.1 mm) (-1 for <0.05 mm); 
+# RHX      = Maximum hourly precipitation amount (in 0.1 mm) (-1 for <0.05 mm); 
+# RHXH     = Hourly division in which RHX was measured; 
+# EV24     = Potential evapotranspiration (Makkink) (in 0.1 mm); 
+# PG       = Daily mean sea level pressure (in 0.1 hPa) calculated from 24 hourly values; 
+# PX       = Maximum hourly sea level pressure (in 0.1 hPa); 
+# PXH      = Hourly division in which PX was measured; 
+# PN       = Minimum hourly sea level pressure (in 0.1 hPa); 
+# PNH      = Hourly division in which PN was measured; 
+# VVN      = Minimum visibility; 0: <100 m, 1:100-200 m, 2:200-300 m,..., 49:4900-5000 m, 50:5-6 km, 56:6-7 km, 57:7-8 km,..., 79:29-30 km, 80:30-35 km, 81:35-40 km,..., 89: >70 km)
+# VVNH     = Hourly division in which VVN was measured; 
+# VVX      = Maximum visibility; 0: <100 m, 1:100-200 m, 2:200-300 m,..., 49:4900-5000 m, 50:5-6 km, 56:6-7 km, 57:7-8 km,..., 79:29-30 km, 80:30-35 km, 81:35-40 km,..., 89: >70 km)
+# VVXH     = Hourly division in which VVX was measured; 
+# NG       = Mean daily cloud cover (in octants, 9=sky invisible); 
+# UG       = Daily mean relative atmospheric humidity (in percents); 
+# UX       = Maximum relative atmospheric humidity (in percents); 
+# UXH      = Hourly division in which UX was measured; 
+# UN       = Minimum relative atmospheric humidity (in percents); 
+# UNH      = Hourly division in which UN was measured; 
+# 
+# STN,YYYYMMDD,DDVEC,FHVEC,   FG,  FHX, FHXH,  FHN, FHNH,  FXX, FXXH,   TG,   TN,  TNH,   TX,  TXH, T10N,T10NH,   SQ,   SP,    Q,   DR,   RH,  RHX, RHXH, EV24,   PG,   PX,  PXH,   PN,  PNH,  VVN, VVNH,  VVX, VVXH,   NG,   UG,   UX,  UXH,   UN,  UNH
+# 
+  235,20151001,   59,   53,   55,   80,   19,   40,    3,  110,   19,  132,  109,    4,  160,   14,   97,    6,  107,   92, 1362,    0,    0,    0,    1,   22,10326,10348,    1,10303,   24,   56,    5,   75,   14,    0,   84,   94,    4,   73,   11
+  235,20151002,   64,   42,   44,   60,   18,   20,    6,  100,   21,  122,   99,    6,  143,   16,   84,   12,   83,   72, 1197,    0,    0,    0,    1,   19,10252,10300,    1,10199,   24,    4,    8,   62,   16,    3,   93,   99,    8,   84,   16
+  235,20151003,   99,   17,   28,   60,    1,   10,   20,   80,    1,  117,   93,    6,  163,   15,   64,   24,   79,   69, 1059,    0,    0,    0,    1,   16,10147,10192,    1,10126,   16,   22,   24,   65,   14,    4,   89,   98,   21,   68,   14
+  235,20151004,  216,   24,   29,   60,   14,   10,    7,   80,   14,  129,   88,   24,  168,   13,   47,   24,   68,   59,  965,    0,    0,    0,    1,   15,10144,10152,    9,10135,    1,   11,   24,   63,   16,    3,   88,   98,   20,   75,   16
+  235,20151005,  132,   38,   39,   60,   11,   20,    2,  100,   14,  134,   85,    5,  167,   15,   40,    6,   12,   11,  688,    0,   -1,   -1,   23,   11,10098,10138,    1,10048,   24,    0,    4,   75,   11,    7,   88,  100,    4,   75,   14
+  235,20151006,  124,   30,   34,   50,   17,   20,   10,   80,   21,  150,  132,    6,  172,   15,  130,    6,    4,    4,  459,   32,   15,    6,    3,    8,10018,10045,    1,10005,   13,   33,    3,   68,   12,    7,   94,   98,    7,   86,   15
+  235,20151007,  201,   46,   56,   90,   13,   30,    2,  130,   13,  152,  136,    4,  173,   14,  128,    6,   30,   27,  551,   22,   20,    6,   20,    9,10077,10135,   24,10027,    1,   31,   23,   67,   13,    7,   93,   98,    3,   87,   12
+  235,20151008,  298,   20,   33,   50,    1,   20,   10,   90,    1,  134,  120,   22,  153,   14,  118,   24,    7,    6,  480,   64,   55,   22,   20,    8,10189,10220,   21,10141,    1,   32,   19,   70,    9,    8,   93,   98,   18,   85,   10
+  235,20151009,   52,   25,   28,   40,    9,    0,    3,   70,    9,  133,   98,    5,  157,   14,   61,    6,   47,   42,  813,    2,    1,    1,    1,   13,10227,10234,   21,10218,    4,   62,    3,   80,   12,    6,   84,   97,    1,   66,   12
+  235,20151010,   78,   55,   56,   80,   18,   30,    1,  120,   20,  120,   79,   24,  143,   13,   69,   24,   69,   63,  936,    0,    0,    0,    1,   14,10217,10232,    1,10204,   16,   32,    7,   75,   21,    2,   79,   98,    7,   66,   16
+  235,20151011,   89,   74,   75,   90,    8,   50,    1,  140,   10,   81,   60,   24,  107,   13,   49,   24,   96,   88, 1141,    0,    0,    0,    1,   16,10200,10209,    8,10190,   15,   70,    4,   83,   17,    0,   67,   81,    4,   53,   15
+  235,20151012,   91,   56,   57,   70,    5,   40,    1,  110,    5,   66,   46,    6,   92,   15,   40,    6,   79,   72,  949,    0,    0,    0,    1,   13,10195,10206,    8,10186,   15,   72,   12,   80,   16,    6,   71,   79,    2,   63,   14
+  235,20151013,   54,   68,   70,  100,    6,   20,   23,  140,    6,   79,   56,    3,   98,   16,   50,    6,   83,   77, 1034,    3,    2,    1,   21,   14,10215,10227,   18,10191,    1,   65,   24,   80,   14,    5,   75,   91,   24,   65,    6
+  235,20151014,   67,   51,   55,  100,   11,   20,    1,  160,   12,   78,   65,   23,   93,    8,   62,    6,   10,    9,  314,   19,    5,    3,   17,    4,10208,10215,    1,10203,    5,   56,   22,   75,    9,    8,   83,   93,    1,   71,   13
+  235,20151015,   49,   33,   37,   70,   23,   10,   19,  100,   21,   82,   52,    5,  105,   15,   40,    6,    8,    7,  237,   62,  100,   22,   17,    3,10194,10215,    1,10175,   22,   30,   19,   75,   10,    8,   87,   98,   19,   76,   10
+  235,20151016,   48,   38,   40,   70,    1,   10,   13,  100,    1,   90,   74,    4,  106,   19,   71,    6,    0,    0,  122,  114,   59,   11,   14,    2,10186,10198,    9,10173,   24,   13,   15,   65,   23,    8,   95,   98,   11,   88,    6
+  235,20151017,   68,   22,   25,   30,    2,   20,    1,   50,    2,   98,   77,   24,  107,    9,   61,   24,    0,    0,  259,   18,    5,    3,    1,    4,10178,10199,   22,10163,    5,   46,   16,   65,    6,    8,   95,   98,    1,   90,   21
+  235,20151018,  356,   12,   20,   40,   24,   10,    2,   70,   23,  103,   57,    2,  132,   13,   37,    6,    0,    0,  292,   83,   25,    6,    7,    4,10195,10209,   22,10187,   13,   27,    2,   65,   12,    8,   96,   98,    2,   91,   13
+  235,20151019,    7,   19,   20,   30,    1,   10,   14,   50,    1,  114,   72,   21,  135,   11,   46,   24,    3,    3,  339,    0,   -1,   -1,    2,    5,10228,10237,   20,10208,    1,   43,    2,   75,   16,    7,   89,   98,    1,   79,   16
