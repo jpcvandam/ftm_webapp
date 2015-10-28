@@ -30,11 +30,22 @@ finally:
 
 con = lite.connect('data/test.db')
 
-with con:
+fileinput = open('data/weerstations_NLD.txt', 'r')
+stations = fileinput.readline()
+fileinput.readline ()
+stationsnummers=[]
+for line in fileinput:
+	stationsnummers.append(line[3:6])
+fileinput.close()
+print stations
+print stationsnummers
+
+#with con:
     
-    cur = con.cursor()    
-    cur.execute("CREATE TABLE meteostations(Id INT, Naam TEXT, Long FLOAT, Lat FLOAT)")
-    cur.execute("INSERT INTO meteostations VALUES(39,'H. VAN HOLLAND(MOLENPAD)',4.156, 51.988)")
+#    cur = con.cursor()    
+#    cur.execute("CREATE TABLE meteostations(Id INT, Naam TEXT, Long FLOAT, Lat FLOAT)")
+#    cur.execute("INSERT INTO meteostations VALUES(39,'H. VAN HOLLAND(MOLENPAD)',4.156, 51.988)")
+#    cur.executemany("INSERT INTO meteostations VALUES(?, ?, ?, ?)", stations)
 
 print 'nu rij ophalen'
 
