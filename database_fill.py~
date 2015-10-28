@@ -33,62 +33,65 @@ def meteo_lezen(nummer_meteostation):
 def meteo_in_database(nummer_meteostation, con, yyyymmdd, dr, rh, rhx, ev24):
     with con:
 		cur = con.cursor()
-		cur.execute("DROP TABLE IF EXISTS station235;")
-		cur.execute("CREATE TABLE station235 (yyyymmdd TEXT, dr INT, rh INT, rhx INT, ev24 INT)")
+		sql_drop_opdracht= 
+		sql_maak_opdracht="CREATE TABLE station249 (yyyymmdd TEXT, dr INT, rh INT, rhx INT, ev24 INT)" 
+		sql_vul_opdracht="INSERT INTO station249 VALUES(?, ?, ?, ?, ?)"", (meteodata,)"
+		cur.execute("DROP TABLE IF EXISTS station249;")
+		cur.execute("CREATE TABLE station249 (yyyymmdd TEXT, dr INT, rh INT, rhx INT, ev24 INT)")
 		for i in range(1, len(yyyymmdd)):
 			meteodata=yyyymmdd[i], dr[i], rh[i], rhx[i], ev24[i]
 			tuple(meteodata)
 			#print meteodata 
 			with con:
 				cur = con.cursor()
-				cur.executemany("INSERT INTO station235 VALUES(?, ?, ?, ?, ?)", (meteodata,))
+				cur.executemany("INSERT INTO station249 VALUES(?, ?, ?, ?, ?)", (meteodata,))
 			#print meteodata
 			#con.close()
 	
 ###############################################################################	
 #variabelen
-nummer_meteostation=235
+nummer_meteostation=249
 #connectie met databank declareren
 con = lite.connect('data/meteo.db')
 ###############################################################################	
 
 #meteostations in heel Nederland inlezen 
-fileinput = open('data/weerstations_NLD.txt', 'r')
-stations = []
-fileinput.readline ()
-stationsnummers=[]
-stationsnamen=[]
-stationslong=[]
-stationslat=[]
-for line in fileinput:
-	stationsnummers.append(int(line[2:5]))
-	stationslong.append(float(line[15:20]))
-	stationslat.append (float(line[27:33]))
-	stationsnamen.append (str(line[46:70]))	
-fileinput.close()
+#fileinput = open('data/weerstations_NLD.txt', 'r')
+#stations = []
+#fileinput.readline ()
+#stationsnummers=[]
+#stationsnamen=[]
+#stationslong=[]
+#stationslat=[]
+#for line in fileinput:
+#	stationsnummers.append(int(line[2:5]))
+#	stationslong.append(float(line[15:20]))
+#	stationslat.append (float(line[27:33]))
+#	stationsnamen.append (str(line[46:70]))	
+#fileinput.close()
 
 #even een check of de stations juist zijn ingelezen
-print stations
-print stationsnummers
-print stationsnamen
-print stationslong
-print stationslat
+#print stations
+#print stationsnummers
+#print stationsnamen
+#print stationslong
+#print stationslat
 
 #meteostations in heel Nederland in de tabel meteostations zetten
-with con:
-	cur = con.cursor()
-	cur.execute("DROP TABLE IF EXISTS meteostations;")
-	cur.execute("CREATE TABLE meteostations(Id INT, Naam TEXT, Long FLOAT, Lat FLOAT)")
-for i in range(1, len(stationsnummers)):
-	stationsnamen[i].replace('\n', ' ').replace('\r\n', '')
-	stations=stationsnummers[i], stationsnamen[i], stationslong[i], stationslat[i]
-	tuple(stations)
-	print stations
-	with con:
-		cur = con.cursor()
-		cur.executemany("INSERT INTO meteostations VALUES(?, ?, ?, ?)", (stations,))
-	print stations #print om te checken
-#con.close()
+#with con:
+#	cur = con.cursor()
+#	cur.execute("DROP TABLE IF EXISTS meteostations;")
+#	cur.execute("CREATE TABLE meteostations(Id INT, Naam TEXT, Long FLOAT, Lat FLOAT)")
+#for i in range(1, len(stationsnummers)):
+#	stationsnamen[i].replace('\n', ' ').replace('\r\n', '')
+#	stations=stationsnummers[i], stationsnamen[i], stationslong[i], stationslat[i]
+#	tuple(stations)
+#	print stations
+#	with con:
+#		cur = con.cursor()
+#		cur.executemany("INSERT INTO meteostations VALUES(?, ?, ?, ?)", (stations,))
+#	print stations #print om te checken
+
 	
    
 #    cur.execute("CREATE TABLE meteostations(Id INT, Naam TEXT, Long FLOAT, Lat FLOAT)")
@@ -97,15 +100,15 @@ for i in range(1, len(stationsnummers)):
 #hieronder worden de tabellen voor de meteodata aangemaakt, de eerste tabel (met de meteostations) vormt de sleutel tot deze tabellen
 print 'nu rijen ophalen uit een bestaande tabel'
 
-with con:    
+#with con:    
     
-    cur = con.cursor()    
-    cur.execute("SELECT * FROM station235")
+#    cur = con.cursor()    
+#    cur.execute("SELECT * FROM station249")
 
-    rows = cur.fetchall()
+#    rows = cur.fetchall()
 
-    for row in rows:
-        print row
+#    for row in rows:
+#        print row
 
 
 print 'we gaan de meteo nu eens lezen'
@@ -124,10 +127,19 @@ print 'nu rijen ophalen uit de net gemaakte tabel'
 with con:    
     
     cur = con.cursor()    
-    cur.execute("SELECT * FROM station235")
+    cur.execute("SELECT * FROM station249")
 
     rows = cur.fetchall()
 
     for row in rows:
         print row
+
+for j in [215, 225, 235, 240, 242, 249, 251, 257, 260, 265, 267, 269, 270, 273, 275, 277, 278, 279, 280, 283, 286, 290, 310, 323,  319, 330, 340, 344, 348, 350, 356, 370, 375, 377, 380, 391,  ]:
+	yyyymmdd =  meteo_lezen(j)[0]
+	dr = meteo_lezen(j)[1]
+	rh = meteo_lezen(j)[2]
+	rhx = meteo_lezen(j)[3]
+	ev24 = meteo_lezen(j)[4]
+	
+		
 con.close()		
