@@ -34,11 +34,20 @@ fileinput = open('data/weerstations_NLD.txt', 'r')
 stations = fileinput.readline()
 fileinput.readline ()
 stationsnummers=[]
+stationsnamen=[]
+stationslong=[]
+stationslat=[]
 for line in fileinput:
 	stationsnummers.append(line[2:5])
+	stationslong.append(line[15:20])
+	stationslat.append (line[27:33])
+	stationsnamen.append (line[46:70])
 fileinput.close()
 print stations
 print stationsnummers
+print stationsnamen
+print stationslong
+print stationslat
 
 #with con:
     
