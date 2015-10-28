@@ -6,31 +6,40 @@
 import sqlite3 as lite
 import sys
 
-def meteo_lezen(nummer_weerstation):
-	fileinput = open('data/METEO'+ str(nummer_meteostation) + '.csv', 'r')
-	fileinput.readline (19)
-	stationsnummers=[]
-	stationsnamen=[]
-	stationslong=[]
-	stationslat=[]
-	for line in fileinput:
-		stationsnummers.append(int(line[2:5]))
-		stationslong.append(float(line[15:20]))
-		stationslat.append (float(line[27:33]))
-		stationsnamen.append (str(line[46:70]))	
+def meteo_lezen(nummer_meteostation):
+	yyyymmdd=[]
+	dr=[]
+	rh=[]
+	rhx=[]
+	ev24=[]
+	with open('data/METEO'+ str(nummer_meteostation) + '.TXT', 'r') as fileinput:
+	    for _ in xrange(20):
+			next(fileinput)
+	    for line in fileinput:
+			yyyymmdd.append(str(line[6:14]))
+			#print line[6:14]
+			dr.append(int(line[16:20]))
+			#print line[16:20]
+			rh.append (int(line[22:26]))
+			#print line[22:26]
+			rhx.append (int(line[27:32]))
+			#print line[27:32]
+			ev24.append (int(line[51:56]))
+			#print line[51:56]
 	fileinput.close()
+	return yyyymmdd, dr, rh, rhx, ev24
 
 
-def meteo_in_database(nummer_meteostation, data):
-	for i in range(1, len(data)):
+def meteo_in_database(nummer_meteostation, data, con):
+	for i in [235]:
 		stationsnamen[i].replace('\n', ' ').replace('\r\n', '')
-		meteo=stationsnummers[i], stationsnamen[i], stationslong[i], stationslat[i]
-		tuple(meteo) 
-		print meteo
+		meteodata=yymmdd[i], dr[i], rh[i], rhx[i], ev24[i]
+		tuple(meteodata) 
+		print meteodata
 		with con:
 			cur = con.cursor()
-			#STN,YYYYMMDD,   DR,   RH,  RHX, RHXH,EV24 = DR,   RH, EV24
-			cur.executemany("INSERT INTO meteostations VALUES(?, ?, ?, ?)", (meteo,))
+			cur.execute("CREATE TABLE"+[i]+"(yyyymmdd TEXT, dr INT, rh INT, rhx INT, ev24 INT)")
+			cur.executemany("INSERT INTO meteostations VALUES(?, ?, ?, ?, ?)", (meteodata,))
 	print stations
 
 con = None
@@ -58,7 +67,8 @@ finally:
 con = lite.connect('data/test.db')
 
 fileinput = open('data/weerstations_NLD.txt', 'r')
-print fileinput.readlines ()[1:18]
+print fileinput.readlines ()[1:17]
+print 'nu een regel'
 print fileinput.readline ()
 
 #stations = []
@@ -110,3 +120,4 @@ print 'nu rij ophalen'
 #with con:
 #	cur = con.cursor()
 #	cur.execute("CREATE TABLE i(Id INT, Naam TEXT, Long FLOAT, Lat FLOAT)")
+print meteo_lezen(235), 'meteo lezen'
