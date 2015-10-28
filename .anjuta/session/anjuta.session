@@ -1,22 +1,20 @@
 [Anjuta]
-Geometry=1312x1028+1974+24
+Maximized=1
+Geometry=1301x744+65+24
+
+[File Loader]
+Files=../../plot_GWS.py#16%%%../../views.py#143%%%../../templates/ftm/slider.html#18%%%../../templates/ftm/index.html#54%%%../../templates/ftm/koppeling_index.html#15%%%../../database_fill.py#36%%%../../datagrab_parse_knmi.py#50
+
+[Document Manager]
+bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
 
 [Execution]
 Program uri=../../../../../source%20~/ftm/bin/activate
 Run in terminal=2
 Working directories=../../../ftm
 
-[File Loader]
-Files=../../plot_GWS.py#16%%%../../views.py#143%%%../../templates/ftm/slider.html#18%%%../../templates/ftm/index.html#54%%%../../templates/ftm/koppeling_index.html#15%%%../../database_fill.py#95
-
-[Document Manager]
-bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
-
 [Project Manager]
 Expand=ftm%%%ftm//templates%%%ftm//templates//ftm
-
-[Debugger]
-Stop at beginning=2
 
 [Build]
 Configuration list=1:Default:%%%1:Debug:Debug%%%1:Profiling:Profiling%%%1:Optimized:Optimized
@@ -25,3 +23,6 @@ BuildArgs/Default=--enable-maintainer-mode
 BuildArgs/Debug=--enable-maintainer-mode 'CFLAGS=-g -O0' 'CXXFLAGS=-g -O0' 'JFLAGS=-g -O0' 'FFLAGS=-g -O0'
 BuildArgs/Profiling=--enable-maintainer-mode 'CFLAGS=-g -pg' 'CXXFLAGS=-g -pg' 'JFLAGS=-g -pg' 'FFLAGS=-g -pg'
 BuildArgs/Optimized=--enable-maintainer-mode 'CFLAGS=-O2' 'CXXFLAGS=-O2' 'JFLAGS=-O2' 'FFLAGS=-O2'
+
+[Debugger]
+Stop at beginning=2

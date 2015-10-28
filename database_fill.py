@@ -33,7 +33,7 @@ def meteo_lezen(nummer_meteostation):
 def meteo_in_database(nummer_meteostation, con, yyyymmdd, dr, rh, rhx, ev24):
     with con:
 		cur = con.cursor()
-		sql_drop_opdracht= 
+		sql_drop_opdracht= "DROP TABLE IF EXISTS station240;"
 		sql_maak_opdracht="CREATE TABLE station240 (yyyymmdd TEXT, dr INT, rh INT, rhx INT, ev24 INT)" 
 		sql_vul_opdracht="INSERT INTO station240 VALUES(?, ?, ?, ?, ?)"", (meteodata,)"
 		cur.execute("DROP TABLE IF EXISTS station240;")

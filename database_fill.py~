@@ -34,23 +34,23 @@ def meteo_in_database(nummer_meteostation, con, yyyymmdd, dr, rh, rhx, ev24):
     with con:
 		cur = con.cursor()
 		sql_drop_opdracht= 
-		sql_maak_opdracht="CREATE TABLE station249 (yyyymmdd TEXT, dr INT, rh INT, rhx INT, ev24 INT)" 
-		sql_vul_opdracht="INSERT INTO station249 VALUES(?, ?, ?, ?, ?)"", (meteodata,)"
-		cur.execute("DROP TABLE IF EXISTS station249;")
-		cur.execute("CREATE TABLE station249 (yyyymmdd TEXT, dr INT, rh INT, rhx INT, ev24 INT)")
+		sql_maak_opdracht="CREATE TABLE station240 (yyyymmdd TEXT, dr INT, rh INT, rhx INT, ev24 INT)" 
+		sql_vul_opdracht="INSERT INTO station240 VALUES(?, ?, ?, ?, ?)"", (meteodata,)"
+		cur.execute("DROP TABLE IF EXISTS station240;")
+		cur.execute("CREATE TABLE station240 (yyyymmdd TEXT, dr INT, rh INT, rhx INT, ev24 INT)")
 		for i in range(1, len(yyyymmdd)):
 			meteodata=yyyymmdd[i], dr[i], rh[i], rhx[i], ev24[i]
 			tuple(meteodata)
 			#print meteodata 
 			with con:
 				cur = con.cursor()
-				cur.executemany("INSERT INTO station249 VALUES(?, ?, ?, ?, ?)", (meteodata,))
+				cur.executemany("INSERT INTO station240 VALUES(?, ?, ?, ?, ?)", (meteodata,))
 			#print meteodata
 			#con.close()
 	
 ###############################################################################	
 #variabelen
-nummer_meteostation=249
+nummer_meteostation=240
 #connectie met databank declareren
 con = lite.connect('data/meteo.db')
 ###############################################################################	
@@ -103,7 +103,7 @@ print 'nu rijen ophalen uit een bestaande tabel'
 #with con:    
     
 #    cur = con.cursor()    
-#    cur.execute("SELECT * FROM station249")
+#    cur.execute("SELECT * FROM station240")
 
 #    rows = cur.fetchall()
 
@@ -127,7 +127,7 @@ print 'nu rijen ophalen uit de net gemaakte tabel'
 with con:    
     
     cur = con.cursor()    
-    cur.execute("SELECT * FROM station249")
+    cur.execute("SELECT * FROM station240")
 
     rows = cur.fetchall()
 
