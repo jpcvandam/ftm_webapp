@@ -43,7 +43,7 @@ def meteo_in_database(nummer_meteostation, con, yyyymmdd, dr, rh, rhx, ev24):
 				cur = con.cursor()
 				cur.executemany("INSERT INTO station235 VALUES(?, ?, ?, ?, ?)", (meteodata,))
 			#print meteodata
-	con.close()
+			#con.close()
 	
 ###############################################################################	
 #variabelen
@@ -88,7 +88,7 @@ for i in range(1, len(stationsnummers)):
 		cur = con.cursor()
 		cur.executemany("INSERT INTO meteostations VALUES(?, ?, ?, ?)", (stations,))
 	print stations #print om te checken
-con.close()
+#con.close()
 	
    
 #    cur.execute("CREATE TABLE meteostations(Id INT, Naam TEXT, Long FLOAT, Lat FLOAT)")
@@ -97,15 +97,15 @@ con.close()
 #hieronder worden de tabellen voor de meteodata aangemaakt, de eerste tabel (met de meteostations) vormt de sleutel tot deze tabellen
 print 'nu rijen ophalen uit een bestaande tabel'
 
-with con:    
+#with con:    
     
-    cur = con.cursor()    
-    cur.execute("SELECT * FROM station235")
+#    cur = con.cursor()    
+#    cur.execute("SELECT * FROM station235")
 
-    rows = cur.fetchall()
+#    rows = cur.fetchall()
 
-    for row in rows:
-        print row
+#    for row in rows:
+#        print row
 
 
 print 'we gaan de meteo nu eens lezen'

@@ -43,33 +43,14 @@ def meteo_in_database(nummer_meteostation, con, yyyymmdd, dr, rh, rhx, ev24):
 				cur = con.cursor()
 				cur.executemany("INSERT INTO station235 VALUES(?, ?, ?, ?, ?)", (meteodata,))
 			#print meteodata
-	con.close()
-
-con = None
+			#con.close()
+	
+###############################################################################	
+#variabelen
 nummer_meteostation=235
-
-try:
-    con = lite.connect('data/meteo.db')
-    
-    cur = con.cursor()    
-    cur.execute('SELECT SQLITE_VERSION()')
-    
-    data = cur.fetchone()
-    
-    print "SQLite version: %s" % data                
-    
-except lite.Error, e:
-    
-    print "Error %s:" % e.args[0]
-    sys.exit(1)
-    
-finally:
-    
-    if con:
-        con.close()
 #connectie met databank declareren
 con = lite.connect('data/meteo.db')
-
+###############################################################################	
 
 #meteostations in heel Nederland inlezen 
 fileinput = open('data/weerstations_NLD.txt', 'r')
@@ -107,11 +88,12 @@ for i in range(1, len(stationsnummers)):
 		cur = con.cursor()
 		cur.executemany("INSERT INTO meteostations VALUES(?, ?, ?, ?)", (stations,))
 	print stations #print om te checken
-con.close()
+#con.close()
 	
    
 #    cur.execute("CREATE TABLE meteostations(Id INT, Naam TEXT, Long FLOAT, Lat FLOAT)")
 
+###############################################################################	
 #hieronder worden de tabellen voor de meteodata aangemaakt, de eerste tabel (met de meteostations) vormt de sleutel tot deze tabellen
 print 'nu rijen ophalen uit een bestaande tabel'
 
