@@ -2,7 +2,7 @@
 Geometry=1312x1028+1974+24
 
 [File Loader]
-Files=../../plot_GWS.py#16%%%../../views.py#143%%%../../templates/ftm/slider.html#18%%%../../templates/ftm/index.html#54%%%../../templates/ftm/koppeling_index.html#15
+Files=../../plot_GWS.py#16%%%../../views.py#143%%%../../templates/ftm/slider.html#18%%%../../templates/ftm/index.html#54%%%../../templates/ftm/koppeling_index.html#15%%%../../database_fill.py#43
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n

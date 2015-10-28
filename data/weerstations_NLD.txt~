@@ -36,7 +36,7 @@
 # 165:         3.314       47.975     999.90  KAAP HOOFD ???
 # 139:         5.121       52.458      -0.80  MARKEN
 # 129:         5.780       52.712      -3.70  EMMELOORD
-# 17           3.892       51.529       0.70  WILHELMINADORP
+# 17:         3.892       51.529       0.70  WILHELMINADORP
 # 320:         3.667       51.918     999.90  LICHTEILAND GOEREE
 # 147:         5.611       52.658     999.90  URK
 # 280:         6.586       53.125       3.50  EELDE
@@ -60,13 +60,13 @@
 # 251:         5.346       53.393       0.50  HOORN (TERSCHELLING)
 # 253:         2.067       56.400     999.90  AUK-ALFA
 # 279:         6.575       52.750      15.60  HOOGEVEEN
-# 8            5.528       52.453      -4.20  LELYSTAD
+# 8:         5.528       52.453      -4.20  LELYSTAD
 # 209:         4.517       52.467       0.00  IJMOND
-# 37           5.675       51.976       2.00  WAGENINGEN (HAARWEG)
+# 37:         5.675       51.976       2.00  WAGENINGEN (HAARWEG)
 # 270:         5.755       53.225       1.50  LEEUWARDEN
 # 391:         6.196       51.498      19.00  ARCEN
 # 170:         5.715       50.794      50.00  OOST MAARLAND
-# 33           5.677       51.549      13.20  GEMERT
+# 33:         5.677       51.549      13.20  GEMERT
 # 554:         3.592       51.681     999.90  MEETPOST NOORDWIJK
 # 552:         3.213       56.547     999.90  EKOFISK
 # 227:         4.655       52.774       0.50  PETTEN
@@ -98,11 +98,11 @@
 # 615:         4.296       52.274      12.00  HOOGEVEEN
 # 39           4.156       51.988     999.90  H. VAN HOLLAND(MOLENPAD)
 # 210:         4.419       52.165      -0.20  VALKENBURG
-# 41           5.526       52.458      -4.00  LELYSTAD
+# 41:         5.526       52.458      -4.00  LELYSTAD
 # 258:         5.401       52.649       7.30  HOUTRIBDIJK
 # 312:         3.591       51.681       0.00  OOSTERSCHELDE
 # 229:         4.720       52.996      10.00  TEXELHORS MM
-# 19           3.314       47.975     999.90  NIEUWE TONGE ???
+# 19:         3.314       47.975     999.90  NIEUWE TONGE ???
 # 260:         5.177       52.101       2.00  DE BILT
 # 370:         5.414       51.446      20.30  EINDHOVEN
 # 315:         3.998       51.447       0.00  HANSWEERT

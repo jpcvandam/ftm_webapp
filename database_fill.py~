@@ -6,6 +6,33 @@
 import sqlite3 as lite
 import sys
 
+def meteo_lezen(nummer_weerstation):
+	fileinput = open('data/METEO'+ str(nummer_meteostation) + '.csv', 'r')
+	fileinput.readline (19)
+	stationsnummers=[]
+	stationsnamen=[]
+	stationslong=[]
+	stationslat=[]
+	for line in fileinput:
+		stationsnummers.append(int(line[2:5]))
+		stationslong.append(float(line[15:20]))
+		stationslat.append (float(line[27:33]))
+		stationsnamen.append (str(line[46:70]))	
+	fileinput.close()
+
+
+def meteo_in_database(nummer_meteostation, data):
+	for i in range(1, len(data)):
+		stationsnamen[i].replace('\n', ' ').replace('\r\n', '')
+		meteo=stationsnummers[i], stationsnamen[i], stationslong[i], stationslat[i]
+		tuple(meteo) 
+		print meteo
+		with con:
+			cur = con.cursor()
+			#STN,YYYYMMDD,   DR,   RH,  RHX, RHXH,EV24 = DR,   RH, EV24
+			cur.executemany("INSERT INTO meteostations VALUES(?, ?, ?, ?)", (meteo,))
+	print stations
+
 con = None
 
 try:
@@ -31,30 +58,55 @@ finally:
 con = lite.connect('data/test.db')
 
 fileinput = open('data/weerstations_NLD.txt', 'r')
-stations = fileinput.readline()
-fileinput.readline ()
-stationsnummers=[]
-for line in fileinput:
-	stationsnummers.append(line[3:6])
-fileinput.close()
-print stations
-print stationsnummers
+print fileinput.readlines ()[1:18]
+print fileinput.readline ()
 
-#with con:
-    
-#    cur = con.cursor()    
+#stations = []
+#fileinput.readline ()
+#stationsnummers=[]
+#stationsnamen=[]
+#stationslong=[]
+#stationslat=[]
+#for line in fileinput:
+#	stationsnummers.append(int(line[2:5]))
+#	stationslong.append(float(line[15:20]))
+#	stationslat.append (float(line[27:33]))
+#	stationsnamen.append (str(line[46:70]))
+	
+fileinput.close()
+#print stations
+#print stationsnummers
+#print stationsnamen
+#print stationslong
+#print stationslat
+
+#for i in range(1, len(stationsnummers)):
+#	stationsnamen[i].replace('\n', ' ').replace('\r\n', '')
+#	stations=stationsnummers[i], stationsnamen[i], stationslong[i], stationslat[i]
+#	tuple(stations)
+#	print stations
+#	with con:
+#		cur = con.cursor()
+#		cur.executemany("INSERT INTO meteostations VALUES(?, ?, ?, ?)", (stations,))
+#	print stations
+
+	
+   
 #    cur.execute("CREATE TABLE meteostations(Id INT, Naam TEXT, Long FLOAT, Lat FLOAT)")
-#    cur.execute("INSERT INTO meteostations VALUES(39,'H. VAN HOLLAND(MOLENPAD)',4.156, 51.988)")
-#    cur.executemany("INSERT INTO meteostations VALUES(?, ?, ?, ?)", stations)
+
 
 print 'nu rij ophalen'
 
-with con:    
+#with con:    
     
-    cur = con.cursor()    
-    cur.execute("SELECT * FROM meteostations")
+#    cur = con.cursor()    
+#    cur.execute("SELECT * FROM meteostations")
 
-    rows = cur.fetchall()
+#    rows = cur.fetchall()
 
-    for row in rows:
-        print row	
+#    for row in rows:
+#        print row
+
+#with con:
+#	cur = con.cursor()
+#	cur.execute("CREATE TABLE i(Id INT, Naam TEXT, Long FLOAT, Lat FLOAT)")
