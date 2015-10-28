@@ -31,17 +31,18 @@ finally:
 con = lite.connect('data/test.db')
 
 fileinput = open('data/weerstations_NLD.txt', 'r')
-stations = fileinput.readline()
+stations = []
 fileinput.readline ()
 stationsnummers=[]
 stationsnamen=[]
 stationslong=[]
 stationslat=[]
 for line in fileinput:
-	stationsnummers.append(line[2:5])
-	stationslong.append(line[15:20])
-	stationslat.append (line[27:33])
-	stationsnamen.append (line[46:70])
+	stationsnummers.append(int(line[2:5]))
+	stationslong.append(float(line[15:20]))
+	stationslat.append (float(line[27:33]))
+	stationsnamen.append (str(line[46:70]))
+	
 fileinput.close()
 print stations
 print stationsnummers
@@ -49,6 +50,17 @@ print stationsnamen
 print stationslong
 print stationslat
 
+for i in range(1, len(stationsnummers)):
+	stationsnamen[i].replace('\n', ' ').replace('\r\n', '')
+	stations=stationsnummers[i], stationsnamen[i], stationslong[i], stationslat[i]
+	tuple(stations)
+	print stations
+	with con:
+		cur = con.cursor()
+		cur.executemany("INSERT INTO meteostations VALUES(?, ?, ?, ?)", (stations,))
+	print stations
+
+	
 #with con:
     
 #    cur = con.cursor()    
