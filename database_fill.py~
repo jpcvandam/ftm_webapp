@@ -30,11 +30,11 @@ finally:
 
 con = lite.connect('data/test.db')
 
-#with con:
+with con:
     
-#    cur = con.cursor()    
-#    cur.execute("CREATE TABLE meteostations(Id INT, Naam TEXT, Long FLOAT, Lat FLOAT)")
-#    cur.execute("INSERT INTO meteostations VALUES(39,'H. VAN HOLLAND(MOLENPAD)',4.156, 51.988)")
+    cur = con.cursor()    
+    cur.execute("CREATE TABLE meteostations(Id INT, Naam TEXT, Long FLOAT, Lat FLOAT)")
+    cur.execute("INSERT INTO meteostations VALUES(39,'H. VAN HOLLAND(MOLENPAD)',4.156, 51.988)")
 
 print 'nu rij ophalen'
 
