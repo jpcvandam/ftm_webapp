@@ -1,9 +1,9 @@
 [Anjuta]
 Maximized=1
-Geometry=1301x744+65+24
+Geometry=1855x1056+1431+24
 
 [File Loader]
-Files=../../plot_GWS.py#16%%%../../views.py#143%%%../../templates/ftm/slider.html#18%%%../../templates/ftm/index.html#54%%%../../templates/ftm/koppeling_index.html#15%%%../../database_fill.py#36%%%../../datagrab_parse_knmi.py#50
+Files=../../plot_GWS.py#34%%%../../views.py#143%%%../../templates/ftm/koppeling_index.html#15%%%../../database_fill.py#11%%%../../settings.py#93
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
@@ -14,7 +14,7 @@ Run in terminal=2
 Working directories=../../../ftm
 
 [Project Manager]
-Expand=ftm%%%ftm//templates%%%ftm//templates//ftm
+Expand=ftm
 
 [Build]
 Configuration list=1:Default:%%%1:Debug:Debug%%%1:Profiling:Profiling%%%1:Optimized:Optimized
