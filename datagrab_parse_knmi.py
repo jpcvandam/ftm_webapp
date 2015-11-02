@@ -26,6 +26,7 @@ werkdirectory = '/home/john/ftm/ftm/ftm/data'
 os.chdir(werkdirectory)
 vandaag = datetime.today
 
+#een definitie heeft een eigen namespace dus het  is niet meer nodig om boven 'vandaag' als variabele te declareren
 def datum_gisteren_eergisteren():
     vandaag = datetime.today
     dag = vandaag.day
