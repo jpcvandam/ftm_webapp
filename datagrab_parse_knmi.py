@@ -21,24 +21,24 @@ def appendDFToCSV_void(df, csvFilePath, sep=","):
     else:
         df.to_csv(csvFilePath, mode='a', index=True, sep=sep, header=False)
 
-		
+
 werkdirectory = '/home/john/ftm/ftm/ftm/data'
 os.chdir(werkdirectory)
 vandaag = datetime.today
 
-def(): #vandaag.day -1 <= 0:
-	vandaag = datetime.today
-	dag = vandaag.day
-	maand = vandaag.month
-	jaar = vandaag.year
-	if maand == 1 or maand == 3 or maand == 5 or maand == 7 or maand == 8 or maand == 10 or maand == 12:
-		dag = 31
-	elif maand == 2:
-		dag = 28
-	else dag = 30
-elif vandaag.month -1 <= 0:
-	maand = 12
-	return gdag, gmaand, gjaar, egdag, egmaand, egjaar, 
+def datum_gisteren_eergisteren():
+    vandaag = datetime.today
+    dag = vandaag.day
+    maand = vandaag.month
+    jaar = vandaag.year
+    if dag -1 = 0 and maand -1 == 1 or maand -1 == 3 or maand -1 == 5 or maand -1 == 7 or maand -1 == 8 or maand -1 == 10 or maand -1 == 12:
+        gdag = 31 and egdag = 30
+    elif dag -1 = 0 and maand -1 == 2:
+        gdag = 28 and egdag = 27
+    elif dag -1 == 30:
+    elif vandaag.month -1 <= 0:
+        maand = 12
+    return gdag, gmaand, gjaar, egdag, egmaand, egjaar
 
 for i in [127 ,  32 ,  206 ,  331 ,  200 ,  18 ,  125 ,  16 ,  609 ,  272 ,  161 ,  998 ,  316 ,  313 ,  20 ,  163 ,  551 ,  148 ,  343 ,  35 ,  208 ,  275 ,  325 ,  29 ,  350 ,  203 ,  138 ,  211 ,  153 ,  321 ,  340 ,  311 ,  247 ,  204 ,  165 ,  139 ,  129 ,  17 ,  320 ,  147 ,  280 ,  273 ,  323 ,  268 ,  249 ,  168 ,  202 ,  135 ,  348 ,  319 ,  285 ,  385 ,  617 ,  212 ,  344 ,  126 ,  553 ,  159 ,  251 ,  253 ,  279 ,  8 ,  209 ,  37 ,  270 ,  391 ,  170 ,  33 ,  554 ,  552 ,  227 ,  324 ,  244 ,  162 ,  255 ,  240 ,  999 ,  108 ,  230 ,  604 ,  277 ,  377 ,  201 ,  379 ,  550 ,  152 ,  225 ,  142 ,  207 ,  330 ,  263 ,  266 ,  167 ,  995 ,  133 ,  290 ,  615 ,  39 ,  210 ,  41 ,  258 ,  312 ,  229 ,  19 ,  260 ,  370 ,  315 ,  166 ,  375 ,  380 ,  616 ,  300 ,  128 ,  252 ,  28 ,  286 ,  40 ,  283 ,  310 ,  250 ,  614 ,  308 ,  215 ,  254 ,  278 ,  271 ,  605 ,  130 ,  328 ,  239 ,  122 ,  267 ,  143 ,  205 ,  158 ,  269 ,  13 ,  235 ,  257 ,  36 ,  248 ,  38 ,  356 ,  34 ,  265 ,  169 ,  164 ,  603 ,  242  ]:
     url = 'http://projects.knmi.nl/klimatologie/daggegevens/getdata_dag.cgi'
@@ -68,4 +68,4 @@ for i in [215, 225, 235, 240, 242, 249, 251, 257, 260, 265, 267, 269, 270, 273, 
     dfmeteo_out=dfMeteo.RH.sub(dfMeteo.EV24, axis='index')
 
     meteobestand_uit = 'Waterbalans_METEO'+str(i)+'.csv'
-    appendDFToCSV_void(dfmeteo_out, meteobestand_uit, sep=",") 
+    appendDFToCSV_void(dfmeteo_out, meteobestand_uit, sep=",")
