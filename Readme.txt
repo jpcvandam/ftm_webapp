@@ -8,7 +8,16 @@ De modellering wordt enerzijds gedaan aan de hand van bodemgegevens (drainagewee
 Op het moment van schrijven (3 november 2015) kan het model alleen nog maar de berekening doen voor de grondwaterstanden tot aan gisteren, de ambitie is om aan de hand van weersvoorspellingen van het KNMI ook de grondwaterstand van morgen en overmorgen te berekenen.
 Het voorspellen moet mogelijk worden door vanaf de website van het KNMI de benodigde data te halen en die door het model te sturen, qua code zal er aan het rekenhart niets veranderen.
 
+Todo voor in de komende periode:
+#MySQL databank gebruiken voor neerslaggegevens, naar verwachting verbeterd dit de snelheid van de webapplicatie.
+#Mogelijkheid inbouwen om een rekenperiode te selecteren, hangt samen met het gebruik van MySQL, omdat hierbij door een query precies die data opgehaald wordt die nodig is om de gevraagde periode door te rekenen.
+#Voorspellen van grondwaterstanden aan de hand van weersvoorspellingen van het KNMI.
+#Resultaten plotten met behulp van een javascript in de browser van de gebruiker in plaats van een pythonscript waarvan vervolgens de plot geserveerd wordt.
+#Website mooier maken, onder andere door hem geschikt te maken voor mobiele browsers. De twitter-bootstrap-api wordt hier waarschijnlijk voor gebruikt.
+# 
 
+
+######################################################################################
 An English translation of this Readme will folow in the (near) future
 
 
