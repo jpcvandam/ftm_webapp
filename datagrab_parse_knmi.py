@@ -32,13 +32,20 @@ def datum_gisteren_eergisteren():
     dag = vandaag.day
     maand = vandaag.month
     jaar = vandaag.year
-    if (dag -1 == 0) and ((maand -1 == 1) or (maand -1 == 3) or (maand -1 == 5) or (maand -1 == 7) or (maand -1 == 8) or (maand -1 == 10) or (maand -1 == 12)): #maandovergangen als het script op de eerste van de nieuwe maand wordt uitgevoerd
+    if (dag -1 == 0) and ((maand -1 == 1) or (maand -1 == 3) or (maand -1 == 5) or (maand -1 == 7) or (maand -1 == 8) or (maand -1 == 10)): #maandovergangen als het script op de eerste van de nieuwe maand wordt uitgevoerd, bij maanden met 31 dagen
         gdag = 31  
         egdag = 30
         gmaand = (maand - 1)
         egmaand = (maand - 1)
         gjaar = jaar
         egjaar = jaar
+    elif (dag -1 == 0) and ((maand -1 == 4) or (maand -1 == 6) or (maand -1 == 9) or (maand -1 == 11)): #maandovergangen als het script op de eerste van de nieuwe maand wordt uitgevoerd, bij manden met 30 dagen
+        gdag = 30  
+        egdag = 29
+        gmaand = (maand - 1)
+        egmaand = (maand - 1)
+        gjaar = jaar
+        egjaar = jaar    
     elif (dag -1 == 0) and (maand -1 == 2): #special case februari
         gdag = 28  
         egdag = 27
@@ -46,13 +53,20 @@ def datum_gisteren_eergisteren():
         egmaand = (maand - 1)
         gjaar = jaar
         egjaar = jaar
-    elif dag -1 == 30:
-        gmaand = (maand - 1)
-        egmaand = (maand - 1)
+    elif (dag -1 == 0) and (maand -1 == 0): #voor 1 januari van het nieuwe jaar
+        gdag = 31
+        egdag = 30
+        gmaand = 12
+        egmaand = 12
+        gjaar = (jaar - 1)
+        egjaar = (jaar - 1)
+    elif (dag -1 >= 1):
+        gdag = (dag -1)  
+        egdag = (dag -2)
+        gmaand = (maand )
+        egmaand = (maand)
         gjaar = jaar
         egjaar = jaar
-    elif vandaag.month -1 <= 0:
-        maand = 12
     return gdag, gmaand, gjaar, egdag, egmaand, egjaar
 
 
