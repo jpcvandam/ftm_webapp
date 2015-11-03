@@ -1,9 +1,8 @@
 [Anjuta]
-Maximized=1
-Geometry=1855x1056+1431+24
+Geometry=927x1028+1431+25
 
 [File Loader]
-Files=../../plot_GWS.py#34%%%../../views.py#143%%%../../templates/ftm/koppeling_index.html#15%%%../../database_fill.py#11%%%../../settings.py#93
+Files=../../views.py#5%%%../../sql_lezer.py#29%%%../../datagrab_parse_knmi.py#27
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n

@@ -1,0 +1,416 @@
+.
+├── data
+│   ├── 6.41876220703125_53.29805557491275gwlduurlijn.txt
+│   ├── 6.41876220703125_53.29805557491275gwlregime.txt
+│   ├── 6.41876220703125_53.29805557491275gwlstatistics.txt
+│   ├── 6.41876220703125_53.29805557491275gwl.txt
+│   ├── 6.41876220703125_53.29805557491275invoer.txt
+│   ├── 6.41876220703125_53.29805557491275qduurlijn.txt
+│   ├── 6.41876220703125_53.29805557491275qregime.txt
+│   ├── 6.41876220703125_53.29805557491275Qstatistics.txt
+│   ├── 6.41876220703125_53.29805557491275q.txt
+│   ├── 6.483306884765625_53.36284566704627gwlduurlijn.txt
+│   ├── 6.483306884765625_53.36284566704627gwlregime.txt
+│   ├── 6.483306884765625_53.36284566704627gwlstatistics.txt
+│   ├── 6.483306884765625_53.36284566704627gwl.txt
+│   ├── 6.483306884765625_53.36284566704627invoer.txt
+│   ├── 6.483306884765625_53.36284566704627qduurlijn.txt
+│   ├── 6.483306884765625_53.36284566704627qregime.txt
+│   ├── 6.483306884765625_53.36284566704627Qstatistics.txt
+│   ├── 6.483306884765625_53.36284566704627q.txt
+│   ├── 6.5108000000000175_53.3847gwlduurlijn.txt
+│   ├── 6.5108000000000175_53.3847gwlregime.txt
+│   ├── 6.5108000000000175_53.3847gwlstatistics.txt
+│   ├── 6.5108000000000175_53.3847gwl.txt
+│   ├── 6.5108000000000175_53.3847invoer.txt
+│   ├── 6.5108000000000175_53.3847qduurlijn.txt
+│   ├── 6.5108000000000175_53.3847qregime.txt
+│   ├── 6.5108000000000175_53.3847Qstatistics.txt
+│   ├── 6.5108000000000175_53.3847q.txt
+│   ├── 6.562957763671875_53.34071328580364gwlduurlijn.txt
+│   ├── 6.562957763671875_53.34071328580364gwlregime.txt
+│   ├── 6.562957763671875_53.34071328580364gwlstatistics.txt
+│   ├── 6.562957763671875_53.34071328580364gwl.txt
+│   ├── 6.562957763671875_53.34071328580364invoer.txt
+│   ├── 6.562957763671875_53.34071328580364qduurlijn.txt
+│   ├── 6.562957763671875_53.34071328580364qregime.txt
+│   ├── 6.562957763671875_53.34071328580364Qstatistics.txt
+│   ├── 6.562957763671875_53.34071328580364q.txt
+│   ├── 6.57257080078125_53.379232615442604gwlduurlijn.txt
+│   ├── 6.57257080078125_53.379232615442604gwlregime.txt
+│   ├── 6.57257080078125_53.379232615442604gwlstatistics.txt
+│   ├── 6.57257080078125_53.379232615442604gwl.txt
+│   ├── 6.57257080078125_53.379232615442604invoer.txt
+│   ├── 6.57257080078125_53.379232615442604qduurlijn.txt
+│   ├── 6.57257080078125_53.379232615442604qregime.txt
+│   ├── 6.57257080078125_53.379232615442604Qstatistics.txt
+│   ├── 6.57257080078125_53.379232615442604q.txt
+│   ├── 6.604156494140625_53.373497900586855gwlduurlijn.txt
+│   ├── 6.604156494140625_53.373497900586855gwlregime.txt
+│   ├── 6.604156494140625_53.373497900586855gwlstatistics.txt
+│   ├── 6.604156494140625_53.373497900586855gwl.txt
+│   ├── 6.604156494140625_53.373497900586855invoer.txt
+│   ├── 6.604156494140625_53.373497900586855qduurlijn.txt
+│   ├── 6.604156494140625_53.373497900586855qregime.txt
+│   ├── 6.604156494140625_53.373497900586855Qstatistics.txt
+│   ├── 6.604156494140625_53.373497900586855q.txt
+│   ├── 6.60552978515625_53.31610827171959gwlduurlijn.txt
+│   ├── 6.60552978515625_53.31610827171959gwlregime.txt
+│   ├── 6.60552978515625_53.31610827171959gwlstatistics.txt
+│   ├── 6.60552978515625_53.31610827171959gwl.txt
+│   ├── 6.60552978515625_53.31610827171959invoer.txt
+│   ├── 6.60552978515625_53.31610827171959qduurlijn.txt
+│   ├── 6.60552978515625_53.31610827171959qregime.txt
+│   ├── 6.60552978515625_53.31610827171959Qstatistics.txt
+│   ├── 6.60552978515625_53.31610827171959q.txt
+│   ├── 6.667327880859375_53.35546948344972gwlduurlijn.txt
+│   ├── 6.667327880859375_53.35546948344972gwlregime.txt
+│   ├── 6.667327880859375_53.35546948344972gwlstatistics.txt
+│   ├── 6.667327880859375_53.35546948344972gwl.txt
+│   ├── 6.667327880859375_53.35546948344972invoer.txt
+│   ├── 6.667327880859375_53.35546948344972qduurlijn.txt
+│   ├── 6.667327880859375_53.35546948344972qregime.txt
+│   ├── 6.667327880859375_53.35546948344972Qstatistics.txt
+│   ├── 6.667327880859375_53.35546948344972q.txt
+│   ├── bergcoef-nzv.tif
+│   ├── bergcoef-nzv.tif.aux.xml
+│   ├── berg_hist.txt
+│   ├── berg_hist.txt~
+│   ├── Bodemdata.txt
+│   ├── drain_hist.txt
+│   ├── drain_hist.txt~
+│   ├── drainw-nzv.tif
+│   ├── drainw-nzv.tif.aux.xml
+│   ├── FTM
+│   ├── gdal_hist.py
+│   ├── gdal_plot_hist.py~
+│   ├── GHG_out_310.csv
+│   ├── GLG_out_310.csv
+│   ├── histogrammen
+│   │   ├── berg_hist.png
+│   │   ├── drain_hist.png
+│   │   ├── kwel_hist.png
+│   │   └── ontw_hist.png
+│   ├── HydroNLTresult.txt
+│   ├── KNMI_meteostations.csv
+│   ├── KNMI_meteostations.csv~
+│   ├── kwel_hist.txt
+│   ├── kwel_hist.txt~
+│   ├── kwel-nzv.tif
+│   ├── kwel-nzv.tif.aux.xml
+│   ├── METEO108.TXT
+│   ├── METEO122.TXT
+│   ├── METEO125.TXT
+│   ├── METEO126.TXT
+│   ├── METEO127.TXT
+│   ├── METEO128.TXT
+│   ├── METEO129.TXT
+│   ├── METEO130.TXT
+│   ├── METEO133.TXT
+│   ├── METEO135.TXT
+│   ├── METEO138.TXT
+│   ├── METEO139.TXT
+│   ├── METEO13.TXT
+│   ├── METEO142.TXT
+│   ├── METEO143.TXT
+│   ├── METEO147.TXT
+│   ├── METEO148.TXT
+│   ├── METEO152.TXT
+│   ├── METEO153.TXT
+│   ├── METEO158.TXT
+│   ├── METEO159.TXT
+│   ├── METEO161.TXT
+│   ├── METEO162.TXT
+│   ├── METEO163.TXT
+│   ├── METEO164.TXT
+│   ├── METEO165.TXT
+│   ├── METEO166.TXT
+│   ├── METEO167.TXT
+│   ├── METEO168.TXT
+│   ├── METEO169.TXT
+│   ├── METEO16.TXT
+│   ├── METEO170.TXT
+│   ├── METEO17.TXT
+│   ├── METEO18.TXT
+│   ├── METEO19.TXT
+│   ├── METEO200.TXT
+│   ├── METEO201.TXT
+│   ├── METEO202.TXT
+│   ├── METEO203.TXT
+│   ├── METEO204.TXT
+│   ├── METEO205.TXT
+│   ├── METEO206.TXT
+│   ├── METEO207.TXT
+│   ├── METEO208.TXT
+│   ├── METEO209.TXT
+│   ├── METEO20.TXT
+│   ├── METEO210.TXT
+│   ├── METEO211.TXT
+│   ├── METEO212.TXT
+│   ├── METEO215.TXT
+│   ├── METEO215.TXT~
+│   ├── METEO225.TXT
+│   ├── METEO227.TXT
+│   ├── METEO229.TXT
+│   ├── METEO230.TXT
+│   ├── METEO235.TXT
+│   ├── METEO239.TXT
+│   ├── METEO240.TXT
+│   ├── METEO242.TXT
+│   ├── METEO244.TXT
+│   ├── METEO247.TXT
+│   ├── METEO248.TXT
+│   ├── METEO249.TXT
+│   ├── METEO250.TXT
+│   ├── METEO251.TXT
+│   ├── METEO252.TXT
+│   ├── METEO253.TXT
+│   ├── METEO254.TXT
+│   ├── METEO255.TXT
+│   ├── METEO257.TXT
+│   ├── METEO258.TXT
+│   ├── METEO260.TXT
+│   ├── METEO263.TXT
+│   ├── METEO265.TXT
+│   ├── METEO266.TXT
+│   ├── METEO267.TXT
+│   ├── METEO268.TXT
+│   ├── METEO269.TXT
+│   ├── METEO270.TXT
+│   ├── METEO271.TXT
+│   ├── METEO272.TXT
+│   ├── METEO273.TXT
+│   ├── METEO275.TXT
+│   ├── METEO277.TXT
+│   ├── METEO278.TXT
+│   ├── METEO279.TXT
+│   ├── METEO280.txt
+│   ├── METEO280.TXT
+│   ├── METEO283.TXT
+│   ├── METEO285.TXT
+│   ├── METEO286.TXT
+│   ├── METEO28.TXT
+│   ├── METEO290.TXT
+│   ├── METEO29.TXT
+│   ├── METEO300.TXT
+│   ├── METEO308.TXT
+│   ├── METEO310.TXT
+│   ├── METEO311.TXT
+│   ├── METEO312.TXT
+│   ├── METEO313.TXT
+│   ├── METEO315.TXT
+│   ├── METEO316.TXT
+│   ├── METEO319.TXT
+│   ├── METEO320.TXT
+│   ├── METEO321.TXT
+│   ├── METEO323.TXT
+│   ├── METEO324.TXT
+│   ├── METEO325.TXT
+│   ├── METEO328.TXT
+│   ├── METEO32.TXT
+│   ├── METEO330.TXT
+│   ├── METEO331.TXT
+│   ├── METEO33.TXT
+│   ├── METEO340.TXT
+│   ├── METEO343.TXT
+│   ├── METEO344.TXT
+│   ├── METEO348.TXT
+│   ├── METEO34.TXT
+│   ├── METEO350.TXT
+│   ├── METEO356.TXT
+│   ├── METEO35.TXT
+│   ├── METEO36.TXT
+│   ├── METEO370.TXT
+│   ├── METEO375.TXT
+│   ├── METEO377.TXT
+│   ├── METEO379.TXT
+│   ├── METEO37.TXT
+│   ├── METEO380.TXT
+│   ├── METEO385.TXT
+│   ├── METEO38.TXT
+│   ├── METEO391.TXT
+│   ├── METEO39.TXT
+│   ├── METEO40.TXT
+│   ├── METEO41.TXT
+│   ├── METEO550.TXT
+│   ├── METEO551.TXT
+│   ├── METEO552.TXT
+│   ├── METEO553.TXT
+│   ├── METEO554.TXT
+│   ├── METEO603.TXT
+│   ├── METEO604.TXT
+│   ├── METEO605.TXT
+│   ├── METEO609.TXT
+│   ├── METEO614.TXT
+│   ├── METEO615.TXT
+│   ├── METEO616.TXT
+│   ├── METEO617.TXT
+│   ├── METEO8.TXT
+│   ├── METEO995.TXT
+│   ├── METEO998.TXT
+│   ├── METEO999.TXT
+│   ├── meteo.db
+│   ├── meteo_de_kooy.txt
+│   ├── Meteostations_KNMI1.csv~
+│   ├── ontwbas-nzv.tif
+│   ├── ontwbas-nzv.tif.aux.xml
+│   ├── ontw_hist.png
+│   ├── ontw_hist.txt
+│   ├── ontw_hist.txt~
+│   ├── ontw_kwel.txt~
+│   ├── raster.py
+│   ├── raster.py~
+│   ├── rasterstats.py
+│   ├── rasterstats.py~
+│   ├── README.TXT
+│   ├── slope_histogram_cumlative_graph.py
+│   ├── slope_histogram_cumlative_graph.py~
+│   ├── Thumbs.db
+│   ├── Waterbalans_METEO215.csv
+│   ├── Waterbalans_METEO225.csv
+│   ├── Waterbalans_METEO235.csv
+│   ├── Waterbalans_METEO240.csv
+│   ├── Waterbalans_METEO242.csv
+│   ├── Waterbalans_METEO249.csv
+│   ├── Waterbalans_METEO251.csv
+│   ├── Waterbalans_METEO257.csv
+│   ├── Waterbalans_METEO260.csv
+│   ├── Waterbalans_METEO265.csv
+│   ├── Waterbalans_METEO267.csv
+│   ├── Waterbalans_METEO269.csv
+│   ├── Waterbalans_METEO270.csv
+│   ├── Waterbalans_METEO273.csv
+│   ├── Waterbalans_METEO275.csv
+│   ├── Waterbalans_METEO277.csv
+│   ├── Waterbalans_METEO278.csv
+│   ├── Waterbalans_METEO279.csv
+│   ├── Waterbalans_METEO280.csv
+│   ├── Waterbalans_METEO283.csv
+│   ├── Waterbalans_METEO286.csv
+│   ├── Waterbalans_METEO290.csv
+│   ├── Waterbalans_METEO310.csv
+│   ├── Waterbalans_METEO310.csv~
+│   ├── Waterbalans_METEO319.csv
+│   ├── Waterbalans_METEO323.csv
+│   ├── Waterbalans_METEO330.csv
+│   ├── Waterbalans_METEO340.csv
+│   ├── Waterbalans_METEO344.csv
+│   ├── Waterbalans_METEO348.csv
+│   ├── Waterbalans_METEO350.csv
+│   ├── Waterbalans_METEO356.csv
+│   ├── Waterbalans_METEO370.csv
+│   ├── Waterbalans_METEO375.csv
+│   ├── Waterbalans_METEO377.csv
+│   ├── Waterbalans_METEO380.csv
+│   ├── Waterbalans_METEO391.csv
+│   ├── weerstations_NLD_orig.txt
+│   ├── weerstations_NLD.txt
+│   └── weerstations_NLD.txt~
+├── database_fill.py
+├── database_fill.py~
+├── datagrab_parse_knmi.py
+├── datagrab_parse_knmi.py~
+├── fill_report.txt
+├── ftm.anjuta
+├── ftm_output.txt
+├── FTM.py
+├── FTM.py~
+├── FTM_rekenhart_kopie.py
+├── FTM_rekenhart_kopie.py~
+├── FTM_rekenhart_kopie.pyc
+├── FTM_rekenhart.py
+├── FTM_rekenhart.py~
+├── FTM_rekenhart.pyc
+├── GHG_out_310.csv
+├── GLG_out_310.csv
+├── GT.py
+├── GT.pyc
+├── GWS_out_310.csv
+├── GxG.py
+├── GxG.pyc
+├── __init__.py
+├── __init__.pyc
+├── lees_raster.py
+├── lees_raster.py~
+├── list.txt
+├── migrations
+│   ├── 0001_initial.py
+│   ├── 0001_initial.pyc
+│   ├── 0002_delete_waypoint.py
+│   ├── 0002_delete_waypoint.pyc
+│   ├── __init__.py
+│   └── __init__.pyc
+├── models.py
+├── models.py~
+├── models.pyc
+├── numpy_csv_reader.py
+├── numpy_csv_reader.py~
+├── plot_GWS.py
+├── plot_GWS.py~
+├── plot_GWS.pyc
+├── raster.py
+├── raster.pyc
+├── settings.py
+├── settings.py~
+├── settings.pyc
+├── sql_lezer.py
+├── sql_lezer.py~
+├── sql_lezer.pyc
+├── static
+│   ├── FTM
+│   ├── googlepins
+│   │   └── pin2.png
+│   ├── Grondwaterstanden_310_12_13.png
+│   ├── Grondwaterstanden_310_14_20.png
+│   ├── Grondwaterstanden_310_53.32349126597425_6.5203857421875.png
+│   ├── Grondwaterstanden_310_53.34522266586594_6.6103363037109375.png
+│   ├── Grondwaterstanden_310_53.346452414027645_6.6632080078125.png
+│   ├── Grondwaterstanden_310_53.353830158152334_6.5883636474609375.png
+│   ├── Grondwaterstanden_310_53.3847_6.5108000000000175.png
+│   ├── Grondwaterstanden_310_6.464080810546875_53.32677218677902.png
+│   ├── Grondwaterstanden_310_6.5108000000000175_53.3847.png
+│   ├── Grondwaterstanden_310_6.5108_53.3847.png
+│   ├── Grondwaterstanden_310_6.551971435546875_53.332513191143505.png
+│   ├── Grondwaterstanden_310_6.562957763671875_53.34071328580364.png
+│   ├── Grondwaterstanden_310_6.60552978515625_53.31610827171959.png
+│   ├── Grondwaterstanden_310_6.6851806640625_53.370220573956786.png
+│   ├── Grondwaterstanden_310_6.71539306640625_53.371859268791944.png
+│   ├── Grondwaterstanden_310_6.74835205078125_53.34481274192986.png
+│   ├── Grondwaterstanden_310.png
+│   ├── Grondwaterstanden_6.41876220703125_53.29805557491275.png
+│   ├── Grondwaterstanden_6.5108000000000175_53.3847.png
+│   ├── Grondwaterstanden_6.562957763671875_53.34071328580364.png
+│   ├── Grondwaterstanden_6.57257080078125_53.379232615442604.png
+│   ├── Grondwaterstanden_6.60552978515625_53.31610827171959.png
+│   └── Grondwaterstanden_6.667327880859375_53.35546948344972.png
+├── staticGrondwaterstanden_310_6.5108_53.3847.png
+├── supersnel_ftm.py
+├── supersnel_ftm.py~
+├── templates
+│   └── ftm
+│       ├── grafiek.html
+│       ├── grafiek.html~
+│       ├── index.html
+│       ├── index.html~
+│       ├── index_oud.html
+│       ├── koppeling_index.html -> /home/john/ftm/lib/python2.7/site-packages/django/contrib/auth/templates/ftm/index.html
+│       ├── koppeling_index.html~
+│       ├── slider.html
+│       ├── waypoints.html
+│       └── waypoints.html~
+├── test-rekenhart.txt
+├── test-rekenhart.txt~
+├── text_lezer.py
+├── text_lezer.py~
+├── tree.txt
+├── urls.py
+├── urls.py~
+├── urls.pyc
+├── views.py
+├── views.py~
+├── views.pyc
+├── waterbalans_in.py
+├── wsgi.py
+└── wsgi.pyc
+
+7 directories, 406 files
