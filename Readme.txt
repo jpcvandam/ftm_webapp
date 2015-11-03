@@ -8,6 +8,12 @@ De modellering wordt enerzijds gedaan aan de hand van bodemgegevens (drainagewee
 Op het moment van schrijven (3 november 2015) kan het model alleen nog maar de berekening doen voor de grondwaterstanden tot aan gisteren, de ambitie is om aan de hand van weersvoorspellingen van het KNMI ook de grondwaterstand van morgen en overmorgen te berekenen.
 Het voorspellen moet mogelijk worden door vanaf de website van het KNMI de benodigde data te halen en die door het model te sturen, qua code zal er aan het rekenhart niets veranderen.
 
+Het project heeft bepaalde vaste elementen uit Django. Deze elementen zijn __init__.py, models.py, settings.py, wsgi.py en views.py. Daarnaast maakt Django een map aan met de naam 'migrations', daarin worden migraties en aanpassingen van de databank geregeld.
+In views.py worden alle zelfgemaakte modules aan elkaar gelinkt. Er is voor deze modulaire opzet gekozen, omdat eventuele fouten daardoor gemakkelijker te repareren zijn en goede modules hergebruikt kunnen worden.
+Als er een request komt aan het adres van het ftm, leest een proceduren uit views.py eerst de meteogegevens uit een csv in een pandas dataframe, en maakt daar vervolgens een numpy array van om later in het programma te kunnen rekenen.
+Vervolgens wordt uit de tif-rasters in het mapje data bodemdata gelezen door het aanroepen van de functie raster_q uit de module lees_raster.py. Het resultaat daarvan wordt van string naar float geconverteerd en opgeslagen in een set numpy arrays. Deze conversie is nodig, omdat het ftm anders niet kan rekenen, strings zijn voor de computer gewoon tekst waar niet mee te rekenen is.
+Nu kan er gerekend worden en dat gebeurt dan ook doormiddel van een for-loop die de net voorbereide gegevens door het rekenhart heen jast en in een array stopt  
+
 Todo voor in de komende periode:
 #MySQL databank gebruiken voor neerslaggegevens, naar verwachting verbeterd dit de snelheid van de webapplicatie.
 	* de app 'knmi_database' in de repository naast de 'ftm' repository kan het dichtstbijzijnde neerslagstation opzoeken gegeven een set coordinaten, dit wordt onderdeel van de MySQL query.
