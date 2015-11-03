@@ -14,7 +14,7 @@ Todo voor in de komende periode:
 #Voorspellen van grondwaterstanden aan de hand van weersvoorspellingen van het KNMI.
 #Resultaten plotten met behulp van een javascript in de browser van de gebruiker in plaats van een pythonscript waarvan vervolgens de plot geserveerd wordt.
 #Website mooier maken, onder andere door hem geschikt te maken voor mobiele browsers. De twitter-bootstrap-api wordt hier waarschijnlijk voor gebruikt.
-# 
+#Mogelijkheid inbouwen om met de ontwateringsbasis te spelen, het rekenhart moet hiervoor wel veranderd worden, omdat een variabele ontwateringsbasis een net iets andere formule gebruikt. 
 
 
 ######################################################################################
