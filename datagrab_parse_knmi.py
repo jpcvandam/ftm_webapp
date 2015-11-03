@@ -13,6 +13,7 @@ import pylab
 import datetime
 import matplotlib.dates as mdates
 import datetime as dt
+from datetime import datetime
 import os
 
 def appendDFToCSV_void(df, csvFilePath, sep=","):
@@ -24,11 +25,11 @@ def appendDFToCSV_void(df, csvFilePath, sep=","):
 
 werkdirectory = '/home/john/ftm/ftm/ftm/data'
 os.chdir(werkdirectory)
-vandaag = datetime.today
+#vandaag = datetime.today()
 
 #een definitie heeft een eigen namespace dus het  is niet meer nodig om boven 'vandaag' als variabele te declareren
 def datum_gisteren_eergisteren():
-    vandaag = datetime.today
+    vandaag = datetime.today()
     dag = vandaag.day
     maand = vandaag.month
     jaar = vandaag.year
@@ -74,12 +75,12 @@ def datum_gisteren_eergisteren():
 for i in [127 ,  32 ,  206 ,  331 ,  200 ,  18 ,  125 ,  16 ,  609 ,  272 ,  161 ,  998 ,  316 ,  313 ,  20 ,  163 ,  551 ,  148 ,  343 ,  35 ,  208 ,  275 ,  325 ,  29 ,  350 ,  203 ,  138 ,  211 ,  153 ,  321 ,  340 ,  311 ,  247 ,  204 ,  165 ,  139 ,  129 ,  17 ,  320 ,  147 ,  280 ,  273 ,  323 ,  268 ,  249 ,  168 ,  202 ,  135 ,  348 ,  319 ,  285 ,  385 ,  617 ,  212 ,  344 ,  126 ,  553 ,  159 ,  251 ,  253 ,  279 ,  8 ,  209 ,  37 ,  270 ,  391 ,  170 ,  33 ,  554 ,  552 ,  227 ,  324 ,  244 ,  162 ,  255 ,  240 ,  999 ,  108 ,  230 ,  604 ,  277 ,  377 ,  201 ,  379 ,  550 ,  152 ,  225 ,  142 ,  207 ,  330 ,  263 ,  266 ,  167 ,  995 ,  133 ,  290 ,  615 ,  39 ,  210 ,  41 ,  258 ,  312 ,  229 ,  19 ,  260 ,  370 ,  315 ,  166 ,  375 ,  380 ,  616 ,  300 ,  128 ,  252 ,  28 ,  286 ,  40 ,  283 ,  310 ,  250 ,  614 ,  308 ,  215 ,  254 ,  278 ,  271 ,  605 ,  130 ,  328 ,  239 ,  122 ,  267 ,  143 ,  205 ,  158 ,  269 ,  13 ,  235 ,  257 ,  36 ,  248 ,  38 ,  356 ,  34 ,  265 ,  169 ,  164 ,  603 ,  242  ]:
     url = 'http://projects.knmi.nl/klimatologie/daggegevens/getdata_dag.cgi'
     values = {'stns' : i,
-              'byear' : 2015,
-              'bmonth' : 10,
-              'bday' : 31,
-              'eyear' : 2015,
-              'emonth': 11,
-              'eday' : 1,
+              'byear' : datum_gisteren_eergisteren()[5],
+              'bmonth' : datum_gisteren_eergisteren()[4],
+              'bday' : datum_gisteren_eergisteren()[3],
+              'eyear' : datum_gisteren_eergisteren()[2],
+              'emonth': datum_gisteren_eergisteren()[1],
+              'eday' : datum_gisteren_eergisteren()[0],
               'vars' : 'PRCP = DR:RH:EV24' }
 
     data = urllib.urlencode(values)
