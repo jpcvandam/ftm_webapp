@@ -10,6 +10,8 @@ Het voorspellen moet mogelijk worden door vanaf de website van het KNMI de benod
 
 Todo voor in de komende periode:
 #MySQL databank gebruiken voor neerslaggegevens, naar verwachting verbeterd dit de snelheid van de webapplicatie.
+	* de app 'knmi_database' in de repository naast de 'ftm' repository kan het dichtstbijzijnde neerslagstation opzoeken gegeven een set coordinaten, dit wordt onderdeel van de MySQL query.
+	* het ophalen van de meteodata van gisteren en eergisteren kan en gaat nu automatisch met een crontab, het bijwerken van de databank moet nog worden geautomatiseerd. 
 #Mogelijkheid inbouwen om een rekenperiode te selecteren, hangt samen met het gebruik van MySQL, omdat hierbij door een query precies die data opgehaald wordt die nodig is om de gevraagde periode door te rekenen.
 #Voorspellen van grondwaterstanden aan de hand van weersvoorspellingen van het KNMI.
 #Resultaten plotten met behulp van een javascript in de browser van de gebruiker in plaats van een pythonscript waarvan vervolgens de plot geserveerd wordt.
