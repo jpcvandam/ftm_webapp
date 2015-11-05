@@ -30,7 +30,7 @@ def meteo_query(nummerstation, startdatum, einddatum):
 	q = q.filter(datum__gte=startdatum)
 	q = q.filter(datum__lte=einddatum)	
 	datumlijst = q.values_list('datum', flat=True)
-	neerslag = values_list('rh', flat=True)
+	neerslag = q.values_list('rh', flat=True)
 	verdamping = q.values_list('ev24', flat=True)
 	return datumlijst, neerslag, verdamping
 	
