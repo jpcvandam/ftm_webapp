@@ -25,12 +25,16 @@ Todo voor in de komende periode:
 #Mogelijkheid inbouwen om een rekenperiode te selecteren, hangt samen met het gebruik van MySQL, omdat hierbij door een query precies die data opgehaald wordt die nodig is om de gevraagde periode door te rekenen.
 #Voorspellen van grondwaterstanden aan de hand van weersvoorspellingen van het KNMI.
 #Resultaten plotten met behulp van een javascript in de browser van de gebruiker in plaats van een pythonscript waarvan vervolgens de plot geserveerd wordt.
-#De door GT.py bepaalde grondwatertrap aan de gebruiker tonen, bijvoorbeeld in de plot als tekstveld.
+#
 #Website mooier maken, 
 	* onder andere door hem geschikt te maken voor mobiele browsers. De twitter-bootstrap-api wordt hier waarschijnlijk voor gebruikt.
 	* de gebruiker laten zien waar hij/zij geklikt heeft door de kaart met de pin te "kopiëren" naar het nieuwe tabblad wat geopend word.
 #Mogelijkheid inbouwen om met de ontwateringsbasis te spelen, het rekenhart moet hiervoor wel veranderd worden, omdat een variabele ontwateringsbasis een net iets andere formule gebruikt.
-#API maken om het de app via de commandoregel te gebruiken of in andere applicaties van Acacia. 
+#API maken om het de app via de commandoregel te gebruiken of in andere applicaties van Acacia.
+
+
+Uit Todo gerealiseerd
+# 05/11/2015  De door GT.py bepaalde grondwatertrap aan de gebruiker tonen als tekstveld linksboven in de plot.
 
 
 ######################################################################################
