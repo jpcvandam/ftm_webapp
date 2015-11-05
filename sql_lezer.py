@@ -28,11 +28,9 @@ def meteo_query(nummerstation, startdatum, einddatum):
 	einddatum = parser.parse(einddatum)
 	q = MeteoData.objects.filter(nummer=nummerstation)
 	q = q.filter(datum__gte=startdatum)
-	q = q.filter(datum__lte=einddatum)
-	print(q)
+	q = q.filter(datum__lte=einddatum)	
 	datumlijst = q.values_list('datum', flat=True)
 	neerslag = values_list('rh', flat=True)
 	verdamping = q.values_list('ev24', flat=True)
-	print 'hoi' #str(rij)
 	return datumlijst, neerslag, verdamping
 	
