@@ -23,7 +23,7 @@ def plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad, x2, y2):
     #labels voor de assen en de grafiek declareren
     ax = pylab.gca()
     ax.set_ylabel('$cm-mv$')
-    ax.text(2, 6, gt, fontsize=15)
+    ax.text(2, 6,  gt, fontsize=15)
     plt.xlabel('Tijd')
     plt.title('Tijdstijghoogtelijn')
     #grafiek wegschrijven en pylab netjes afsluiten

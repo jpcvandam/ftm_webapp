@@ -4,7 +4,7 @@
 
 from django.db import connection, models
 from dateutil import parser
-from knmi_database.models import MeteoData
+from knmi_database.models import MeteoData, NeerslagStation
 import numpy as np
 from datetime import datetime
 
@@ -26,11 +26,9 @@ def meteo_lezen(nummer_station, startdatum, einddatum):
 def meteo_query(nummerstation, startdatum, einddatum):
 	startdatum = parser.parse(startdatum)
 	einddatum = parser.parse(einddatum)
-	MeteoData.objects.order_by('nummer', 'datum')
-	qs = MeteoData.objects.filter(datum=datetime.date(startdatum), nummer=nummerstation)
-	#qs = MeteoData.objects.get(datum__gt=datetime.date(startdatum), nummer__gt=nummerstation) 
-	#.get haalt in dit geval teveel op en dat moet ook, maar mag niet van Django, datum__gt werkt in elk geval en daar was het om te doen
-	vlqs = qs.values_list()
-	rij = np.core.records.fromrecords (vlqs, names=[f.name for f in MeteoData._meta.fields])
-	print rij
+	q = MeteoData.objects.filter(nummer=nummerstation)
+	q = q.filter(datum__gte=startdatum)
+	q = q.filter(datum__lte=einddatum)
+	print(q)
+	print 'hoi' #str(rij)
 	
