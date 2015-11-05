@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import pylab
 
 
-def plot(dfGWS, dfGHGs, dfGLGs, nummer_meteostation, bestandspad, x2, y2):
+def plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad, x2, y2):
     #plotje maken van de grondwaterstanden en opslaan
     # Create plots with pre-defined labels. Gebruik makend van de pandas series plot wrapper
     dfGWS.plot(label='Grondwaterstand')
@@ -23,6 +23,7 @@ def plot(dfGWS, dfGHGs, dfGLGs, nummer_meteostation, bestandspad, x2, y2):
     #labels voor de assen en de grafiek declareren
     ax = pylab.gca()
     ax.set_ylabel('$cm-mv$')
+    ax.text(2, 6, gt, fontsize=15)
     plt.xlabel('Tijd')
     plt.title('Tijdstijghoogtelijn')
     #grafiek wegschrijven en pylab netjes afsluiten

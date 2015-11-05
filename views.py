@@ -135,11 +135,14 @@ def maak_plotje(x2, y2):
     GLG = GLG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation)[0]
     dfGHGs = GHG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation)[1]
     dfGLGs = GLG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation)[1]
+    
+    gt = GT(GHG[0],GLG[0])
 
 #print str(datetime.now()) + 'plotten'
 ###################################################################
 #plotje maken van de grondwaterstanden en opslaan
-    return plot(dfGWS, dfGHGs, dfGLGs, nummer_meteostation, bestandspad_plot, x2, y2)
+
+    return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2)
 
 #print str(datetime.now()) + 'print de gt'
 #via de terminal de grondwatertrap en het nummer van die grondwatertrap printen
