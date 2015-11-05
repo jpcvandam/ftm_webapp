@@ -15,7 +15,7 @@ Vervolgens wordt uit de tif-rasters in het mapje data bodemdata gelezen door het
 Nu kan er gerekend worden en dat gebeurt dan ook doormiddel van een for-loop die de net ingeladen gegevens door het rekenhart heen jast en in een array stopt. De uitkomsten van de berekening worden in 2-d array gestopt die even voor de berekening gemaakt is en gevuld met nullen. Deze array bevat grondwaterstanden [cm-mv] en afstroming, de afstroming is gelijk aan de neerslaghoeveelheid [cm] als de grondwaterstand tot in het maaiveld komt (dus groter dan of gelijk aan 0).
 De net gemaakte array wordt nu weer omgezet naar een pandas dataframe en weggeschreven als .csv. Daarna wordt dit dataframe gebruikt om de gemiddeld hoogste (GHG) en gemiddeld laagste (GLG) grondwaterstand te bepalen. Dit wordt gedaan door de module GxG.py op een manier speciaal voor het karakteriseren van grondwaterstanden in Nederland bedacht is voor de advent van (snelle) computers. Er wordt per maand op de 14e en de 28e een waarde gesampeld, hiervan worden in het zomerhalfjaar en drie laagste en in het winterhalfjaar de drie hoogste grondwaterstanden bepaald en van deze 3 extremen in elk jaar wordt over een periode van minimaal 8 jaar het gemiddelde genomen.
 Een pandas dataframe laat zich gemakkelijk plotten door matplotlib, dat wordt als op een na laatste stap gedaan. Deze plot wordt opgeslagen en als antwoord op de http-request aan de gebruiker geserveerd.
-Vervolgens kan de module GT.py bepalen welke grondwatertrap hoort bij de net bepaalde GHG en GLG. Hier wordt in de webapp nu nog niets mee gedaan, maar dit moet in de komende periode wel veranderen.
+Vervolgens kan de module GT.py bepalen welke grondwatertrap hoort bij de net bepaalde GHG en GLG. Hier wordt in de webapp nu nog niets mee gedaan, maar dit moet in de komende periode wel veranderen. Deze regel is uitgezet met een #, omdat deze in de webapp voorlopig toch niets doet.
 
 
 Todo voor in de komende periode:
@@ -26,8 +26,11 @@ Todo voor in de komende periode:
 #Voorspellen van grondwaterstanden aan de hand van weersvoorspellingen van het KNMI.
 #Resultaten plotten met behulp van een javascript in de browser van de gebruiker in plaats van een pythonscript waarvan vervolgens de plot geserveerd wordt.
 #De door GT.py bepaalde grondwatertrap aan de gebruiker tonen, bijvoorbeeld in de plot als tekstveld.
-#Website mooier maken, onder andere door hem geschikt te maken voor mobiele browsers. De twitter-bootstrap-api wordt hier waarschijnlijk voor gebruikt.
-#Mogelijkheid inbouwen om met de ontwateringsbasis te spelen, het rekenhart moet hiervoor wel veranderd worden, omdat een variabele ontwateringsbasis een net iets andere formule gebruikt. 
+#Website mooier maken, 
+	* onder andere door hem geschikt te maken voor mobiele browsers. De twitter-bootstrap-api wordt hier waarschijnlijk voor gebruikt.
+	* de gebruiker laten zien waar hij/zij geklikt heeft door de kaart met de pin te "kopiëren" naar het nieuwe tabblad wat geopend word.
+#Mogelijkheid inbouwen om met de ontwateringsbasis te spelen, het rekenhart moet hiervoor wel veranderd worden, omdat een variabele ontwateringsbasis een net iets andere formule gebruikt.
+#API maken om het de app via de commandoregel te gebruiken of in andere applicaties van Acacia. 
 
 
 ######################################################################################
