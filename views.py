@@ -154,7 +154,7 @@ def FTM(opdrachtparameters, meteo, naam):
     return spam
 
 
-def supersnel_ftm(x2, y2):
+def supersnel_ftm(x2, y2): #gebruikmakend van Jaco's ftm in Pascal
     #varabelen
     werkdirectory = '/home/john/ftm/ftm/ftm/data'
     bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
