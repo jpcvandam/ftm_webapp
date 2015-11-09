@@ -20,6 +20,5 @@ def meteo_query(nummerstation, startdatum, einddatum):
 	datumlijst = q.values_list('datum', flat=True)
 	neerslag = q.values_list('rh', flat=True)
 	verdamping = q.values_list('ev24', flat=True)
-	print datumlijst, neerslag, verdamping
 	return datumlijst, neerslag, verdamping
 	
