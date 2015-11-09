@@ -1,11 +1,7 @@
-from django.shortcuts import render
+#deze module wordt aangeroepen vanuit het views.py bestand
+#auteur: John van Dam
+#datum: 9 november 2015
 
-# Create your views here.
-from django.http import HttpResponse
-from django.db import connection
-from django.shortcuts import render_to_response#, 
-from django.template.loader import render_to_string 
-#import simplejson
 
 ##imports om te rekenen
 import pandas as pd
@@ -21,68 +17,16 @@ from GxG import *
 from GT import GT
 from plot_GWS import *
 from raster import raster_q
-from FTM_module import maak_plotje2
-
-
-
-def index(request):
-    'Display map'
-    
-    return render_to_response('ftm/index.html')
+from sql_lezer import meteo_query
 
 
 
 
-
-
-
-
-###################################################################
-#hier komt dan het ftm
-def ftm(request):
-    'Grondwaterstand'
-    x = request.GET.get('x')
-    y = request.GET.get('y')
-    plotje = maak_plotje(x, y)
-    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje})
-    #return render_to_response('ftm/index.html', {
-     #   'waypoints': waypoints,
-      #  'content': render_to_response('ftm/grafiek.html', {plotje=plotje, x=x, y=y}),
-    #})
-
-
-def ftmsnel(request):
-    'Grondwaterstandsnel'
-    x = request.GET.get('x')
-    y = request.GET.get('y')
-    plotje = supersnel_ftm(x, y)[0]
-    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje})
-
-    
-def ftm_sql(request):
-    'Grondwaterstand-sql'
-    x = request.GET.get('x')
-    y = request.GET.get('y')
-    plotje = maak_plotje2(x, y)
-    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje})
-
-#dit script is de Python variant van het FTM door Jaco van der Gaast in Pascal
-#Auteur: John van Dam
-#Datum: 17 augustus 2015
-#voor het laatst bijgewerkt op 8 september 2015
-
-
-
-
-
-###################################################################
-#variabelen
-def maak_plotje(x2, y2):
+def maak_plotje2(x2, y2):
     nummer_meteostation = 310
     bestandspad='/home/john/ftm/ftm/ftm/data/'
     bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
-    bodembestand = bestandspad + 'Bodemdata.txt'
-
+    
     x= str(x2)
     y= str(y2)
 
@@ -157,112 +101,4 @@ def maak_plotje(x2, y2):
 #via de terminal de grondwatertrap en het nummer van die grondwatertrap printen
     #print GT(GHG[0],GLG[0])
     #print str(datetime.now()) + 'einde'
-
-
-
-
-def FTM(opdrachtparameters, meteo, naam):
-    spam = subprocess.check_output(["./FTM", opdrachtparameters, meteo, naam])
-    return spam
-
-
-def supersnel_ftm(x2, y2): #gebruikmakend van Jaco's ftm in Pascal
-    #varabelen
-    werkdirectory = '/home/john/ftm/ftm/ftm/data'
-    bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
-    naam = str(x2)+'_'+str(y2)
-    meteobestand = 'METEO280.txt'
-
-    os.chdir(werkdirectory)
-
-    output_file = open(naam + 'invoer.txt', 'w')
-    line = '%s\n' % ("#runn        al     hgem  drainw    berg    qbot  ")
-    unicode_line = line.encode('utf-8')
-    output_file.write(unicode_line)
-    runn = 1
-    al = 365
-    hgem = float(raster_q("/home/john/ftm/ftm/ftm/data/ontwbas-nzv.tif", x2, y2)) * -1
-    drainw = float(raster_q("/home/john/ftm/ftm/ftm/data/drainw-nzv.tif", x2, y2))
-    berg = float(raster_q("/home/john/ftm/ftm/ftm/data/bergcoef-nzv.tif", x2, y2))# f['bergcoef10'] / 100
-    qbot = float(raster_q("/home/john/ftm/ftm/ftm/data/kwel-nzv.tif", x2, y2)) #f['kwel10'] / 10
-    line = '%8.0f%8.0f%8.0f%8.0f%8.3f%8.3f\n' % (runn,al,hgem,drainw,berg,qbot)
-    unicode_line = line.encode('utf-8')
-    output_file.write(unicode_line)    
-    output_file.close()
-
-    FTM(naam + 'invoer.txt', meteobestand, naam)
-
-
-    # GHG en GLG uit textbestand halen 
-    fileinput = open(naam + 'gwlstatistics.txt', 'r')
-    fileinput.readline()
-    fileinput.readline()
-    #for line in fileinput:
-    #print fileinput.read(4),
-    fileinput.read(4),
-    GHG = fileinput.read(8)
-    fileinput.readline()
-    fileinput.readline()
-    fileinput.read(4),
-    GLG = fileinput.read(8)
-    fileinput.close()
-
-
-    fileinput = open(naam + 'gwl.txt', 'r')
-    #print(fileinput.readline()),
-    #print(fileinput.readline())
-    fileinput.readline()
-    fileinput.readline()
-
-    #print fileinput.readline(8),
-    dagList = [] 
-    maandList = []
-    jaarList = []
-    datumList = []
-    gwstList = []
-    GHGList = []
-    GLGList = []
-    for line in fileinput:
-         dagList.append(int(line[0:2]))
-
-         if int(line[6:8]) < 20:
-             jaarList.append(int(line[6:8])+2000)
-         else:
-            jaarList.append(int(line[6:8])+1900)
-         if int(line[6:8]) < 20:
-             datum = date(int(line[6:8])+2000,int(line[3:5]),int(line[0:2]))         
-         else:
-             datum = date(int(line[6:8])+1900,int(line[3:5]),int(line[0:2]))
-         datumList.append(datum)
-         gwstList.append(float(line[9:16]))
-         GHGList.append(float(GHG))
-         GLGList.append(float(GLG))
-    fileinput.close()
-
-    #print gwstList
-    # x and y definieren
-    x = datumList
-    ygrwst = gwstList
-    yGHG = GHGList
-    yGLG = GLGList
-    
-    # Create plots with pre-defined labels. gebruik makend van matplotlib pyplot
-    plt.plot(x, ygrwst, 'b', label='Grondwaterstand')
-    plt.plot(x, yGHG, 'r', label='GHG')
-    plt.plot(x, yGLG, 'g', label='GLG')
-
-    plt.legend(loc='lower center', shadow=True, fontsize='x-large')
-
-# Titels definieren
-    plt.xlabel('Tijd')
-    plt.ylabel('Grondwaterstand (cm t.o.v. mv)')
-    plt.title('Tijdstijghoogtelijn')
-    plt.grid(True)
-# without the line below, the figure won't show
-    plotnaam='Grondwaterstanden_'+str(x2)+'_'+str(y2)+'.png'
-    pylab.savefig(bestandspad_plot + plotnaam, bbox_inches='tight')
-    pylab.close()
-    ploatje=plotnaam
-
-    return ploatje, x2, y2
 
