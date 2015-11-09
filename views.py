@@ -59,7 +59,7 @@ def ftmsnel(request):
     return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje})
 
     
-def ftm_sql(request):
+def ftmsql(request):
     'Grondwaterstand-sql'
     x = request.GET.get('x')
     y = request.GET.get('y')
