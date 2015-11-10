@@ -38,7 +38,14 @@ def maak_plotje2(x2, y2):
     datum=meteo_query(nummer_meteostation, startdatum, einddatum)[0]
     neerslag=meteo_query(nummer_meteostation, startdatum, einddatum)[1]
     verdamping=meteo_query(nummer_meteostation, startdatum, einddatum)[2]
-    
+    lengte = len(neerslag) #arrays die je samen wilt gebruiken in een tijdserie moeten even lang zijn, anders gaat er van alles mis
+    array_neerslag = np.zeros(shape = (1, lengte), order='C')
+    array_verdamping = np.zeros(shape = (1, lengte), order='C')
+    neerslag='henk'
+    #for i in range(0, lengte):
+        #array_neerslag[i] = int(neerslag[i])
+        #array_verdamping[i] = int(verdamping[i]) 
+
     
 
     #voorbewerkte meteo inlezen in een pandas dataframe en dan wegschrijven naar een numpy array
@@ -103,7 +110,7 @@ def maak_plotje2(x2, y2):
 ###################################################################
 #plotje maken van de grondwaterstanden en opslaan
 
-    return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2)
+    return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2), neerslag, verdamping
 
 #print str(datetime.now()) + 'print de gt'
 #via de terminal de grondwatertrap en het nummer van die grondwatertrap printen

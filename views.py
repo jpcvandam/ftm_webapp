@@ -63,8 +63,10 @@ def ftmsql(request):
     'Grondwaterstand-sql'
     x = request.GET.get('x')
     y = request.GET.get('y')
-    plotje = maak_plotje2(x, y)
-    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje})
+    plotje = maak_plotje2(x, y)[0]
+    #neerslag = maak_plotje(x, y)[1]
+    #verdamping = maak_plotje(x, y)[2]
+    return render_to_response("ftm/grafiek_sql.html", { 'x':x, 'y':y, 'plotje': plotje})#, 'neerslag':neerslag, 'verdamping':verdamping})
 
 #dit script is de Python variant van het FTM door Jaco van der Gaast in Pascal
 #Auteur: John van Dam
