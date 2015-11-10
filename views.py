@@ -63,7 +63,9 @@ def ftmsql(request):
     'Grondwaterstand-sql'
     x = request.GET.get('x')
     y = request.GET.get('y')
-    data = maak_plotje2(x, y)
+    startdatum = request.GET.get('startdatum')
+    einddatum = request.GET.get('einddatum')
+    data = maak_plotje2(x, y, startdatum, einddatum)
     plotje = data[0]
     datum_array = data [1]
     array_neerslag = data[2]

@@ -22,7 +22,7 @@ from sql_lezer import meteo_query
 
 
 
-def maak_plotje2(x2, y2):
+def maak_plotje2(x2, y2, startdatum, einddatum):
     nummer_meteostation = 310
     bestandspad='/home/john/ftm/ftm/ftm/data/'
     bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
@@ -30,8 +30,8 @@ def maak_plotje2(x2, y2):
     x= str(x2)
     y= str(y2)
     
-    startdatum = '2015-01-01'
-    einddatum = '2015-11-08'
+    startdatum = str(startdatum) #'2015-01-01'
+    einddatum = str(einddatum)#'2015-11-08'
 
     ###################################################################
     #hier begint dan het programma

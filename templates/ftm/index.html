@@ -19,7 +19,7 @@
    function bereken_sql() {
       var y = document.getElementById("latbox").value;
       var x = document.getElementById("lngbox").value;
-      url = 'grondwaterstand-sql?x=' + x + '&y=' + y;
+      url = 'grondwaterstand-sql?x=' + x + '&y=' + y + '&startdatum=2015-01-01' + '&einddatum=2015-11-08';
       window.open(url);
    }
 </script>
