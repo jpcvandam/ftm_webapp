@@ -23,7 +23,7 @@ from sql_lezer import meteo_query
 
 
 def maak_plotje2(x2, y2, startdatum, einddatum):
-    nummer_meteostation = 310
+    nummer_meteostation = 280
     bestandspad='/home/john/ftm/ftm/ftm/data/'
     bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
     
@@ -49,12 +49,7 @@ def maak_plotje2(x2, y2, startdatum, einddatum):
     
 
     #voorbewerkte meteo inlezen in een pandas dataframe en dan wegschrijven naar een numpy array
-    #for i in [nummer_meteostation]:
-        #meteobestand_in = bestandspad + 'Waterbalans_METEO'+str(i)+'.csv'
-        #dfNettoNeerslag = pd.read_csv(meteobestand_in, header=None, skiprows=1, names = ['datum', 'NN1', 'NN2' ], delimiter =',', parse_dates=[0])
-    #array_neerslagoverschot = dfNettoNeerslag['NN1'].values
-    #lengte = len(array_neerslagoverschot) #arrays die je samen wilt gebruiken in een tijdserie moeten even lang zijn, anders gaat er van alles mis
-
+   
 
     #bodemdata afkomstig uit de QGIS puntenwolk inlezen in een pandas dataframe en dan wegschrijven naar een numpy arrays
     
