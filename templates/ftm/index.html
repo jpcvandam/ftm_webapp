@@ -25,15 +25,6 @@
 </script>
 <meta charset="utf-8">
 <title>FTM op localhost</title>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script>
-$(function() {
-  $( "#slider" ).slider();
-});
-</script>
 <body onLoad="initialize()">
 
   <div id="map_canvas" style="width:50%; height:50%"></div>
@@ -46,7 +37,6 @@ $(function() {
   <input id=Grondwaterstand type=button value=Bereken_snel enabled=enabled onclick="bereken_snel();">
   <input id=Grondwaterstand type=button value=Bereken_sql enabled=enabled onclick="bereken_sql();">
 Selecteer met onderstaande slider de begin (en na verdere ontwikkeling de eind-) datum van de berekening van de grondwaterstanden
-  <div id="slider"></div>
 </body>
 </html>
 
@@ -110,7 +100,7 @@ function initialize() {
       position: myLatlng,
       map: map,
       icon: image,
-      title:"Property Location"
+      title:"Locatie berekening"
     });
 
     // establish the initial div form fields
@@ -145,7 +135,7 @@ function initialize() {
             position: myLatLng,
             map: map,
             icon: image,
-            title:"Property Location"
+            title:"Locatie berekening"
         });
 
         // populate the form fields with lat & lng 
