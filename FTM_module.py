@@ -42,9 +42,9 @@ def maak_plotje2(x2, y2):
     array_neerslag1 = np.zeros(shape = (1, lengte), order='C')
     array_verdamping1 = np.zeros(shape = (1, lengte), order='C')
     
-    #for i in range(0, lengte):
-        #array_neerslag[i] = int(neerslag[i])
-        #array_verdamping[i] = int(verdamping[i]) 
+    for i in range(0, lengte):
+        array_neerslag1[0][i] = int(neerslag[i])
+        array_verdamping1[0][i] = int(verdamping[i]) 
 
     
 
