@@ -65,11 +65,10 @@ def ftmsql(request):
     y = request.GET.get('y')
     data = maak_plotje2(x, y)
     plotje = data[0]
-    neerslag = data[1]
-    verdamping = data[2]
-    array_neerslag = data[3]
-    array_verdamping = data[4]
-    return render_to_response("ftm/grafiek_sql.html", { 'x':x, 'y':y, 'plotje': plotje, 'neerslag':neerslag, 'verdamping':verdamping,'array_neerslag':array_neerslag, 'array_verdamping':array_verdamping})
+    datum_array = data [1]
+    array_neerslag = data[2]
+    array_verdamping = data[3]
+    return render_to_response("ftm/grafiek_sql.html", { 'x':x, 'y':y, 'plotje': plotje, 'datum_array':datum_array, 'array_neerslag':array_neerslag, 'array_verdamping':array_verdamping})
 
 #dit script is de Python variant van het FTM door Jaco van der Gaast in Pascal
 #Auteur: John van Dam

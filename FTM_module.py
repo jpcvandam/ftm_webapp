@@ -41,6 +41,7 @@ def maak_plotje2(x2, y2):
     lengte = len(neerslag) #arrays die je samen wilt gebruiken in een tijdserie moeten even lang zijn, anders gaat er van alles mis
     array_neerslag1 = np.zeros(shape = (1, lengte), order='C')
     array_verdamping1 = np.zeros(shape = (1, lengte), order='C')
+    datum_array = np.array(datum)
     
     for i in range(0, lengte):
         array_neerslag1[0][i] = int(neerslag[i])
@@ -109,6 +110,6 @@ def maak_plotje2(x2, y2):
 ###################################################################
 #plotje maken van de grondwaterstanden en opslaan
 
-    return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2), neerslag, verdamping, array_neerslag1, array_verdamping1
+    return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2), datum_array, array_neerslag1, array_verdamping1
 
 
