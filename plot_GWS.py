@@ -28,7 +28,7 @@ def plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad, x2, y2):
     plt.title('Tijdstijghoogtelijn')
     #grafiek wegschrijven en pylab netjes afsluiten
     plotnaam='Grondwaterstanden_'+str(nummer_meteostation)+'_'+str(x2)+'_'+str(y2)+'.png'
-    pylab.savefig(bestandspad + plotnaam, bbox_inches='tight')
+    pylab.savefig(bestandspad + plotnaam)#, bbox_inches='tight')
     pylab.close()
     return plotnaam    
 

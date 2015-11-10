@@ -149,7 +149,7 @@ def maak_plotje(x2, y2):
     dfGHGs = GHG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation)[1]
     dfGLGs = GLG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation)[1]
     
-    gt = GT(GHG[0],GLG[0])
+    gt = GT(GHG[0],GLG[0])[1]
 
 #print str(datetime.now()) + 'plotten'
 ###################################################################

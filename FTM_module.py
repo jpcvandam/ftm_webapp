@@ -49,11 +49,11 @@ def maak_plotje2(x2, y2):
     
 
     #voorbewerkte meteo inlezen in een pandas dataframe en dan wegschrijven naar een numpy array
-    for i in [nummer_meteostation]:
-        meteobestand_in = bestandspad + 'Waterbalans_METEO'+str(i)+'.csv'
-        dfNettoNeerslag = pd.read_csv(meteobestand_in, header=None, skiprows=1, names = ['datum', 'NN1', 'NN2' ], delimiter =',', parse_dates=[0])
-    array_neerslagoverschot = dfNettoNeerslag['NN1'].values
-    lengte = len(array_neerslagoverschot) #arrays die je samen wilt gebruiken in een tijdserie moeten even lang zijn, anders gaat er van alles mis
+    #for i in [nummer_meteostation]:
+        #meteobestand_in = bestandspad + 'Waterbalans_METEO'+str(i)+'.csv'
+        #dfNettoNeerslag = pd.read_csv(meteobestand_in, header=None, skiprows=1, names = ['datum', 'NN1', 'NN2' ], delimiter =',', parse_dates=[0])
+    #array_neerslagoverschot = dfNettoNeerslag['NN1'].values
+    #lengte = len(array_neerslagoverschot) #arrays die je samen wilt gebruiken in een tijdserie moeten even lang zijn, anders gaat er van alles mis
 
 
     #bodemdata afkomstig uit de QGIS puntenwolk inlezen in een pandas dataframe en dan wegschrijven naar een numpy arrays
@@ -69,15 +69,15 @@ def maak_plotje2(x2, y2):
     
     #door de functie gws_op_t uit het rekenhart aan te roepen en met behulp van een for loop uit te voeren wordt voor iedere dag de grondwaterstand berekend met de netto neerslag en de bodemdata, tegelijk wordt de oppervlakkige afstroming berekend, maar dit laatste is nog in ontwikkeling
     for i in range(1,lengte):
-        array_grondwaterstand[0,i] = gws_op_t(array_bergingscoefficient[0], array_drainweerstand[0], array_grondwaterstand[0, (i-1)], array_qbot[0], array_hgem[0], array_neerslagoverschot[i])[0]
-        array_grondwaterstand[1,i] = gws_op_t(array_bergingscoefficient[0], array_drainweerstand[0], array_grondwaterstand[0, (i-1)], array_qbot[0], array_hgem[0], array_neerslagoverschot[i])[1]
+        array_grondwaterstand[0,i] = gws_op_t(array_bergingscoefficient[0], array_drainweerstand[0], array_grondwaterstand[0, (i-1)], array_qbot[0], array_hgem[0], array_neerslagoverschot[0][i])[0]
+        array_grondwaterstand[1,i] = gws_op_t(array_bergingscoefficient[0], array_drainweerstand[0], array_grondwaterstand[0, (i-1)], array_qbot[0], array_hgem[0], array_neerslagoverschot[0][i])[1]
 
     
     ###################################################################
     #hieronder wordt het outputbestand met de grondwaterstanden en de oppervlakkige afstroming gemaakt
 
     #startdatum en dates zijn variabelen die in het verloop van het programma gebruikt worden om een array of serie om te kunnen zetten naar een dataframe met datums
-    startdatum = dfNettoNeerslag.ix[0, 'datum']
+    #startdatum = dfNettoNeerslag.ix[0, 'datum']
     dates = pd.date_range(startdatum, periods=lengte)
     
     #dfGWS en serafstroming worden met behulp van pd.Series omgezet in een tijdserie waarbij de grondwaterstanden en afstroming een datum hebben
@@ -100,7 +100,7 @@ def maak_plotje2(x2, y2):
     dfGHGs = GHG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation)[1]
     dfGLGs = GLG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation)[1]
     
-    gt = GT(GHG[0],GLG[0])
+    gt = GT(GHG[0],GLG[0])[1]
 
     ###################################################################
     #plotje maken van de grondwaterstanden en opslaan
