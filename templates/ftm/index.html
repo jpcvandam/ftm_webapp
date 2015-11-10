@@ -15,8 +15,16 @@
       window.open(url);
    }
 </script>
+<script>
+   function bereken_sql() {
+      var y = document.getElementById("latbox").value;
+      var x = document.getElementById("lngbox").value;
+      url = 'grondwaterstand-sql?x=' + x + '&y=' + y;
+      window.open(url);
+   }
+</script>
 <meta charset="utf-8">
-<title>jQuery UI Slider - Default functionality</title>
+<title>FTM op localhost</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -36,6 +44,7 @@ $(function() {
   </div>
   <input id=Grondwaterstand type=button value=Bereken enabled=enabled onclick="bereken();">
   <input id=Grondwaterstand type=button value=Bereken_snel enabled=enabled onclick="bereken_snel();">
+  <input id=Grondwaterstand type=button value=Bereken_sql enabled=enabled onclick="bereken_sql();">
 Selecteer met onderstaande slider de begin (en na verdere ontwikkeling de eind-) datum van de berekening van de grondwaterstanden
   <div id="slider"></div>
 </body>
