@@ -23,15 +23,6 @@
       window.open(url);
    }
 </script>
-<meta charset="utf-8">
-<!-- Include Required Prerequisites -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
- 
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 <title>FTM op localhost</title>
 <body onLoad="initialize()">
 {% block kaartje %}
@@ -41,14 +32,40 @@
     <p>Longitude: <input size="20" type="text" id="lngbox" name="lng" ></p>
   </div>
 {% endblock kaartje %}
+
 {% block knoppen %}  
   <input id=Grondwaterstand type=button value=Bereken enabled=enabled onclick="bereken();">
   <input id=Grondwaterstand type=button value=Bereken_snel enabled=enabled onclick="bereken_snel();">
   <input id=Grondwaterstand type=button value=Bereken_sql enabled=enabled onclick="bereken_sql();">
-{% endblock knoppen %} 
+{% endblock knoppen %}
+ 
 {% block datumrange %}
+<meta charset="utf-8">
+<!-- Include Required Prerequisites -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
+ 
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 <p> Selecteer met onderstaande daterange selector de begin (en na verdere ontwikkeling de eind-) datum van de berekening van de grondwaterstanden </p>
+<input type="text" name="daterange" value="2013-01-01 - 2013-12-31" />
+<script type="text/javascript">
+$('input[name="daterange"]').daterangepicker(
+{
+    locale: {
+      format: 'YYYY-MM-DD'
+    },
+    startDate: '2013-01-01',
+    endDate: '2013-12-31'
+}, 
+function(start, end, label) {
+    alert("U hebt een nieuwe rekenperiode gekozen: " + start.format('YYYY-MM-DD') + ' tot ' + end.format('YYYY-MM-DD'));
+});
+</script>
 {% endblock datumrange %}
+
 {% block grafiek %}
 {% endblock grafiek %}
 </body>
