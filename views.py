@@ -64,6 +64,12 @@ def ftmsql(request):
     gt = data[1]
     ghg = data[2]
     glg = data[3]
-    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gt' :gt})#, 'datum_array':datum_array, 'array_neerslag':array_neerslag, 'array_verdamping':array_verdamping})
+    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gt' :gt})
 
 
+def series_as_csv(series):
+    filename = slugify(series.name) + '.csv'
+    csv = series.to_csv()
+    resp = HttpResponse(csv, content_type='text/csv')
+    resp['Content-Disposition'] = 'attachment; filename=%s' % filename   
+    return resp

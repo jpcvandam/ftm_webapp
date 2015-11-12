@@ -25,11 +25,8 @@ from sql_lezer import meteo_query
 #voor het laatst bijgewerkt op 8 september 2015
 
 
+ 
 
-
-
-###################################################################
-#variabelen
 def maak_plotje(x2, y2):
     nummer_meteostation = 310
     bestandspad='/home/john/ftm/ftm/ftm/data/'
