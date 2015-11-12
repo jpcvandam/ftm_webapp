@@ -75,7 +75,8 @@ def series_as_csv(series, x, y, start, eind):
     filename = slugify(naam) + '.csv'
     buffer = StringIO()
     series.to_csv(buffer, encoding='utf-8') 
-    resp = HttpResponse(buffer, content_type='text/csv')
+    csv = buffer.getvalue()
+    resp = HttpResponse(csv, content_type='text/csv')
     resp['Content-Disposition'] = 'attachment; filename=%s' % filename   
     return resp
 
