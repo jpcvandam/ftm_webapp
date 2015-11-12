@@ -31,7 +31,6 @@ def maak_plotje(x2, y2):
     nummer_meteostation = 310
     bestandspad='/home/john/ftm/ftm/ftm/data/'
     bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
-    bodembestand = bestandspad + 'Bodemdata.txt'
 
     x= str(x2)
     y= str(y2)
@@ -49,36 +48,32 @@ def maak_plotje(x2, y2):
 
 #bodemdata afkomstig uit de QGIS puntenwolk inlezen in een pandas dataframe en dan wegschrijven naar een numpy arrays
     #dfBodem=pd.read_csv(bodembestand, header=None, delimiter =',', names = ['#runn', 'al', 'hgem', 'drainw', 'berg', 'qbot' ])
-    array_bergingscoefficient = np.array([float(raster_q("/home/john/ftm/ftm/ftm/data/bergcoef-nzv.tif", x, y))])
-    array_drainweerstand = np.array([float(raster_q("/home/john/ftm/ftm/ftm/data/drainw-nzv.tif", x, y))])
-    array_qbot = np.array([float(raster_q("/home/john/ftm/ftm/ftm/data/kwel-nzv.tif", x, y))])
-    array_hgem = np.array([float(raster_q("/home/john/ftm/ftm/ftm/data/ontwbas-nzv.tif", x, y))*-1.0])
+    array_bergingscoefficient = np.array([float(raster_q(bestandspad + "bergcoef-nzv.tif", x, y))])
+    array_drainweerstand = np.array([float(raster_q(bestandspad + "drainw-nzv.tif", x, y))])
+    array_qbot = np.array([float(raster_q(bestandspad + "kwel-nzv.tif", x, y))])
+    array_hgem = np.array([float(raster_q(bestandspad + "ontwbas-nzv.tif", x, y))*-1.0])
 
-    #array_drainweerstand = dfBodem['drainw'].values
-    #array_hgem = dfBodem['hgem'].values
-    #array_bergingscoefficient = dfBodem['berg'].values
-    #array_qbot = dfBodem['qbot'].values
-#print str(datetime.now()) + 'array vullen met nullen'
+
 #array grondwaterstand voorbereiden en vullen met nullen, zodoende begint de berekening altijd op 0 cm-mv en gaat python niet klagen over de positieaanduiding in een nog niet bestaande array
     array_grondwaterstand = np.zeros(shape = (2, lengte), order='C')
-#print str(datetime.now()) + 'beginnen met rekenen'
+
 #door de functie gws_op_t uit het rekenhart aan te roepen en met behulp van een for loop uit te voeren wordt voor iedere dag de grondwaterstand berekend met de netto neerslag en de bodemdata, tegelijk wordt de oppervlakkige afstroming berekend, maar dit laatste is nog in ontwikkeling
     for i in range(1,lengte):
         array_grondwaterstand[0,i] = gws_op_t(array_bergingscoefficient[0], array_drainweerstand[0], array_grondwaterstand[0, (i-1)], array_qbot[0], array_hgem[0], array_neerslagoverschot[i])[0]
         array_grondwaterstand[1,i] = gws_op_t(array_bergingscoefficient[0], array_drainweerstand[0], array_grondwaterstand[0, (i-1)], array_qbot[0], array_hgem[0], array_neerslagoverschot[i])[1]
 
-#print str(datetime.now()) + 'data aanmaken voor series'
+
 ###################################################################
 #hieronder wordt het outputbestand met de grondwaterstanden en de oppervlakkige afstroming gemaakt
 
 #startdatum en dates zijn variabelen die in het verloop van het programma gebruikt worden om een array of serie om te kunnen zetten naar een dataframe met datums
     startdatum = dfNettoNeerslag.ix[0, 'datum']
     dates = pd.date_range(startdatum, periods=lengte)
-    #print str(datetime.now()) + 'array naar series'
+    
 #dfGWS en serafstroming worden met behulp van pd.Series omgezet in een tijdserie waarbij de grondwaterstanden en afstroming een datum hebben
     dfGWS = pd.Series(array_grondwaterstand[0], index=dates)
     serafstroming = pd.Series(array_grondwaterstand[1], index=dates)
-    #print str(datetime.now()) + 'frames maken van grondwaterstanden en afstroming'
+    
 #de net gemaakte tijdseries worden omgezet in een dataframe, dat is gemakkelijker met pandas te hanteren voor wegschrijven naar csv en plotten
     dfGrondwaterstanden = dfGWS.to_frame(name = 'Grondwaterstanden')
     dfAfstroming = serafstroming.to_frame(name = 'Afstroming')
@@ -248,10 +243,10 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
 
     #bodemdata afkomstig uit de QGIS puntenwolk inlezen in een pandas dataframe en dan wegschrijven naar een numpy arrays
     
-    array_bergingscoefficient = np.array([float(raster_q("/home/john/ftm/ftm/ftm/data/bergcoef-nzv.tif", x, y))])
-    array_drainweerstand = np.array([float(raster_q("/home/john/ftm/ftm/ftm/data/drainw-nzv.tif", x, y))])
-    array_qbot = np.array([float(raster_q("/home/john/ftm/ftm/ftm/data/kwel-nzv.tif", x, y))])
-    array_hgem = np.array([float(raster_q("/home/john/ftm/ftm/ftm/data/ontwbas-nzv.tif", x, y))*-1.0])
+    array_bergingscoefficient = np.array([float(raster_q(bestandspad + "bergcoef-nzv.tif", x, y))])
+    array_drainweerstand = np.array([float(raster_q(bestandspad + "drainw-nzv.tif", x, y))])
+    array_qbot = np.array([float(raster_q(bestandspad + "kwel-nzv.tif", x, y))])
+    array_hgem = np.array([float(raster_q(bestandspad + "ontwbas-nzv.tif", x, y))*-1.0])
 
 
     #array grondwaterstand voorbereiden en vullen met nullen, zodoende begint de berekening altijd op 0 cm-mv en gaat python niet klagen over de positieaanduiding in een nog niet bestaande array

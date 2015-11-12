@@ -15,6 +15,18 @@ Tijdreeks voor x={{x}} en y = {{y}}
 
 {% block content %}
 
+{% block download %}
+<script>
+function download_csv(){
+	var x = {{x}};
+	var y = {{y}};
+	url = 'download-reeks?x=' + x + '&y=' + y + '&startdatum=2005-01-01' + '&einddatum=2015-11-08';
+		      window.open(url);
+}
+</script>
+<p><input id=Download_csv type=button value=Download_csv enabled=enabled onclick="download_csv();"></p>
+{% endblock download %}
+
 <table>
   <tr>
     <th>Parameters</th>
