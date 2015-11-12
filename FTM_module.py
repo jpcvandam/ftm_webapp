@@ -96,7 +96,7 @@ def maak_plotje(x2, y2):
 ###################################################################
 #plotje maken van de grondwaterstanden en opslaan
 
-    return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2), gt, GHG[0], GLG[0]
+    return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, GHG[0], GLG[0]
 #print str(datetime.now()) + 'print de gt'
 #via de terminal de grondwatertrap en het nummer van die grondwatertrap printen
     #print GT(GHG[0],GLG[0])
@@ -290,6 +290,6 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     ###################################################################
     #plotje maken van de grondwaterstanden en opslaan
     if resultaat == 'plot':
-        return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2), gt, GHG[0],GLG[0]
+        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, GHG[0],GLG[0]
     elif resultaat == 'csv':
         return dfGrondwaterstanden
