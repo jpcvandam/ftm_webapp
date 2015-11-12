@@ -70,7 +70,7 @@ def ftmsql(request):
     #datum_array = data [1]
     #array_neerslag = data[2]
     #array_verdamping = data[3]
-    return render_to_response("ftm/grafiek_sql.html", { 'x':x, 'y':y, 'plotje': plotje})#, 'datum_array':datum_array, 'array_neerslag':array_neerslag, 'array_verdamping':array_verdamping})
+    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje})#, 'datum_array':datum_array, 'array_neerslag':array_neerslag, 'array_verdamping':array_verdamping})
 
 #dit script is de Python variant van het FTM door Jaco van der Gaast in Pascal
 #Auteur: John van Dam

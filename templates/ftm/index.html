@@ -25,6 +25,10 @@
 </script>
 <title>FTM op localhost</title>
 <body onLoad="initialize()">
+{% block tekst1 %}
+<p>Welkom op de site van het fysisch tijdreeksmodel voor freatische grondwaterstanden. Met de webapplicatie die hier gepresenteerd en ontsloten wordt, is het mogelijk om op een eenvoudige manier grondwaterstanden te berekenen in het <b>landelijk gebied</b>.</p>
+{% endblock tekst1 %}
+
 {% block kaartje %}
   <div id="map_canvas" style="width:50%; height:50%"></div>
   <div id="latlong">
@@ -65,6 +69,9 @@ function(start, end, label) {
 });
 </script>
 {% endblock datumrange %}
+
+{% block content %}
+{% endblock content %}
 
 {% block grafiek %}
 {% endblock grafiek %}
