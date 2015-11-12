@@ -31,12 +31,6 @@ def index(request):
     return render_to_response('ftm/index.html')
 
 
-
-
-
-
-
-
 ###################################################################
 #hier komt dan het ftm
 def ftm(request):
@@ -49,10 +43,6 @@ def ftm(request):
     ghg = data[2]
     glg = data[3]
     return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gt' :gt})
-    #return render_to_response('ftm/index.html', {
-     #   'waypoints': waypoints,
-      #  'content': render_to_response('ftm/grafiek.html', {plotje=plotje, x=x, y=y}),
-    #})
 
 
 def ftmsnel(request):
