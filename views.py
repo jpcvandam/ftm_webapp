@@ -24,6 +24,7 @@ from plot_GWS import *
 from raster import raster_q
 from FTM_module import maak_plotje, supersnel_ftm, maak_plotje2
 from django.template.context_processors import request
+from StringIO import StringIO
 
 
 
@@ -71,9 +72,10 @@ def ftmsql(request):
 
 def series_as_csv(series):
     naam = 'grondwaterstanden'
-    filename = 'ftm/static/' +slugify(naam) + '.csv'
-    csv = series.to_csv(filename)
-    resp = HttpResponse(csv, content_type='text/csv')
+    filename = slugify(naam) + '.csv'
+    buffer = StringIO()
+    series.to_csv(buffer, encoding='utf-8') 
+    resp = HttpResponse(buffer, content_type='text/csv')
     resp['Content-Disposition'] = 'attachment; filename=%s' % filename   
     return resp
 
@@ -84,4 +86,4 @@ def download_reeks(request):
     startdatum = request.GET.get('startdatum')
     einddatum = request.GET.get('einddatum')
     GWS = maak_plotje2(x, y, startdatum, einddatum, 'csv')
-    return render_to_response(series_as_csv(GWS))
+    return series_as_csv(GWS)
