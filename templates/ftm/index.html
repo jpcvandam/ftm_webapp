@@ -36,7 +36,6 @@
 <body onLoad="initialize()">
 {% block kaartje %}
   <div id="map_canvas" style="width:50%; height:50%"></div>
-
   <div id="latlong">
     <p>Latitude: <input size="20" type="text" id="latbox" name="lat" ></p>
     <p>Longitude: <input size="20" type="text" id="lngbox" name="lng" ></p>
@@ -47,8 +46,9 @@
   <input id=Grondwaterstand type=button value=Bereken_snel enabled=enabled onclick="bereken_snel();">
   <input id=Grondwaterstand type=button value=Bereken_sql enabled=enabled onclick="bereken_sql();">
 {% endblock knoppen %} 
-
+{% block datumrange %}
 <p> Selecteer met onderstaande daterange selector de begin (en na verdere ontwikkeling de eind-) datum van de berekening van de grondwaterstanden </p>
+{% endblock datumrange %}
 {% block grafiek %}
 {% endblock grafiek %}
 </body>

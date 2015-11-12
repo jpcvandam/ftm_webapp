@@ -1,5 +1,7 @@
+{% extends "ftm/index.html" %}
+{% block knoppen %}{% endblock knoppen %}
+{% block grafiek %}
 <html>
-<link rel="import" href="index.html">
 <body>
 {% load staticfiles %}
 <p>
@@ -8,3 +10,4 @@ Tijdreeks voor x={{x}} en y = {{y}}
 <img src="{% static plotje %}" alt="Tijdstijghoogtelijn"/>
 </body>
 </html>
+{% endblock grafiek %}
