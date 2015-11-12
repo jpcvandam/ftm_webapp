@@ -70,8 +70,9 @@ def ftmsql(request):
 
 
 def series_as_csv(series):
-    filename = slugify(series) + '.csv'
-    csv = series.to_csv()
+    naam = 'grondwaterstanden'
+    filename = 'ftm/static/' +slugify(naam) + '.csv'
+    csv = series.to_csv(filename)
     resp = HttpResponse(csv, content_type='text/csv')
     resp['Content-Disposition'] = 'attachment; filename=%s' % filename   
     return resp
@@ -82,6 +83,5 @@ def download_reeks(request):
     y = request.GET.get('y')
     startdatum = request.GET.get('startdatum')
     einddatum = request.GET.get('einddatum')
-    data = maak_plotje2(x, y, startdatum, einddatum, 'csv')
-    GWS=data[0]    
+    GWS = maak_plotje2(x, y, startdatum, einddatum, 'csv')
     return render_to_response(series_as_csv(GWS))

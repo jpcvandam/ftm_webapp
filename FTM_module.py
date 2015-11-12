@@ -297,4 +297,4 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     if resultaat == 'plot':
         return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2), gt, GHG[0],GLG[0]
     elif resultaat == 'csv':
-        return dfGWS
+        return dfGrondwaterstanden
