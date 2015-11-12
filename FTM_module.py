@@ -217,7 +217,7 @@ def supersnel_ftm(x2, y2): #gebruikmakend van Jaco's ftm in Pascal
 
 
 
-def maak_plotje2(x2, y2, startdatum, einddatum):
+def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     nummer_meteostation = 280
     bestandspad='/home/john/ftm/ftm/ftm/data/'
     bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
@@ -294,5 +294,7 @@ def maak_plotje2(x2, y2, startdatum, einddatum):
 
     ###################################################################
     #plotje maken van de grondwaterstanden en opslaan
-
-    return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2), gt, GHG[0],GLG[0] #, datum_array, array_neerslag1, array_verdamping1
+    if resultaat == 'plot':
+        return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2), gt, GHG[0],GLG[0]
+    elif resultaat == 'csv':
+        return dfGWS
