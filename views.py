@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.db import connection
 from django.shortcuts import render_to_response#, 
 from django.template.loader import render_to_string 
+from django.utils.text import slugify
 #import simplejson
 
 ##imports om te rekenen
@@ -22,6 +23,7 @@ from GT import GT
 from plot_GWS import *
 from raster import raster_q
 from FTM_module import maak_plotje, supersnel_ftm, maak_plotje2
+from django.template.context_processors import request
 
 
 
@@ -73,3 +75,8 @@ def series_as_csv(series):
     resp = HttpResponse(csv, content_type='text/csv')
     resp['Content-Disposition'] = 'attachment; filename=%s' % filename   
     return resp
+
+def download_reeks(request):
+    'Download de berekende reeks'
+    GWS=[1,2,3,4]
+    return render_to_response(series_as_csv(GWS))

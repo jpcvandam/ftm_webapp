@@ -26,5 +26,6 @@ urlpatterns = patterns('ftm.views',
     url(r'^grondwaterstand$', views.ftm, name='grondwaterstand'),
     url(r'^grondwaterstand-snel$', views.ftmsnel, name='grondwaterstand-snel'),
     url(r'^grondwaterstand-sql$', views.ftmsql, name='grondwaterstand-sql'),
+    url(r'^download-reeks$', views.download_reeks)
 )
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
