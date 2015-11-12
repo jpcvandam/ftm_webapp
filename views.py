@@ -43,8 +43,12 @@ def ftm(request):
     'Grondwaterstand'
     x = request.GET.get('x')
     y = request.GET.get('y')
-    plotje = maak_plotje(x, y)
-    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje})
+    data = maak_plotje(x, y)
+    plotje = data[0]
+    gt = data[1]
+    ghg = data[2]
+    glg = data[3]
+    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gt' :gt})
     #return render_to_response('ftm/index.html', {
      #   'waypoints': waypoints,
       #  'content': render_to_response('ftm/grafiek.html', {plotje=plotje, x=x, y=y}),
@@ -66,11 +70,11 @@ def ftmsql(request):
     startdatum = request.GET.get('startdatum')
     einddatum = request.GET.get('einddatum')
     data = maak_plotje2(x, y, startdatum, einddatum)
-    plotje = data
-    #datum_array = data [1]
-    #array_neerslag = data[2]
-    #array_verdamping = data[3]
-    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje})#, 'datum_array':datum_array, 'array_neerslag':array_neerslag, 'array_verdamping':array_verdamping})
+    plotje = data[0]
+    gt = data[1]
+    ghg = data[2]
+    glg = data[3]
+    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gt' :gt})#, 'datum_array':datum_array, 'array_neerslag':array_neerslag, 'array_verdamping':array_verdamping})
 
 #dit script is de Python variant van het FTM door Jaco van der Gaast in Pascal
 #Auteur: John van Dam
@@ -157,8 +161,7 @@ def maak_plotje(x2, y2):
 ###################################################################
 #plotje maken van de grondwaterstanden en opslaan
 
-    return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2)
-
+    return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2), gt, GHG[0], GLG[0]
 #print str(datetime.now()) + 'print de gt'
 #via de terminal de grondwatertrap en het nummer van die grondwatertrap printen
     #print GT(GHG[0],GLG[0])

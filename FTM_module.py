@@ -100,4 +100,4 @@ def maak_plotje2(x2, y2, startdatum, einddatum):
     ###################################################################
     #plotje maken van de grondwaterstanden en opslaan
 
-    return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2)#, datum_array, array_neerslag1, array_verdamping1
+    return plot(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, bestandspad_plot, x2, y2), gt, GHG[0],GLG[0] #, datum_array, array_neerslag1, array_verdamping1
