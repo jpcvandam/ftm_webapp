@@ -86,5 +86,7 @@ def download_reeks(request):
     y = request.GET.get('y')
     startdatum = request.GET.get('startdatum')
     einddatum = request.GET.get('einddatum')
-    GWS = maak_plotje2(x, y, startdatum, einddatum, 'csv')
+    GWS = maak_plotje2(x, y, startdatum, einddatum, 'csv')[0]
+    startdatum = maak_plotje2(x, y, startdatum, einddatum, 'csv')[1]
+    
     return series_as_csv(GWS, x, y, startdatum, einddatum)
