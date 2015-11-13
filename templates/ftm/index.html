@@ -19,7 +19,7 @@
    function bereken_sql() {
       var y = document.getElementById("latbox").value;
       var x = document.getElementById("lngbox").value;
-      url = 'grondwaterstand-sql?x=' + x + '&y=' + y + '&startdatum=2015-01-01' + '&einddatum=2015-11-08';
+      url = 'grondwaterstand-sql?x=' + x + '&y=' + y + '&startdatum=2005-01-01' + '&einddatum=2015-11-08';
       window.open(url);
    }
 </script>
@@ -140,6 +140,7 @@ function initialize() {
 <body onLoad="initialize()">
 {% block tekst1 %}
 <p>Welkom op de site van het fysisch tijdreeksmodel voor freatische grondwaterstanden. Met de webapplicatie die hier gepresenteerd en ontsloten wordt, is het mogelijk om op een eenvoudige manier grondwaterstanden te berekenen in het <b>landelijk gebied</b>.</p>
+<p> Deze site is het resultaat van een afstudeerstage bij Acacia Water in Gouda <a href="http://www.acaciawater.com" target="_blank">site van Acacia Water</a>. De site is nog volop in ontwikkeling, waardoor het nog niet verstandig is om er voor 100% op te vertrouwen dat de gegenereerde resultaten kloppen en dat de site lekker werkt, aan die zaken wordt nog volop gewerkt.</p> 
 {% endblock tekst1 %}
 
 {% block kaartje %}
