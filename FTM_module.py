@@ -235,6 +235,8 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     datum_array = np.array(datum)
     array_neerslagoverschot = np.zeros(shape = (1, lengte), order='C')
     
+    startdatum = datum_array[0]
+    
     for i in range(0, lengte):
         array_neerslagoverschot[0][i] = int(array_neerslag1[i]) - int(array_verdamping1[i])
     
