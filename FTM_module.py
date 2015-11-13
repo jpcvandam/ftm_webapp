@@ -236,6 +236,7 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     array_neerslagoverschot = np.zeros(shape = (1, lengte), order='C')
     
     startdatum = datum_array[0]
+    einddatum = datum_array[lengte-1]
     
     for i in range(0, lengte):
         array_neerslagoverschot[0][i] = int(array_neerslag1[i]) - int(array_verdamping1[i])
@@ -266,7 +267,7 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
 
     #startdatum en dates zijn variabelen die in het verloop van het programma gebruikt worden om een array of serie om te kunnen zetten naar een dataframe met datums
     #startdatum = dfNettoNeerslag.ix[0, 'datum']
-    dates = pd.date_range(startdatum, periods=lengte)
+    dates = datum_array #pd.date_range(startdatum, periods=lengte)
     
     #dfGWS en serafstroming worden met behulp van pd.Series omgezet in een tijdserie waarbij de grondwaterstanden en afstroming een datum hebben
     dfGWS = pd.Series(array_grondwaterstand[0], index=dates)
@@ -295,4 +296,4 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     if resultaat == 'plot':
         return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, GHG[0],GLG[0]
     elif resultaat == 'csv':
-        return dfGrondwaterstanden, startdatum
+        return dfGrondwaterstanden, startdatum, einddatum
