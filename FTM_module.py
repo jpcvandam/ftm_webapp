@@ -18,6 +18,7 @@ from GT import GT
 from plot_GWS import *
 from raster import raster_q
 from sql_lezer import meteo_query
+from ftm.settings import DATA_ROOT
 
 #dit script is de Python variant van het FTM door Jaco van der Gaast in Pascal
 #Auteur: John van Dam
@@ -29,8 +30,8 @@ from sql_lezer import meteo_query
 
 def maak_plotje(x2, y2):
     nummer_meteostation = 310
-    bestandspad='/home/john/ftm/ftm/ftm/data/'
-    bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
+    bestandspad = DATA_ROOT #'/home/john/ftm/ftm/ftm/data/'
+    #bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
 
     x= str(x2)
     y= str(y2)
@@ -112,7 +113,7 @@ def FTM(opdrachtparameters, meteo, naam):
 
 def supersnel_ftm(x2, y2): #gebruikmakend van Jaco's ftm in Pascal
     #varabelen
-    werkdirectory = '/home/john/ftm/ftm/ftm/data'
+    werkdirectory = DATA_ROOT #'/home/john/ftm/ftm/ftm/data'
     bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
     naam = str(x2)+'_'+str(y2)
     meteobestand = 'METEO280.txt'
@@ -125,10 +126,10 @@ def supersnel_ftm(x2, y2): #gebruikmakend van Jaco's ftm in Pascal
     output_file.write(unicode_line)
     runn = 1
     al = 365
-    hgem = float(raster_q("/home/john/ftm/ftm/ftm/data/ontwbas-nzv.tif", x2, y2)) * -1
-    drainw = float(raster_q("/home/john/ftm/ftm/ftm/data/drainw-nzv.tif", x2, y2))
-    berg = float(raster_q("/home/john/ftm/ftm/ftm/data/bergcoef-nzv.tif", x2, y2))# f['bergcoef10'] / 100
-    qbot = float(raster_q("/home/john/ftm/ftm/ftm/data/kwel-nzv.tif", x2, y2)) #f['kwel10'] / 10
+    hgem = float(raster_q(werkdirectory + "ontwbas-nzv.tif", x2, y2)) * -1
+    drainw = float(raster_q(werkdirectory + "drainw-nzv.tif", x2, y2))
+    berg = float(raster_q(werkdirectory + "bergcoef-nzv.tif", x2, y2))# f['bergcoef10'] / 100
+    qbot = float(raster_q(werkdirectory + "kwel-nzv.tif", x2, y2)) #f['kwel10'] / 10
     line = '%8.0f%8.0f%8.0f%8.0f%8.3f%8.3f\n' % (runn,al,hgem,drainw,berg,qbot)
     unicode_line = line.encode('utf-8')
     output_file.write(unicode_line)    
@@ -214,8 +215,8 @@ def supersnel_ftm(x2, y2): #gebruikmakend van Jaco's ftm in Pascal
 
 def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     nummer_meteostation = 280
-    bestandspad='/home/john/ftm/ftm/ftm/data/'
-    bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
+    bestandspad= DATA_ROOT #'/home/john/ftm/ftm/ftm/data/'
+    #bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
     
     x= str(x2)
     y= str(y2)
