@@ -8,18 +8,12 @@
    }
 </script>
 <script>
-   function bereken_snel() {
+   function bereken_sql(start, end) {
       var y = document.getElementById("latbox").value;
       var x = document.getElementById("lngbox").value;
-      url = 'grondwaterstand-snel?x=' + x + '&y=' + y;
-      window.open(url);
-   }
-</script>
-<script>
-   function bereken_sql() {
-      var y = document.getElementById("latbox").value;
-      var x = document.getElementById("lngbox").value;
-      url = 'grondwaterstand-sql?x=' + x + '&y=' + y + '&startdatum=2005-01-01' + '&einddatum=2015-11-08';
+      var startdatum = '2005-01-01';
+      var einddatum = '2015-11-15';
+      url = 'grondwaterstand-sql?x=' + x + '&y=' + y + '&startdatum=' + startdatum + '&einddatum=' + einddatum ;
       window.open(url);
    }
 </script>
@@ -157,7 +151,6 @@ Op het moment dat de berekeningen voor dit beperkte proefgebied goed werken en e
 
 {% block knoppen %}  
   <input id=Grondwaterstand type=button value=Bereken enabled=enabled onclick="bereken();">
-  <input id=Grondwaterstand type=button value=Bereken_snel disabled=disabled onclick="bereken_snel();">
   <input id=Grondwaterstand type=button value=Bereken_sql enabled=enabled onclick="bereken_sql();">
 <p>De knop 'bereken' zorgt dat er een tijdreeks gegenereerd wordt voor de periode van 1 januari 1970 tot ergens in oktober 2015, hierin is niet te selecteren van wanneer tot wanneer de berekening moet lopen </p>
 <p>De knop 'bereken_snel' maakt gebruik van het originele ftm in Pascal, deze heeft dezelfde functionaliteit als de knop 'bereken', maar werkt sneller. Deze knop zal verdwijnen, omdat deze een flinke hoeveelheid bestanden genereerd, die maar voor eenmalig gebruik zijn.</p>
