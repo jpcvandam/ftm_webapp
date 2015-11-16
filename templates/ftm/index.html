@@ -11,8 +11,8 @@
 function bereken_sql() {
 	var y = document.getElementById("latbox").value;
 	var x = document.getElementById("lngbox").value;
-	var startdatum = '2005-01-01';
-	var einddatum = '2015-11-15';
+	var startdatum = document.getElementById('startdatum').innerHTML;
+	var einddatum = document.getElementById('einddatum').innerHTML;
 	url = 'grondwaterstand-sql?x=' + x + '&y=' + y + '&startdatum=' + startdatum + '&einddatum=' + einddatum ;
 	window.open(url);
 }
@@ -169,18 +169,28 @@ Op het moment dat de berekeningen voor dit beperkte proefgebied goed werken en e
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 <p> Selecteer met onderstaande daterange selector de begin (en na verdere ontwikkeling de eind-) datum van de berekening van de grondwaterstanden </p>
 <b>Let op, deze daterange selector doet wel iets, maar de gegevens hieruit worden niet doorgegegeven aan de sql-query, het gebruik ervan is nu nog zinloos</b>
-<input type="text" name="daterange" value="2013-01-01 - 2013-12-31" />
+<input type="text" name="daterange" value="2005-01-01 - 2015-11-15" />
+<p id='startdatum'></p>
+<p id='einddatum'></p>
 <script type="text/javascript">
+var start = '2005-01-01';
+var end = '2015-11-15';
+document.getElementById('startdatum').innerHTML = start;
+document.getElementById('einddatum').innerHTML = end;
 $('input[name="daterange"]').daterangepicker(
 {
+	showDropdowns: true,
     locale: {
       format: 'YYYY-MM-DD'
     },
     startDate: '2005-01-01',
-    endDate: '2013-12-31'
-}, 
+    endDate: '2015-11-15'
+	
+},
 function(start, end, label) {
     alert("U hebt een nieuwe rekenperiode gekozen: " + start.format('YYYY-MM-DD') + ' tot ' + end.format('YYYY-MM-DD'));
+    document.getElementById('startdatum').innerHTML = start.format('YYYY-MM-DD');
+    document.getElementById('einddatum').innerHTML = end.format('YYYY-MM-DD');
 });
 </script>
 {% endblock datumrange %}
