@@ -272,7 +272,7 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     #dfGWS en serafstroming worden met behulp van pd.Series omgezet in een tijdserie waarbij de grondwaterstanden en afstroming een datum hebben
     dfGWS = pd.Series(array_grondwaterstand[0], index=dates)
     serafstroming = pd.Series(array_grondwaterstand[1], index=dates)
-    #print str(datetime.now()) + 'frames maken van grondwaterstanden en afstroming'
+    
     #de net gemaakte tijdseries worden omgezet in een dataframe, dat is gemakkelijker met pandas te hanteren voor wegschrijven naar csv en plotten
     dfGrondwaterstanden = dfGWS.to_frame(name = 'Grondwaterstanden')
     dfAfstroming = serafstroming.to_frame(name = 'Afstroming')
@@ -280,8 +280,7 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
 
     dfOutput = pd.merge(dfGrondwaterstanden, dfAfstroming,how='inner', on=None, left_on=None, right_on=None, left_index=True, right_index=True)
     #variabele bestandsnaam voor het grondwaterstandenbestand, deze is afhankelijk van het meteostationsnummer om bij verschillende tijdseries niet over de vorige heen te schrijven
-    #GWSbestand_uit = 'GWS_out_'+str(nummer_meteostation)+'.csv'
-    #dfOutput.to_csv(GWSbestand_uit,  index=True, sep=',')
+    
 
     #met behulp van de module GxG.py worden de GHG en GLG berekend en voor het plotten in een dataframe met datums gestopt, anders kan er geen horizontale lijn voor een getal geplot worden
     GHG = GHG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation)[0]
