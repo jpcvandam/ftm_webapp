@@ -18,7 +18,7 @@ from GT import GT
 from plot_GWS import *
 from raster import raster_q
 from sql_lezer import meteo_query
-from ftm.settings import DATA_ROOT
+from ftm.settings import DATA_ROOT, STATIC_ROOT
 
 #dit script is de Python variant van het FTM door Jaco van der Gaast in Pascal
 #Auteur: John van Dam
@@ -30,8 +30,7 @@ from ftm.settings import DATA_ROOT
 
 def maak_plotje(x2, y2):
     nummer_meteostation = 310
-    bestandspad = DATA_ROOT #'/home/john/ftm/ftm/ftm/data/'
-    #bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
+    bestandspad = DATA_ROOT 
 
     x= str(x2)
     y= str(y2)
@@ -114,7 +113,7 @@ def FTM(opdrachtparameters, meteo, naam):
 def supersnel_ftm(x2, y2): #gebruikmakend van Jaco's ftm in Pascal
     #varabelen
     werkdirectory = DATA_ROOT #'/home/john/ftm/ftm/ftm/data'
-    bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
+    bestandspad_plot = STATIC_ROOT
     naam = str(x2)+'_'+str(y2)
     meteobestand = 'METEO280.txt'
 
@@ -215,8 +214,7 @@ def supersnel_ftm(x2, y2): #gebruikmakend van Jaco's ftm in Pascal
 
 def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     nummer_meteostation = 280
-    bestandspad= DATA_ROOT #'/home/john/ftm/ftm/ftm/data/'
-    #bestandspad_plot='/home/john/ftm/ftm/ftm/static/'
+    bestandspad= DATA_ROOT 
     
     x= str(x2)
     y= str(y2)
