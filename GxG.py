@@ -26,8 +26,8 @@ def GLG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation):
     GLG = extremen_l.mean()
     array_GLG = np.full((1, len(array_neerslagoverschot)), GLG, order='C') #maak een array met de uiteindelijke GLG om die later te kunnen plotten
     dfGLGs = pd.Series(array_GLG[0], index=dates) #array converteren naar pandas dataframe, omdat dat makkelijker plot
-    GLGbestand_uit = 'GLG_out_'+str(nummer_meteostation)+'.csv'
-    dfGLG.to_csv(GLGbestand_uit,  index=True, sep=',')
+    #GLGbestand_uit = 'GLG_out_'+str(nummer_meteostation)+'.csv'
+    #dfGLG.to_csv(GLGbestand_uit,  index=True, sep=',')
     return GLG, dfGLGs
 
 ###################################################################
@@ -51,7 +51,7 @@ def GHG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation):
     GHG = extremen_h.mean()
     array_GHG = np.full((1, len(array_neerslagoverschot)), GHG, order='C') #maak een array met de uiteindelijke GHG om die later te kunnen plotten
     dfGHGs = pd.Series(array_GHG[0], index=dates) #array converteren naar pandas dataframe, omdat dat makkelijker plot
-    GHGbestand_uit = 'GHG_out_'+str(nummer_meteostation)+'.csv'
-    dfGHGs.to_csv(GHGbestand_uit,  index=True, sep=',')
+    #GHGbestand_uit = 'GHG_out_'+str(nummer_meteostation)+'.csv'
+    #dfGHGs.to_csv(GHGbestand_uit,  index=True, sep=',')
     return GHG, dfGHGs
 ###################################################################
