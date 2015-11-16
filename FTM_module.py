@@ -293,6 +293,6 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     ###################################################################
     #plotje maken van de grondwaterstanden en opslaan
     if resultaat == 'plot':
-        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, GHG[0],GLG[0]
+        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, GHG[0],GLG[0], startdatum, einddatum
     elif resultaat == 'csv':
         return dfGrondwaterstanden, startdatum, einddatum

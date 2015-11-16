@@ -67,7 +67,9 @@ def ftmsql(request):
     gt = data[1]
     ghg = data[2]
     glg = data[3]
-    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gt' :gt})
+    startdatum = data[4]
+    einddatum = data[5]
+    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gt' :gt, 'startdatum':startdatum, 'einddatum':einddatum})
 
 
 def series_as_csv(series, x, y, start, eind):
