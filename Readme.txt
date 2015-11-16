@@ -21,8 +21,8 @@ Vervolgens kan de module GT.py bepalen welke grondwatertrap hoort bij de net bep
 Todo voor in de komende periode:
 #MySQL databank gebruiken voor neerslaggegevens, naar verwachting verbeterd dit de snelheid van de webapplicatie.
 	* de app 'knmi_database' in de repository naast de 'ftm' repository kan het dichtstbijzijnde neerslagstation opzoeken gegeven een set coordinaten, dit wordt onderdeel van de MySQL query.
-	* het ophalen van de meteodata van gisteren en eergisteren kan en gaat nu automatisch met een crontab, het bijwerken van de databank moet nog worden geautomatiseerd. 
-#Mogelijkheid inbouwen om een rekenperiode te selecteren, hangt samen met het gebruik van MySQL, omdat hierbij door een query precies die data opgehaald wordt die nodig is om de gevraagde periode door te rekenen.
+ 
+
 #Voorspellen van grondwaterstanden aan de hand van weersvoorspellingen van het KNMI.
 #Resultaten plotten met behulp van een javascript in de browser van de gebruiker in plaats van een pythonscript waarvan vervolgens de plot geserveerd wordt.
 #Foutafhandeling voor het geval er naast de kaart geklikt wordt toevoegen
@@ -36,10 +36,14 @@ Todo voor in de komende periode:
 
 Uit Todo gerealiseerd
 # 05/11/2015  De door GT.py bepaalde grondwatertrap aan de gebruiker tonen als tekstveld linksboven in de plot.
-
+# 12/11/2015 MySQL databank gebruiken voor neerslaggegevens, naar verwachting verbeterd dit de snelheid van de webapplicatie.
+	* 11/11/2015  het ophalen van de meteodata van gisteren en eergisteren kan en gaat nu automatisch met een crontab, het bijwerken van de databank moet nog worden geautomatiseerd.
+# 13/11/2015 Mogelijkheid inbouwen om een rekenperiode te selecteren, hangt samen met het gebruik van MySQL, omdat hierbij door een query precies die data opgehaald wordt die nodig is om de gevraagde periode door te rekenen.	
 
 ######################################################################################
 An English translation of this Readme will folow in the (near) future
 
+The files in this repository are needed for the web application which I am developing for my graduation project at Acacia Water.
+FTM means physical time series modeling, which in this case is applied to phreatic groundwater levels.
 
 Please send any questions or remarks to jpcvandam@gmail.com 
