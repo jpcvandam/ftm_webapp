@@ -20,7 +20,9 @@ Tijdreeks voor x={{x}} en y = {{y}}
 function download_csv(){
 	var x = {{x}};
 	var y = {{y}};
-	url = 'download-reeks?x=' + x + '&y=' + y + '&startdatum=2005-01-01' + '&einddatum=2015-11-08';
+	var startdatum = '2005-01-01';
+	var einddatum = '2015-11-15';
+	url = 'download-reeks?x=' + x + '&y=' + y + '&startdatum=' + startdatum + '&einddatum=' + einddatum;
 		      window.open(url);
 }
 </script>

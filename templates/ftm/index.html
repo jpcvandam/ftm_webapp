@@ -7,15 +7,15 @@
       window.open(url);
    }
 </script>
-<script>
-   function bereken_sql(start, end) {
-      var y = document.getElementById("latbox").value;
-      var x = document.getElementById("lngbox").value;
-      var startdatum = '2005-01-01';
-      var einddatum = '2015-11-15';
-      url = 'grondwaterstand-sql?x=' + x + '&y=' + y + '&startdatum=' + startdatum + '&einddatum=' + einddatum ;
-      window.open(url);
-   }
+<script>		
+function bereken_sql() {
+	var y = document.getElementById("latbox").value;
+	var x = document.getElementById("lngbox").value;
+	var startdatum = '2005-01-01';
+	var einddatum = '2015-11-15';
+	url = 'grondwaterstand-sql?x=' + x + '&y=' + y + '&startdatum=' + startdatum + '&einddatum=' + einddatum ;
+	window.open(url);
+}
 </script>
 
 {% block functie_init_kaartje %}
@@ -176,7 +176,7 @@ $('input[name="daterange"]').daterangepicker(
     locale: {
       format: 'YYYY-MM-DD'
     },
-    startDate: '2013-01-01',
+    startDate: '2005-01-01',
     endDate: '2013-12-31'
 }, 
 function(start, end, label) {
