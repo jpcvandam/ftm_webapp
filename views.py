@@ -30,8 +30,9 @@ from StringIO import StringIO
 
 def index(request):
     'Display map'
-    
-    return render_to_response('ftm/index.html')
+    x = 6.5108
+    y = 53.3847
+    return render_to_response('ftm/index.html',{'x':x, 'y':y})
 
 
 ###################################################################
