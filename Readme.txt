@@ -29,7 +29,7 @@ Todo voor in de komende periode:
 #Kaartgrens van de rasters op de GoogleMaps ondergrond plotten
 #Website mooier maken, 
 	* onder andere door hem geschikt te maken voor mobiele browsers. De twitter-bootstrap-api wordt hier waarschijnlijk voor gebruikt.
-	* de gebruiker laten zien waar hij/zij geklikt heeft door de kaart met de pin te "kopiëren" naar het nieuwe tabblad wat geopend word.
+	
 #Mogelijkheid inbouwen om met de ontwateringsbasis te spelen, het rekenhart moet hiervoor wel veranderd worden, omdat een variabele ontwateringsbasis een net iets andere formule gebruikt.
 #API maken om het de app via de commandoregel te gebruiken of in andere applicaties van Acacia.
 
@@ -39,6 +39,8 @@ Uit Todo gerealiseerd
 # 12/11/2015 MySQL databank gebruiken voor neerslaggegevens, naar verwachting verbeterd dit de snelheid van de webapplicatie.
 	* 11/11/2015  het ophalen van de meteodata van gisteren en eergisteren kan en gaat nu automatisch met een crontab, het bijwerken van de databank moet nog worden geautomatiseerd.
 # 13/11/2015 Mogelijkheid inbouwen om een rekenperiode te selecteren, hangt samen met het gebruik van MySQL, omdat hierbij door een query precies die data opgehaald wordt die nodig is om de gevraagde periode door te rekenen.	
+# 17/11/2015 Website mooier maken,
+	* 17/11/2015 de gebruiker laten zien waar hij/zij geklikt heeft door de kaart met de pin te "kopiëren" naar het nieuwe tabblad wat geopend word.
 
 ######################################################################################
 An English translation of this Readme will folow in the (near) future
