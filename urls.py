@@ -23,8 +23,6 @@ admin.autodiscover()
 urlpatterns = patterns('ftm.views',
     (r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index, name='ftm-index'),
-    url(r'^grondwaterstand$', views.ftm, name='grondwaterstand'),
-    url(r'^grondwaterstand-snel$', views.ftmsnel, name='grondwaterstand-snel'),
     url(r'^grondwaterstand-sql$', views.ftmsql, name='grondwaterstand-sql'),
     url(r'^download-reeks$', views.download_reeks)
 )

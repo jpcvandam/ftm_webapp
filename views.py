@@ -22,7 +22,7 @@ from GxG import *
 from GT import GT
 from plot_GWS import *
 from raster import raster_q
-from FTM_module import maak_plotje, supersnel_ftm, maak_plotje2
+from FTM_module import maak_plotje2
 from django.template.context_processors import request
 from StringIO import StringIO
 
@@ -37,26 +37,7 @@ def index(request):
 
 ###################################################################
 #hier komt dan het ftm
-def ftm(request):
-    'Grondwaterstand'
-    x = request.GET.get('x')
-    y = request.GET.get('y')
-    data = maak_plotje(x, y)
-    plotje = data[0]
-    gt = data[1]
-    ghg = data[2]
-    glg = data[3]
-    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gt' :gt})
-
-
-def ftmsnel(request):
-    'Grondwaterstandsnel'
-    x = request.GET.get('x')
-    y = request.GET.get('y')
-    plotje = supersnel_ftm(x, y)[0]
-    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje})
-
-    
+   
 def ftmsql(request):
     'Grondwaterstand-sql'
     x = request.GET.get('x')
