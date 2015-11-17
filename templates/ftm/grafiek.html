@@ -6,7 +6,7 @@
 <body>
 {% load staticfiles %}
 <p>
-Tijdreeks voor x={{x}} en y = {{y}} vanaf {{startdatum}} tot en met {{einddatum}}
+Tijdreeks voor x={{x}} en y = {{y}} vanaf {{startdatum|date:"Y-m-d"}} tot en met {{einddatum|date:"Y-m-d"}}
 </p>
 <img src="{{plotje}}" alt="Tijdstijghoogtelijn"/>
 </body>
@@ -20,8 +20,8 @@ Tijdreeks voor x={{x}} en y = {{y}} vanaf {{startdatum}} tot en met {{einddatum}
 function download_csv(){
 	var x = {{x}};
 	var y = {{y}};
-	var startdatum = {{startdatum}};
-	var einddatum = {{einddatum}};
+	var startdatum = '{{startdatum|date:"Y-m-d"}}';
+	var einddatum = '{{einddatum|date:"Y-m-d"}}';
 	url = 'download-reeks?x=' + x + '&y=' + y + '&startdatum=' + startdatum + '&einddatum=' + einddatum;
 		      window.open(url);
 }
