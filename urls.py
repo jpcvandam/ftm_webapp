@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls.static import static 
-from django.conf.urls import include, url, patterns
+from django.conf.urls import include, url, patterns, handler404
 from django.contrib import admin
 import settings
 from . import views
@@ -29,3 +29,4 @@ urlpatterns = patterns('ftm.views',
     url(r'^download-reeks$', views.download_reeks)
 )
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+handler404 = views.page_not_found

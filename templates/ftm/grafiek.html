@@ -20,14 +20,15 @@ Tijdreeks voor x={{x}} en y = {{y}} vanaf {{startdatum}} tot en met {{einddatum}
 function download_csv(){
 	var x = {{x}};
 	var y = {{y}};
-	var startdatum = '2005-01-01';
-	var einddatum = '2015-11-15';
+	var startdatum = {{startdatum}};
+	var einddatum = {{einddatum}};
 	url = 'download-reeks?x=' + x + '&y=' + y + '&startdatum=' + startdatum + '&einddatum=' + einddatum;
 		      window.open(url);
 }
 </script>
 <p>Let op, de onderstaande knop maakt gebruik van de functie "bereken_sql", de locatie van de pin op de startpagina wordt gebruikt om de bodemparameters voor het genereren van de reeks in csv op te halen. Het is mogelijk om in de url op rekenperiode aan te passen, deze loopt nu van 1 januari 2005 tot 11 oktober 2015, maar kan in principe vanaf 1 januari 1970 tot gisteren gegenereerd worden.  
 <p><input id=Download_csv type=button value=Download_csv enabled=enabled onclick="download_csv();"></p>
+
 {% endblock download %}
 
 <table>

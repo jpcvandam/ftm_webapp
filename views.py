@@ -92,3 +92,6 @@ def download_reeks(request):
     startdatum = maak_plotje2(x, y, startdatum, einddatum, 'csv')[1]
     einddatum = maak_plotje2(x, y, startdatum, einddatum, 'csv')[2]
     return series_as_csv(GWS, x, y, startdatum, einddatum)
+
+def page_not_found(request):
+    return render(request, "404.html")
