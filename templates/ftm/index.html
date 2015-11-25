@@ -66,12 +66,10 @@ function initialize(myLatlng) {
 
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-    // establish the initial marker/pin
-    var image = '/static/googlepins/pin2.png';  
+    // establish the initial marker/pin 
     marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
-      icon: image,
       title:"Locatie berekening"
     });
 
@@ -97,7 +95,6 @@ function initialize(myLatlng) {
          marker = createMarker(event.latLng, "name", "<b>Location</b><br>"+event.latLng);
         */
 
-        var image = '/static/googlepins/pin2.png';
         var myLatLng = event.latLng ;
         /*  
         var marker = new google.maps.Marker({
@@ -106,7 +103,6 @@ function initialize(myLatlng) {
         marker = new google.maps.Marker({   
             position: myLatLng,
             map: map,
-            icon: image,
             title:"Locatie berekening"
         });
 
