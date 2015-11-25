@@ -12,9 +12,7 @@ function bereken() {
 </script>
 
 {% block functie_init_kaartje %}
-<cfoutput>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=#YOUR-GOOGLE-API-KEY#&sensor=false"></script>
-</cfoutput>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=#YOUR-GOOGLE-API-KEY#&sensor=false"></script>
 
 <script type="text/javascript">
 //<![CDATA[
@@ -117,7 +115,9 @@ function initialize(myLatlng) {
     
 //]]>
 
-</script> 
+</script>
+{% block scripts %}
+{% endblock scripts %}
 {% endblock functie_init_kaartje %}
 <title>FTM op localhost</title>
 

@@ -1,19 +1,21 @@
 {% extends "ftm/index.html" %}
 {% block knoppen %}{% endblock knoppen %}
 {% block datumrange %}{% endblock datumrange %}
+{% block scripts %}
+
+
+{% endblock scripts %}
+
 {% block grafiek %}
-<html>
-<body>
-{% load staticfiles %}
+
 <p>
 Tijdreeks voor x={{x}} en y = {{y}} vanaf {{startdatum|date:"Y-m-d"}} tot en met {{einddatum|date:"Y-m-d"}}
 </p>
 <img src="{{plotje}}" alt="Tijdstijghoogtelijn"/>
-</body>
-</html>
 {% endblock grafiek %}
 
 {% block content %}
+{% block aanpassing %}
   <p>De informatie uit onderstaande tabel wordt pas ververst als de pin op een andere locatie wordt gedropt en er op de knop bereken geklikt wordt. Het interactief maken daarvan is voorlopig nog een punt op de To Do lijst </p> 
   <table>
   <tr><th>Parameters</th><th>Waarde</th><th>Eenheid</th><th>Opmerking</th></tr>
@@ -22,6 +24,39 @@ Tijdreeks voor x={{x}} en y = {{y}} vanaf {{startdatum|date:"Y-m-d"}} tot en met
   <tr><td>Kwel of wegzijging</td><td>{{qbot}}</td><td>cm/dag</td><td>als er sprake is van kwel is dit getal positief, bij wegzijging is het negatief</td></tr>
   <tr><td>Ontwateringsbasis</td><td>{{ontwateringsbasis}}</td><td>cm-mv</td><td></td></tr>
  </table>
+<p>
+<input type="text" id="berg" value="{{bergingscoefficient}}"/>
+<input type="text" id="drain" value="{{drainweerstand}}"/>
+<input type="text" id="qbot" value="{{qbot}}"/>
+<input type="text" id="ontwbas" value="{{ontwateringsbasis}}"/>
+<script>
+
+var formBERG = document.getElementById("berg").innerHTML;
+var formDRAIN = document.getElementById("drain").innerHTML;
+var formQBOT = document.getElementById("qbot").innerHTML;
+var formONTWBAS = document.getElementById("ontwbas").innerHTML;
+//document.getElementById('berg').value=formBERG;
+//document.getElementById('drain').value=formDRAIN;
+//document.getElementById('qbot').value=formQBOT;
+//document.getElementById('ontwbas').value=formONTWBAS;
+
+function bereken_aangepast(){
+	var x = {{x}};
+	var y = {{y}};
+	var startdatum = '{{startdatum|date:"Y-m-d"}}';
+	var einddatum = '{{einddatum|date:"Y-m-d"}}';
+	var berg = document.getElementById('berg').innerHTML;
+	var drain = document.getElementById('drain').innerHTML;
+	var qbot = document.getElementById('qbot').innerHTML;
+	var ontwbas = document.getElementById('ontwbas').innerHTML;
+	url = 'aangepast?x=' + x + '&y=' + y + '&startdatum=' + startdatum + '&einddatum=' + einddatum + '&berg=' + berg + '&drain=' + drain + '&qbot=' + qbot + '&ontwbas=' + ontwbas;
+		      window.open(url);
+}
+</script>
+<input id=aangepast type=button value=Bereken_aangepast enabled=enabled onclick="bereken_aangepast();">
+
+</p>
+ {% endblock aanpassing %}
 {% block download %}
 <script>
 function download_csv(){
