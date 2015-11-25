@@ -45,10 +45,10 @@ function bereken_aangepast(){
 	var y = {{y}};
 	var startdatum = '{{startdatum|date:"Y-m-d"}}';
 	var einddatum = '{{einddatum|date:"Y-m-d"}}';
-	var berg = document.getElementById('berg').innerHTML;
-	var drain = document.getElementById('drain').innerHTML;
-	var qbot = document.getElementById('qbot').innerHTML;
-	var ontwbas = document.getElementById('ontwbas').innerHTML;
+	var berg = document.getElementById('berg').value;
+	var drain = document.getElementById('drain').value;
+	var qbot = document.getElementById('qbot').value;
+	var ontwbas = document.getElementById('ontwbas').value;
 	url = 'aangepast?x=' + x + '&y=' + y + '&startdatum=' + startdatum + '&einddatum=' + einddatum + '&berg=' + berg + '&drain=' + drain + '&qbot=' + qbot + '&ontwbas=' + ontwbas;
 		      window.open(url);
 }
