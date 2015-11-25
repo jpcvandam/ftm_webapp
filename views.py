@@ -48,7 +48,6 @@ def index(request):
     return render_to_response('ftm/index.html',{'x':x, 'y':y, 'bergingscoefficient': bodemdata[0], 'drainweerstand':bodemdata[1], 'qbot':bodemdata[2], 'ontwateringsbasis':bodemdata[3]})
 
 
-
 ###################################################################
 #hier komt dan het ftm
    

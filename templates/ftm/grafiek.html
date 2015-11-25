@@ -14,7 +14,14 @@ Tijdreeks voor x={{x}} en y = {{y}} vanaf {{startdatum|date:"Y-m-d"}} tot en met
 {% endblock grafiek %}
 
 {% block content %}
-
+  <p>De informatie uit onderstaande tabel wordt pas ververst als de pin op een andere locatie wordt gedropt en er op de knop bereken geklikt wordt. Het interactief maken daarvan is voorlopig nog een punt op de To Do lijst </p> 
+  <table>
+  <tr><th>Parameters</th><th>Waarde</th><th>Eenheid</th><th>Opmerking</th></tr>
+  <tr><td>Bergingscoëfficiënt</td><td>{{bergingscoefficient}}</td><td>-</td><td></td></tr>
+  <tr><td>Drainageweerstand</td><td>{{drainweerstand}}</td><td>-</td><td></td></tr>
+  <tr><td>Kwel of wegzijging</td><td>{{qbot}}</td><td>cm/dag</td><td>als er sprake is van kwel is dit getal positief, bij wegzijging is het negatief</td></tr>
+  <tr><td>Ontwateringsbasis</td><td>{{ontwateringsbasis}}</td><td>cm-mv</td><td></td></tr>
+ </table>
 {% block download %}
 <script>
 function download_csv(){
@@ -26,7 +33,7 @@ function download_csv(){
 		      window.open(url);
 }
 </script>
-<p>Let op, de onderstaande knop maakt gebruik van de functie "bereken_sql", de locatie van de pin op de startpagina wordt gebruikt om de bodemparameters voor het genereren van de reeks in csv op te halen. Het is mogelijk om in de url op rekenperiode aan te passen, deze loopt nu van 1 januari 2005 tot 11 oktober 2015, maar kan in principe vanaf 1 januari 1970 tot gisteren gegenereerd worden.  
+<p>Let op, de onderstaande knop maakt gebruik van de functie "bereken", de locatie van de pin op de startpagina wordt gebruikt om de bodemparameters voor het genereren van de reeks in csv op te halen. Het is mogelijk om in de url op rekenperiode aan te passen, deze loopt nu van 1 januari 2005 tot 11 oktober 2015, maar kan in principe vanaf 1 januari 1970 tot gisteren gegenereerd worden.  
 <p><input id=Download_csv type=button value=Download_csv enabled=enabled onclick="download_csv();"></p>
 
 {% endblock download %}
