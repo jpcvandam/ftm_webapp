@@ -30,11 +30,7 @@ from StringIO import StringIO
 from raster import raster_q
 from ftm.settings import DATA_ROOT
 
-
-def index(request):
-    'Display map'
-    x = 6.5108
-    y = 53.3847
+def bodem_query(x,y):
     bestandspad = DATA_ROOT
     x = str(x)
     y = str(y)
@@ -42,7 +38,15 @@ def index(request):
     drainweerstand = float(raster_q(bestandspad + "drainw-nzv.tif", x, y))
     qbot = float(raster_q(bestandspad + "kwel-nzv.tif", x, y))
     ontwateringsbasis = (float(raster_q(bestandspad + "ontwbas-nzv.tif", x, y))*-1.0)
-    return render_to_response('ftm/index.html',{'x':x, 'y':y, 'bergingscoefficient': bergingscoefficient, 'drainweerstand':drainweerstand, 'qbot':qbot, 'ontwateringsbasis':ontwateringsbasis})
+    return bergingscoefficient, drainweerstand, qbot, ontwateringsbasis
+
+def index(request):
+    'Display map'
+    x = 6.5108
+    y = 53.3847
+    bodemdata = bodem_query(x, y)
+    return render_to_response('ftm/index.html',{'x':x, 'y':y, 'bergingscoefficient': bodemdata[0], 'drainweerstand':bodemdata[1], 'qbot':bodemdata[2], 'ontwateringsbasis':bodemdata[3]})
+
 
 
 ###################################################################
