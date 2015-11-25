@@ -59,7 +59,11 @@ def ftmsql(request):
     glg = data[3]
     startdatum = data[4]
     einddatum = data[5]
-    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gt' :gt, 'startdatum':startdatum, 'einddatum':einddatum})
+    bergingscoefficient = data[6]
+    drainweerstand = data[7]
+    qbot =data[8]
+    ontwateringsbasis = data[9]
+    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gt' :gt, 'startdatum':startdatum, 'einddatum':einddatum,'bergingscoefficient': bergingscoefficient, 'drainweerstand':drainweerstand, 'qbot':qbot, 'ontwateringsbasis':ontwateringsbasis})
 
 
 def series_as_csv(series, x, y, start, eind):
