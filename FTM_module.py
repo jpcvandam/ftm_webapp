@@ -1,6 +1,7 @@
 #deze module wordt aangeroepen vanuit het views.py bestand
 #auteur: John van Dam
 #datum: 9 november 2015
+#datum laatste wijziging: 25 november 2015
 
 
 ##imports om te rekenen

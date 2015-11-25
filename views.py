@@ -1,3 +1,5 @@
+#datum laatste wijziging: 25 november 2015
+
 from django.shortcuts import render
 
 # Create your views here.

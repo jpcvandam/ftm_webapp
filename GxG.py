@@ -1,6 +1,7 @@
 #deze module zorgt dat de data voor de GHG en GLG op de juiste manier uit het dataframe met grondwaterstanden gehaald wordt 
 #Auteur: John van Dam
 #Datum: 8 september 2015
+#datum laatste wijziging: 25 november 2015
 
 import pandas as pd
 import numpy as np
