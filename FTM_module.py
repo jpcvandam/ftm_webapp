@@ -96,10 +96,10 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     
 
     #met behulp van de module GxG.py worden de GHG en GLG berekend en voor het plotten in een dataframe met datums gestopt, anders kan er geen horizontale lijn voor een getal geplot worden
-    GHG = GHG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation)[0]
-    GLG = GLG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation)[0]
-    dfGHGs = GHG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation)[1]
-    dfGLGs = GLG_berekening(dfGWS, dates, array_neerslagoverschot, nummer_meteostation)[1]
+    GHG = GHG_berekening(dfGWS, dates, lengte)[0]
+    GLG = GLG_berekening(dfGWS, dates, lengte)[0]
+    dfGHGs = GHG_berekening(dfGWS, dates, lengte)[1]
+    dfGLGs = GLG_berekening(dfGWS, dates, lengte)[1]
     
     gt = GT(GHG[0],GLG[0])[1]
 
