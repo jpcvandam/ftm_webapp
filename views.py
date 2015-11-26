@@ -24,7 +24,7 @@ from GxG import *
 from GT import GT
 from plot_GWS import *
 from raster import raster_q
-from FTM_module import maak_plotje2
+from FTM_module import maak_plotje2, maak_plotje_aangepast
 from django.template.context_processors import request
 from StringIO import StringIO
 from raster import raster_q
@@ -44,8 +44,7 @@ def index(request):
     'Display map'
     x = 6.5108
     y = 53.3847
-    bodemdata = bodem_query(x, y)
-    return render_to_response('ftm/index.html',{'x':x, 'y':y, 'bergingscoefficient': bodemdata[0], 'drainweerstand':bodemdata[1], 'qbot':bodemdata[2], 'ontwateringsbasis':bodemdata[3]})
+    return render_to_response('ftm/index.html',{'x':x, 'y':y})
 
 
 ###################################################################
@@ -58,6 +57,30 @@ def ftmsql(request):
     startdatum = request.GET.get('startdatum')
     einddatum = request.GET.get('einddatum')
     data = maak_plotje2(x, y, startdatum, einddatum, 'plot')
+    plotje = data[0]
+    gt = data[1]
+    ghg = data[2]
+    glg = data[3]
+    startdatum = data[4]
+    einddatum = data[5]
+    bergingscoefficient = data[6]
+    drainweerstand = data[7]
+    qbot =data[8]
+    ontwateringsbasis = data[9]
+    return render_to_response("ftm/grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gt' :gt, 'startdatum':startdatum, 'einddatum':einddatum,'bergingscoefficient': bergingscoefficient, 'drainweerstand':drainweerstand, 'qbot':qbot, 'ontwateringsbasis':ontwateringsbasis})
+
+
+def ftm_aangepast(request):
+    'aangepast'
+    x = request.GET.get('x')
+    y = request.GET.get('y')
+    startdatum = request.GET.get('startdatum')
+    einddatum = request.GET.get('einddatum')
+    bergc = request.GET('berg')
+    drainc = request.GET('drain')
+    qbot1 = request.GET('qbot')
+    ontwbas1 = request.GET('ontwbas')
+    data = maak_plotje_aangepast(x, y, startdatum, einddatum, 'plot', bergc, drainc, qbot1, ontwbas1)
     plotje = data[0]
     gt = data[1]
     ghg = data[2]

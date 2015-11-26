@@ -24,6 +24,7 @@ urlpatterns = patterns('ftm.views',
     (r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index, name='ftm-index'),
     url(r'^grondwaterstand-sql$', views.ftmsql, name='grondwaterstand-sql'),
+    url(r'^aangepast$', views.ftm_aangepast, name='grondwaterstand-sql'),
     url(r'^download-reeks$', views.download_reeks)
 )
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

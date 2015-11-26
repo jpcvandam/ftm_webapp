@@ -18,17 +18,17 @@ Tijdreeks voor x={{x}} en y = {{y}} vanaf {{startdatum|date:"Y-m-d"}} tot en met
 {% block aanpassing %}
   <p>De informatie uit onderstaande tabel wordt pas ververst als de pin op een andere locatie wordt gedropt en er op de knop bereken geklikt wordt. Het interactief maken daarvan is voorlopig nog een punt op de To Do lijst </p> 
   <table>
-  <tr><th>Parameters</th><th>Waarde</th><th>Eenheid</th><th>Opmerking</th></tr>
-  <tr><td>Bergingscoëfficiënt</td><td>{{bergingscoefficient}}</td><td>-</td><td></td></tr>
-  <tr><td>Drainageweerstand</td><td>{{drainweerstand}}</td><td>-</td><td></td></tr>
-  <tr><td>Kwel of wegzijging</td><td>{{qbot}}</td><td>cm/dag</td><td>als er sprake is van kwel is dit getal positief, bij wegzijging is het negatief</td></tr>
-  <tr><td>Ontwateringsbasis</td><td>{{ontwateringsbasis}}</td><td>cm-mv</td><td></td></tr>
+  <tr><th>Parameters</th><th>Waarde</th><th>Aanpasbare waarde</th><th>Eenheid</th><th>Opmerking</th></tr>
+  <tr><td>Bergingscoëfficiënt</td><td>{{bergingscoefficient}}</td><td><input type="text" id="berg" value="{{bergingscoefficient}}"/></td><td>-</td><td></td></tr>
+  <tr><td>Drainageweerstand</td><td>{{drainweerstand}}</td><td><input type="text" id="drain" value="{{drainweerstand}}"/></td><td>-</td><td></td></tr>
+  <tr><td>Kwel of wegzijging</td><td>{{qbot}}</td><td><input type="text" id="qbot" value="{{qbot}}"/></td><td>cm/dag</td><td>als er sprake is van kwel is dit getal positief, bij wegzijging is het negatief</td></tr>
+  <tr><td>Ontwateringsbasis</td><td>{{ontwateringsbasis}}</td><td><input type="text" id="ontwbas" value="{{ontwateringsbasis}}"/></td><td>cm-mv</td><td></td></tr>
  </table>
 <p>
-<input type="text" id="berg" value="{{bergingscoefficient}}"/>
-<input type="text" id="drain" value="{{drainweerstand}}"/>
-<input type="text" id="qbot" value="{{qbot}}"/>
-<input type="text" id="ontwbas" value="{{ontwateringsbasis}}"/>
+
+
+
+
 <script>
 
 var formBERG = document.getElementById("berg").innerHTML;
