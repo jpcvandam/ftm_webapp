@@ -1,0 +1,40 @@
+{% extends "ftm/grafiek.html" %}
+{% block aanpassing %}
+  <p>De informatie uit onderstaande tabel wordt pas ververst als de pin op een andere locatie wordt gedropt en er op de knop bereken geklikt wordt. Het interactief maken daarvan is voorlopig nog een punt op de To Do lijst </p> 
+  <table>
+  <tr><th>Parameters</th><th>Originele waarde</th><th>Aanpasbare waarde</th><th>Eenheid</th><th>Opmerking</th></tr>
+  <tr><td>Bergingscoëfficiënt</td><td>{{o_bergingscoefficient}}</td><td><input type="text" id="berg" value="{{bergingscoefficient}}"/></td><td>-</td><td></td></tr>
+  <tr><td>Drainageweerstand</td><td>{{o_drainweerstand}}</td><td><input type="text" id="drain" value="{{drainweerstand}}"/></td><td>dagen</td><td></td></tr>
+  <tr><td>Kwel of wegzijging</td><td>{{o_qbot}}</td><td><input type="text" id="qbot" value="{{qbot}}"/></td><td>mm/dag</td><td>als er sprake is van kwel is dit getal positief, bij wegzijging is het negatief</td></tr>
+  <tr><td>Ontwateringsbasis</td><td>{{o_ontwateringsbasis}}</td><td><input type="text" id="ontwbas" value="{{ontwateringsbasis}}"/></td><td>cm-mv</td><td></td></tr>
+ </table>
+<p>
+
+<script>
+
+var formBERG = document.getElementById("berg").innerHTML;
+var formDRAIN = document.getElementById("drain").innerHTML;
+var formQBOT = document.getElementById("qbot").innerHTML;
+var formONTWBAS = document.getElementById("ontwbas").innerHTML;
+//document.getElementById('berg').value=formBERG;
+//document.getElementById('drain').value=formDRAIN;
+//document.getElementById('qbot').value=formQBOT;
+//document.getElementById('ontwbas').value=formONTWBAS;
+
+function bereken_aangepast(){
+	var x = {{x}};
+	var y = {{y}};
+	var startdatum = '{{startdatum|date:"Y-m-d"}}';
+	var einddatum = '{{einddatum|date:"Y-m-d"}}';
+	var berg = document.getElementById('berg').value;
+	var drain = document.getElementById('drain').value;
+	var qbot = document.getElementById('qbot').value;
+	var ontwbas = document.getElementById('ontwbas').value;
+	url = 'aangepast?x=' + x + '&y=' + y + '&startdatum=' + startdatum + '&einddatum=' + einddatum + '&berg=' + berg + '&drain=' + drain + '&qbot=' + qbot + '&ontwbas=' + ontwbas;
+		      window.open(url);
+}
+</script>
+<input id=aangepast type=button value=Bereken_aangepast enabled=enabled onclick="bereken_aangepast();">
+
+</p>
+ {% endblock aanpassing %}
