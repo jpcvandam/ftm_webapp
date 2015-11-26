@@ -120,5 +120,31 @@ def download_reeks(request):
     einddatum = maak_plotje2(x, y, startdatum, einddatum, 'csv')[2]
     return series_as_csv(GWS, x, y, startdatum, einddatum)
 
+def aangepaste_series_as_csv(series, x, y, start, eind):
+    naam = 'aangepaste_grondwaterstanden_x' + str(x) + '_y' + str(y) + str(start) + 'tm' + str(eind)
+    filename = slugify(naam) + '.csv'
+    buffer = StringIO()
+    series.to_csv(buffer, encoding='utf-8') 
+    csv = buffer.getvalue()
+    resp = HttpResponse(csv, content_type='text/csv')
+    resp['Content-Disposition'] = 'attachment; filename=%s' % filename   
+    return resp
+
+def download_aangepaste_reeks(request):
+    'Download de berekende aangepaste reeks'
+    x = request.GET.get('x')
+    y = request.GET.get('y')
+    startdatum = request.GET.get('startdatum')
+    einddatum = request.GET.get('einddatum')
+    bergc = request.GET['berg']
+    drainc = request.GET['drain']
+    qbot1 = request.GET['qbot']
+    ontwbas1 = request.GET['ontwbas']
+    GWS = maak_plotje_aangepast(x, y, startdatum, einddatum, 'csv', bergc, drainc, qbot1, ontwbas1)[0]
+    startdatum = maak_plotje_aangepast(x, y, startdatum, einddatum, 'csv', bergc, drainc, qbot1, ontwbas1)[1]
+    einddatum = maak_plotje_aangepast(x, y, startdatum, einddatum, 'csv', bergc, drainc, qbot1, ontwbas1)[2]
+    return aangepaste_series_as_csv(GWS, x, y, startdatum, einddatum)
+
+
 def page_not_found(request):
     return render(request, "404.html")

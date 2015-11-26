@@ -25,7 +25,8 @@ urlpatterns = patterns('ftm.views',
     url(r'^$', views.index, name='ftm-index'),
     url(r'^grondwaterstand-sql$', views.ftmsql, name='grondwaterstand-sql'),
     url(r'^aangepast$', views.ftm_aangepast, name='grondwaterstand-sql'),
-    url(r'^download-reeks$', views.download_reeks)
+    url(r'^download-reeks$', views.download_reeks),
+    url(r'^download-aangepaste-reeks$', views.download_aangepaste_reeks)
 )
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 handler404 = views.page_not_found
