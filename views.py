@@ -76,10 +76,10 @@ def ftm_aangepast(request):
     y = request.GET.get('y')
     startdatum = request.GET.get('startdatum')
     einddatum = request.GET.get('einddatum')
-    bergc = request.GET('berg')
-    drainc = request.GET('drain')
-    qbot1 = request.GET('qbot')
-    ontwbas1 = request.GET('ontwbas')
+    bergc = request.GET['berg']
+    drainc = request.GET['drain']
+    qbot1 = request.GET['qbot']
+    ontwbas1 = request.GET['ontwbas']
     data = maak_plotje_aangepast(x, y, startdatum, einddatum, 'plot', bergc, drainc, qbot1, ontwbas1)
     plotje = data[0]
     gt = data[1]
