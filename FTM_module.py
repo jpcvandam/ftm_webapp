@@ -107,7 +107,7 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     ###################################################################
     #plotje maken van de grondwaterstanden en opslaan
     if resultaat == 'plot':
-        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, GHG[0],GLG[0], startdatum.date(), einddatum.date(), array_bergingscoefficient[0], array_drainweerstand[0], array_qbot[0], array_hgem[0]  
+        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, int(GHG[0]),int(GLG[0]), startdatum.date(), einddatum.date(), array_bergingscoefficient[0], array_drainweerstand[0], array_qbot[0], array_hgem[0]  
     elif resultaat == 'csv':
         return dfGrondwaterstanden, startdatum, einddatum
 
@@ -190,6 +190,6 @@ def maak_plotje_aangepast(x2, y2, startdatum, einddatum, resultaat, berg, drain,
     ###################################################################
     #plotje maken van de grondwaterstanden en opslaan
     if resultaat == 'plot':
-        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, GHG[0],GLG[0], startdatum.date(), einddatum.date(), array_bergingscoefficient[0], array_drainweerstand[0], array_qbot[0], array_hgem[0]  
+        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, int(GHG[0]),int(GLG[0]), startdatum.date(), einddatum.date(), array_bergingscoefficient[0], array_drainweerstand[0], array_qbot[0], array_hgem[0]  
     elif resultaat == 'csv':
         return dfGrondwaterstanden, startdatum, einddatum
