@@ -21,7 +21,7 @@ def cw(drainageweerstand, qbot, hgem):
 
 
 def gws_op_t(bergingscoefficient, drainageweerstand, ht_dt,  qbot, hgem, Pt) :
-    ht = cw(drainageweerstand, qbot, hgem) + delta(bergingscoefficient, drainageweerstand) * (ht_dt - cw(drainageweerstand, qbot, hgem)) + omega(drainageweerstand, bergingscoefficient) * (Pt/100.0) #de fout zou wel eens in de cw kunnen zitten, uitgaande van een vast oppervlaktewaterpeil moet voor cw of c gewoon de hgem genomen worden
+    ht = cw(drainageweerstand, qbot, hgem) + delta(bergingscoefficient, drainageweerstand) * (ht_dt - cw(drainageweerstand, qbot, hgem)) + omega(drainageweerstand, bergingscoefficient) * (Pt/100.0) 
     if ht<0:
 	ht = ht
 	afstroming = 0
