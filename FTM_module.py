@@ -20,7 +20,8 @@ from plot_GWS import *
 from raster import raster_q
 from sql_lezer import meteo_query
 from ftm.settings import DATA_ROOT, STATIC_ROOT
-from knmi_database.views import find_stations
+from knmi_database.models import NeerslagStation
+from django.contrib.gis.geos.point import Point
 
 #dit script is de Python variant van het FTM door Jaco van der Gaast in Pascal
 #Auteur: John van Dam
@@ -30,8 +31,11 @@ from knmi_database.views import find_stations
 
  
 def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
-    #nummer_meteostation = find_stations(str(x2), str(y2))[0]
-    nummer_meteostation = 280
+    pnt = Point(float(x2),float(y2),srid=4326)
+    pnt.transform(28992)
+    
+    nummer_meteostation = NeerslagStation.closest(pnt).nummer
+
     bestandspad= DATA_ROOT 
     
     x= str(x2)
