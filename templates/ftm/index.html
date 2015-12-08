@@ -13,7 +13,12 @@ function bereken() {
 
 {% block functie_init_kaartje %}
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=#YOUR-GOOGLE-API-KEY#&sensor=false"></script>
-
+<script>
+var url = 'https://jpcvandam.cartodb.com/api/v2/viz/98e9d9c2-9447-11e5-8f47-0e31c9be1b51/viz.json'
+	cartodb.createVis('map', url)
+	  .done(function(vis, layers) {
+	  });
+</script>
 <script type="text/javascript">
 //<![CDATA[
 
