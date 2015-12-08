@@ -35,6 +35,7 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     pnt.transform(28992)
     
     nummer_meteostation = NeerslagStation.closest(pnt).nummer
+    naam_meteostation = NeerslagStation.closest(pnt).naam
 
     bestandspad= DATA_ROOT 
     
@@ -113,12 +114,15 @@ def maak_plotje2(x2, y2, startdatum, einddatum, resultaat):
     ###################################################################
     #plotje maken van de grondwaterstanden en opslaan
     if resultaat == 'plot':
-        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, int(GHG[0]),int(GLG[0]), startdatum.date(), einddatum.date(), array_bergingscoefficient[0], array_drainweerstand[0], array_qbot[0], array_hgem[0]  
+        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, int(GHG[0]),int(GLG[0]), startdatum.date(), einddatum.date(), array_bergingscoefficient[0], array_drainweerstand[0], array_qbot[0], array_hgem[0], nummer_meteostation, naam_meteostation  
     elif resultaat == 'csv':
         return dfGrondwaterstanden, startdatum, einddatum
 
 def maak_plotje_aangepast(x2, y2, startdatum, einddatum, resultaat, berg, drain, qbot, ontwbas):
-    nummer_meteostation = 280
+    pnt = Point(float(x2),float(y2),srid=4326)
+    pnt.transform(28992)
+    
+    nummer_meteostation = NeerslagStation.closest(pnt).nummer
     bestandspad= DATA_ROOT 
     
     x= str(x2)
@@ -196,6 +200,6 @@ def maak_plotje_aangepast(x2, y2, startdatum, einddatum, resultaat, berg, drain,
     ###################################################################
     #plotje maken van de grondwaterstanden en opslaan
     if resultaat == 'plot':
-        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, int(GHG[0]),int(GLG[0]), startdatum.date(), einddatum.date(), array_bergingscoefficient[0], array_drainweerstand[0], array_qbot[0], array_hgem[0]  
+        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, int(GHG[0]),int(GLG[0]), startdatum.date(), einddatum.date(), array_bergingscoefficient[0], array_drainweerstand[0], array_qbot[0], array_hgem[0], nummer_meteostation  
     elif resultaat == 'csv':
         return dfGrondwaterstanden, startdatum, einddatum
