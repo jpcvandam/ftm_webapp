@@ -52,3 +52,12 @@ def GHG_berekening(dfGWS, dates, lengte):
     dfGHGs = pd.Series(array_GHG[0], index=dates) #array converteren naar pandas dataframe, omdat dat makkelijker plot
     return GHG, dfGHGs
 ###################################################################
+
+def GVG_berekening(dfGWS, dates, lengte):
+    dfGVG = dfGWS[((dfGWS.index.month == 3) & (14 == dfGWS.index.day)  # 
+                    | (dfGWS.index.month == 3) & (dfGWS.index.day == 28)
+                    | (dfGWS.index.month == 4) & (dfGWS.index.day == 14))]
+    GVG = dfGVG.mean()
+    array_GVG = np.full((1, lengte), GVG, order='C') #maak een array met de uiteindelijke GHG om die later te kunnen plotten
+    dfGVGs = pd.Series(array_GVG[0], index=dates) #array converteren naar pandas dataframe, omdat dat makkelijker plot
+    return GVG, dfGVGs
