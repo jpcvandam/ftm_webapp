@@ -194,14 +194,16 @@ def maak_plotje_aangepast(x2, y2, startdatum, einddatum, resultaat, berg, drain,
     #met behulp van de module GxG.py worden de GHG en GLG berekend en voor het plotten in een dataframe met datums gestopt, anders kan er geen horizontale lijn voor een getal geplot worden
     GHG = GHG_berekening(dfGWS, dates, lengte)[0]
     GLG = GLG_berekening(dfGWS, dates, lengte)[0]
+    GVG = GVG_berekening(dfGWS, dates, lengte)[0]
     dfGHGs = GHG_berekening(dfGWS, dates, lengte)[1]
     dfGLGs = GLG_berekening(dfGWS, dates, lengte)[1]
+    dfGVGs = GVG_berekening(dfGWS, dates, lengte)[1]
     
     gt = GT(GHG[0],GLG[0])[1]
 
     ###################################################################
     #plotje maken van de grondwaterstanden en opslaan
     if resultaat == 'plot':
-        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, int(GHG[0]),int(GLG[0]), startdatum.date(), einddatum.date(), array_bergingscoefficient[0], array_drainweerstand[0], array_qbot[0], array_hgem[0], nummer_meteostation  
+        return plot_buf(dfGWS, dfGHGs, dfGLGs, gt, nummer_meteostation, x2, y2), gt, int(GHG[0]),int(GLG[0]),int(GVG), startdatum.date(), einddatum.date(), array_bergingscoefficient[0], array_drainweerstand[0], array_qbot[0], array_hgem[0], nummer_meteostation  
     elif resultaat == 'csv':
         return dfGrondwaterstanden, startdatum, einddatum

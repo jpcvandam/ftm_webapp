@@ -100,7 +100,7 @@ def ftm_aangepast(request):
     o_drainweerstand = o_data[1]
     o_qbot = o_data[2]
     o_ontwateringsbasis = o_data[3] 
-    return render_to_response("ftm/aangepaste_grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gt' :gt, 'startdatum':startdatum, 'einddatum':einddatum,'bergingscoefficient': bergingscoefficient, 'drainweerstand':drainweerstand, 'qbot':qbot, 'ontwateringsbasis':ontwateringsbasis, 'o_bergingscoefficient':o_bergingscoefficient, 'o_drainweerstand': o_drainweerstand, 'o_qbot':o_qbot, 'o_ontwateringsbasis':o_ontwateringsbasis})
+    return render_to_response("ftm/aangepaste_grafiek.html", { 'x':x, 'y':y, 'plotje': plotje, 'ghg':ghg, 'glg':glg, 'gvg':gvg, 'gt' :gt, 'startdatum':startdatum, 'einddatum':einddatum,'bergingscoefficient': bergingscoefficient, 'drainweerstand':drainweerstand, 'qbot':qbot, 'ontwateringsbasis':ontwateringsbasis, 'o_bergingscoefficient':o_bergingscoefficient, 'o_drainweerstand': o_drainweerstand, 'o_qbot':o_qbot, 'o_ontwateringsbasis':o_ontwateringsbasis})
 
 
 def series_as_csv(series, x, y, start, eind):
