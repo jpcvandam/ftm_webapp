@@ -14,4 +14,6 @@ def hellingVerzadigingsdampspanning(T):
     return s
 
 
-def makkink():
+def makkink(T, R_c):
+    E_mak = 0.65*((hellingVerzadigingsdampspanning(T)*R_c)/((hellingVerzadigingsdampspanning(T)+0.066)*2.45))
+    return E_mak
