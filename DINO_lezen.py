@@ -15,6 +15,7 @@
 import os
 import pandas as pd
 from dateutil import parser
+from pandas.tslib import parse_date
 
 os.chdir("/home/john/Documenten/Afstuderen_Acacia_water/Data/dino_gedeelte_NZV/Grondwaterstanden_Put")
 infile = "B07A0112001_1.csv" #bestandsnaam met eventueel een pad ervoor
@@ -30,17 +31,16 @@ while not cntwhite ==4:
             elif len(line)>= 1 and cntwhite <= 3:
                 cntline+=1
             elif cntwhite <= 4 or cntline <= 20:
-                #
                 overslaan = cntwhite + cntline
                 print overslaan
                 fileinput.close()
                 break
 
-df = pd.read_csv(infile, skiprows=overslaan)
+df = pd.read_csv(infile, skiprows=overslaan,index_col=[2], parse_dates=True, usecols={2,4})
 print(df)
 
 df.dropna(how='any')
-
+print df['Stand (cm t.o.v. MV)']
 
 
                
