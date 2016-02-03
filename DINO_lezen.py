@@ -64,12 +64,12 @@ def plot(df, bestandspad, plotnaam):
 
 
 def plot2(df, df2, bestandspad, plotnaam):
-    ax = df.plot(label='gemeten')
-    df2.plot(ax=ax, label='berekend') #df2.plot(label='berekend')
+    ax = df2.plot(label='berekend')
+    df.plot(ax=ax, label='gemeten') #df2.plot(label='berekend')
     #df.plot(label='gemeten')
     plt.xlabel('Tijd')
     plt.title('Tijdstijghoogtelijn ' + plotnaam[9:])
-    pylab.savefig(bestandspad + plotnaam + '.png')#, bbox_inches='tight')
+    pylab.savefig(bestandspad + plotnaam + 'f.png')#, bbox_inches='tight')
     ax = pylab.gca()
     ax.set_ylabel('$cm-mv$')
     ax.text(2, 6,  plotnaam, fontsize=15)
