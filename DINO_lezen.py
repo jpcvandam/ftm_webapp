@@ -26,7 +26,7 @@ from pandas.tslib import parse_date
 import matplotlib.pyplot as plt
 import pylab
 
-bestandspad = "/home/john/Documenten/Afstuderen_Acacia_water/Data/dino_gedeelte_NZV/Grondwaterstanden_Put"
+bestandspad = "/home/john/Documenten/Afstuderen_Acacia_water/Data/dino_gedeelte_NZV/Grondwaterstanden_Put/"
 os.chdir(bestandspad)
 infile = "B07A0112001_1.csv" #bestandsnaam met eventueel een pad ervoor
 
