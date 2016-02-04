@@ -76,7 +76,7 @@ for i in [127 ,  32 ,  206 ,  331 ,  200 ,  18 ,  125 ,  16 ,  609 ,  272 ,  161
     url = 'http://projects.knmi.nl/klimatologie/daggegevens/getdata_dag.cgi'
     values = {'stns' : i,
               'byear' : datum_gisteren_eergisteren()[5],
-              'bmonth' :datum_gisteren_eergisteren()[4],
+              'bmonth' : datum_gisteren_eergisteren()[4],
               'bday' : datum_gisteren_eergisteren()[3],
               'eyear' : datum_gisteren_eergisteren()[2],
               'emonth': datum_gisteren_eergisteren()[1],

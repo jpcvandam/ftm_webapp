@@ -64,8 +64,8 @@ def plot(df, bestandspad, plotnaam):
 
 
 def plot2(df, df2, bestandspad, plotnaam):
-    ax = df2.plot(label='berekend')
-    df.plot(ax=ax, label='gemeten') #df2.plot(label='berekend')
+    ax = df2.plot(label='berekend', color = 'g')
+    df.plot(ax=ax, label='gemeten', color = 'b') #df2.plot(label='berekend')
     #df.plot(label='gemeten')
     plt.xlabel('Tijd')
     plt.title('Tijdstijghoogtelijn ' + plotnaam[9:])
