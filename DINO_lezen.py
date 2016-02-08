@@ -27,13 +27,26 @@ import matplotlib.pyplot as plt
 import pylab
 from GxG_meet import GLG_berekening, GHG_berekening
 
-bestandspad = "/home/john/Documenten/Afstuderen_Acacia_water/Data/dino_gedeelte_NZV/Grondwaterstanden_Put/"
+bestandspad = "/home/john/Documenten/Afstuderen_Acacia_water/Data/Noorderzijlvest-gegevens/Noorderzijlvest/DINO/Uitgepakt/Grondwaterstanden_Put/" #"/home/john/Documenten/Afstuderen_Acacia_water/Data/dino_gedeelte_NZV/Grondwaterstanden_Put/"
 os.chdir(bestandspad)
-infile = "B07A0112001_1.csv" #bestandsnaam met eventueel een pad ervoor
 
-infiles = ["B03D0016001_1.csv", "B03D0016001_1.csv", "B03D0071001_1.csv", "B03G0090001_1.csv", "B03G0091001_1.csv", "B07A0021001_1.csv", "B07A0108001_1.csv", "B07A0112001_1.csv", "B07A0112002_1.csv", "B07A0120001_1.csv", "B07A0121001_1.csv", "B07A0122001_1.csv", "B07A0124001_1.csv", "B07A0125001_1.csv", "B07A0127001_1.csv", "B07A0128001_1.csv", "B07A0130001_1.csv", "B07A0131001_1.csv", "B07A0133001_1.csv", "B07A0134001_1.csv", "B07A0135001_1.csv", "B07A0136001_1.csv", "B07A0140001_1.csv", "B07A0142001_1.csv", "B07A0147001_1.csv", "B07A0924001_1.csv", "B07A0945001_1.csv", "B07A0945002_1.csv", "B07A0946001_1.csv", "B07A0947001_1.csv", "B07A0948002_1.csv", "B07A0949001_1.csv", "B07A0956001_1.csv", "B07A0957001_1.csv", "B07A0981001_1.csv", "B07A0982001_1.csv", "B07B0019001_1.csv", "B07B0019002_1.csv", "B07B0056001_1.csv", "B07B0119001_1.csv", "B07B0130001_1.csv", "B07B0131001_1.csv", "B07B0133001_1.csv", "B07B0135001_1.csv", "B07B0136001_1.csv", "B07B0137001_1.csv", "B07B0138001_1.csv", "B07B0139001_1.csv", "B07B0141001_1.csv", "B07B1108001_1.csv", "B07B1109001_1.csv", "B07E0029001_1.csv", "B07E0030001_1.csv", "B07E0042001_1.csv", "B07E0084001_1.csv", "B07E0085001_1.csv", "B07E0087001_1.csv", "B07E0088001_1.csv", "B07E0089001_1.csv",  "B07E0094001_1.csv", "B07E0095001_1.csv", "B07E0097001_1.csv", "B07E0098001_1.csv", "B07E0101001_1.csv", "B07E1137001_1.csv", "B03D0071001_1.csv", "B03G0090001_1.csv", "B03G0091001_1.csv", "B07A0021001_1.csv", "B07A0108001_1.csv", "B07A0112001_1.csv", "B07A0112002_1.csv", "B07A0120001_1.csv", "B07A0121001_1.csv", "B07A0122001_1.csv", "B07A0124001_1.csv", "B07A0125001_1.csv", "B07A0127001_1.csv", "B07A0128001_1.csv", "B07A0130001_1.csv", "B07A0131001_1.csv", "B07A0133001_1.csv", "B07A0134001_1.csv", "B07A0135001_1.csv", "B07A0136001_1.csv", "B07A0140001_1.csv", "B07A0142001_1.csv", "B07A0147001_1.csv", "B07A0924001_1.csv", "B07A0945001_1.csv", "B07A0945002_1.csv", "B07A0946001_1.csv", "B07A0947001_1.csv", "B07A0948002_1.csv", "B07A0949001_1.csv", "B07A0956001_1.csv", "B07A0957001_1.csv", "B07A0981001_1.csv", "B07A0982001_1.csv", "B07B0019001_1.csv", "B07B0019002_1.csv", "B07B0056001_1.csv", "B07B0119001_1.csv", "B07B0130001_1.csv", "B07B0131001_1.csv", "B07B0133001_1.csv", "B07B0135001_1.csv", "B07B0136001_1.csv", "B07B0137001_1.csv", "B07B0138001_1.csv", "B07B0139001_1.csv", "B07B0141001_1.csv", "B07B1108001_1.csv", "B07B1109001_1.csv", "B07E0029001_1.csv", "B07E0030001_1.csv",  "B07E0042001_1.csv", "B07E0084001_1.csv", "B07E0085001_1.csv", "B07E0087001_1.csv", "B07E0088001_1.csv", "B07E0089001_1.csv", "B07E0094001_1.csv", "B07E0095001_1.csv", "B07E0097001_1.csv", "B07E0098001_1.csv", "B07E0101001_1.csv", "B07E1137001_1.csv", "B07E0031001_1.csv", "B07E0031001_1.csv", "B07E0092001_1.csv", "B07E0092001_1.csv"]
+if len(sys.argv) == 2:
+    lijst_infiles = sys.argv[1]
+    command = 'dummy'
+elif len(sys.argv) == 3:
+    lijst_infiles = str(sys.argv[1])
+    command = sys.argv[2]
+else:
+    print "gebruik, ", sys.argv[0], " lijst_infiles [plot]"
 
+infiles = []
 
+with open(lijst_infiles, 'r') as fileinput:
+    for line in fileinput:
+        infiles.append(str(line.rstrip('\r\n')))
+fileinput.close()
+
+#infiles = ["B07A0969001_1.csv", "B03D0321001_1.csv", "B12A1810001_1.csv", "B12B1649001_1.csv", "B03D0320001_1.csv", "B03D0322001_1.csv", "B03D0323001_1.csv", "B12A1811001_1.csv", "B12B1640001_1.csv", "B12B1642001_1.csv", "B07D1894001_1.csv", "B12C1594001_1.csv", "B12A1795001_1.csv", "B07C1717001_1.csv", "B03C0262001_1.csv", "B12A1747001_1.csv", "B07C0267001_1.csv", "B12A0213001_1.csv", "B07C1722001_1.csv", "B07D1893001_1.csv", "B12A1801001_1.csv", "B12C1542001_1.csv", "B12C1598001_1.csv", "B07D1895001_1.csv", "B07C1710001_1.csv", "B07A0967001_1.csv", "B12A0120001_1.csv", "B07C1705001_1.csv", "B12A1808001_1.csv", "B12C1602001_1.csv", "B12A1760001_1.csv", "B12A1814001_1.csv", "B12C0056001_1.csv", "B12A1812001_1.csv", "B12C1596001_1.csv", "B12A1756001_1.csv", "B07B1136001_1.csv", "B07D2561001_1.csv", "B07B1137001_1.csv", "B07B1138001_1.csv", "B07A0966001_1.csv", "B12A1794001_1.csv", "B03C0264001_1.csv", "B12C1605001_1.csv", "B07C1712001_1.csv", "B07C1721001_1.csv", "B07C1728001_1.csv", "B12B1650001_1.csv", "B07C1729001_1.csv", "B12A1767001_1.csv", "B12B1643001_1.csv", "B12A1798001_1.csv", "B07C1713001_1.csv", "B12A1759001_1.csv", "B12B1652001_1.csv", "B12C1601001_1.csv", "B12A1750001_1.csv", "B07C1724001_1.csv", "B12B1724001_1.csv", "B07B1148001_1.csv", "B07A0965001_1.csv", "B07D1892001_1.csv", "B07C1709001_1.csv", "B07D1891001_1.csv", "B07C1714001_1.csv", "B07C1739001_1.csv", "B07C1736001_1.csv", "B07C1726001_1.csv", "B12B1644001_1.csv", "B07C1718001_1.csv", "B07C1715001_1.csv", "B12B1651001_1.csv", "B07C1716001_1.csv", "B07C1720001_1.csv", "B12B1647001_1.csv", "B07C1735001_1.csv", "B07C1711001_1.csv", "B07C1725001_1.csv", "B07D0242001_1.csv", "B06H1500001_1.csv", "B06H1501001_1.csv", "B07D0497001_1.csv", "B12A1734001_1.csv", "B12A1766001_1.csv", "B12A1763001_1.csv", "B07D2567001_1.csv", "B07B1139001_1.csv", "B07D2562001_1.csv", "B07D2566001_1.csv", "B07C1708001_1.csv", "B12C1604001_1.csv", "B03C0265001_1.csv", "B12A1752001_1.csv", "B12A1762001_1.csv", "B12A1738001_1.csv", "B12B1648001_1.csv", "B07D2563001_1.csv", "B07C1719001_1.csv", "B12C1603001_1.csv", "B07C1706001_1.csv", "B07C1811001_1.csv", "B06H1502001_1.csv", "B12A1754001_1.csv", "B07D2559001_1.csv", "B07D2565001_1.csv", "B07D2560001_1.csv", "B07D2564001_1.csv", "B06H0176001_1.csv", "B06H1503001_1.csv", "B07C1727001_1.csv", "B12A1764001_1.csv", "B06H0175001_1.csv", "B07C1723001_1.csv", "B12B0342001_1.csv", "B12A1749001_1.csv", "B12A1809001_1.csv", "B12C1595001_1.csv", "B07C1808001_1.csv", "B07C1707001_1.csv", "B12C1599001_1.csv", "B12B1645001_1.csv", "B07A0971001_1.csv", "B07A0973001_1.csv", "B07B1142001_1.csv", "B07A0978001_1.csv", "B03D0317001_1.csv", "B03C0263001_1.csv", "B07A0972001_1.csv", "B07A0962001_1.csv", "B07A0976001_1.csv", "B03D0318001_1.csv", "B07B1150001_1.csv", "B03D0316001_1.csv", "B07B1152001_1.csv", "B07A0975001_1.csv", "B07B1149001_1.csv", "B07A0961001_1.csv", "B07B1145001_1.csv", "B07B1144001_1.csv", "B03D0319001_1.csv", "B07A0964001_1.csv", "B07B1147001_1.csv", "B07B1151001_1.csv", "B07B1140001_1.csv", "B07B1141001_1.csv", "B07A0970001_1.csv", "B07A0963001_1.csv", "B06H1504001_1.csv", "B06H1505001_1.csv", "B12A1736001_1.csv", "B07A0974001_1.csv", "B12B1646001_1.csv", "B12A1737001_1.csv", "B12C1600001_1.csv", "B12A1733001_1.csv", "B12B1790001_1.csv"]
 
 def ruw_csv(infile): #tel hoeveel regels de header van het dino csv-file heeft, zodat deze overgeslagen kunnen worden
     cntwhite = 0
@@ -77,10 +90,7 @@ def plot2(df, df2, bestandspad, plotnaam): #plot zowel de gemeten als de met het
     pylab.close()
 
 
-if len(sys.argv) == 2:
-    command = sys.argv[1]
-else:
-    command = 'dummy'
+
 
 for i in infiles:
     infile = i
