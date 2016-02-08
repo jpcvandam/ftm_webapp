@@ -19,12 +19,13 @@
 #blok 3, de tijdserie
 
 
-import os
+import os, sys
 import pandas as pd
 from dateutil import parser
 from pandas.tslib import parse_date
 import matplotlib.pyplot as plt
 import pylab
+from GxG_meet import GLG_berekening, GHG_berekening
 
 bestandspad = "/home/john/Documenten/Afstuderen_Acacia_water/Data/dino_gedeelte_NZV/Grondwaterstanden_Put/"
 os.chdir(bestandspad)
@@ -34,7 +35,7 @@ infiles = ["B03D0016001_1.csv", "B03D0016001_1.csv", "B03D0071001_1.csv", "B03G0
 
 
 
-def ruw_csv(infile):
+def ruw_csv(infile): #tel hoeveel regels de header van het dino csv-file heeft, zodat deze overgeslagen kunnen worden
     cntwhite = 0
     cntline = 0
 
@@ -52,7 +53,7 @@ def ruw_csv(infile):
                     break
     return overslaan        
 
-def plot(df, bestandspad, plotnaam):
+def plot(df, bestandspad, plotnaam): #plot alleen de gemeten reeks
     df.plot()
     plt.xlabel('Tijd')
     plt.title('Tijdstijghoogtelijn' + plotnaam)
@@ -63,7 +64,7 @@ def plot(df, bestandspad, plotnaam):
     pylab.close()
 
 
-def plot2(df, df2, bestandspad, plotnaam):
+def plot2(df, df2, bestandspad, plotnaam): #plot zowel de gemeten als de met het FTM berekende reeks
     ax = df2.plot(label='berekend', color = 'g')
     df.plot(ax=ax, label='gemeten', color = 'b') #df2.plot(label='berekend')
     #df.plot(label='gemeten')
@@ -75,6 +76,11 @@ def plot2(df, df2, bestandspad, plotnaam):
     ax.text(2, 6,  plotnaam, fontsize=15)
     pylab.close()
 
+
+if len(sys.argv) == 2:
+    command = sys.argv[1]
+else:
+    command = 'dummy'
 
 for i in infiles:
     infile = i
@@ -88,8 +94,13 @@ for i in infiles:
     df2 = pd.read_csv(berekend, index_col=[0], parse_dates=True)
     df.dropna(how='any')
     #print df['Stand (cm t.o.v. MV)']
-    plot(df*-1, bestandspad, i)
-    plot2(df*-1, df2, bestandspad, berekend)
-
+    #df*-1
+    ser_meet = pd.Series(df['Stand (cm t.o.v. MV)']*-1, index = df.index)
+    print 'GLG en GHG metingen:', GLG_berekening(ser_meet), GHG_berekening(ser_meet)
+    ser_berekend = pd.Series(df2['Grondwaterstanden'], index = df2.index)
+    print 'GLG en GHG berekening:', GLG_berekening(ser_berekend), GHG_berekening(ser_berekend)
+    if command == 'plot':
+        plot(df*-1, bestandspad, i)
+        plot2(df*-1, df2, bestandspad, berekend)
 
                
