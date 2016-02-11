@@ -90,7 +90,8 @@ def plot2(df, df2, bestandspad, plotnaam): #plot zowel de gemeten als de met het
     pylab.close()
 
 
-
+of = open("/home/john/Documenten/Afstuderen_Acacia_water/Data/Noorderzijlvest-gegevens/Noorderzijlvest/DINO/Uitgepakt/Grondwaterstanden_Put/statistiek.txt", 'w')
+of.write("Locatie, GLG_meting, GHG_meting, GLG_berekend, GHG_berekend\n")
 
 for i in infiles:
     infile = i
@@ -106,11 +107,19 @@ for i in infiles:
     #print df['Stand (cm t.o.v. MV)']
     #df*-1
     ser_meet = pd.Series(df['Stand (cm t.o.v. MV)']*-1, index = df.index)
-    print 'GLG en GHG metingen:', GLG_berekening(ser_meet), GHG_berekening(ser_meet)
+    #print 'GLG en GHG metingen:', GLG_berekening(ser_meet), GHG_berekening(ser_meet)
     ser_berekend = pd.Series(df2['Grondwaterstanden'], index = df2.index)
-    print 'GLG en GHG berekening:', GLG_berekening(ser_berekend), GHG_berekening(ser_berekend)
+    #print 'GLG en GHG berekening:', GLG_berekening(ser_berekend), GHG_berekening(ser_berekend)
+    Locatie = i 
+    GLG_meting = GLG_berekening(ser_meet)
+    GHG_meting = GHG_berekening(ser_meet)
+    GLG_berekend = GLG_berekening(ser_berekend)
+    GHG_berekend = GHG_berekening(ser_berekend)
+    of.write("%s, %f, %f, %f, %f\n" % (Locatie, GLG_meting, GHG_meting, GLG_berekend, GHG_berekend))
     if command == 'plot':
         plot(df*-1, bestandspad, i)
         plot2(df*-1, df2, bestandspad, berekend)
+
+of.close()
 
                
