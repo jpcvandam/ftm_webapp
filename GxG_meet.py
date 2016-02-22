@@ -16,6 +16,23 @@ def GLG_berekening(dfGWS): #input wordt wordt hier wel dataframe genoemd, maar h
                     | (dfGWS.index.month == 8) 
                     | (dfGWS.index.month == 9))]  #
 #print dfGLG.mean()
+#onderstaande code aanpassen, zodat een dag die niet bestaat verschoven kan worden
+    try:
+        dfGLG = dfGWS[((dfGWS.index.month == 4) & (14 == dfGWS.index.day)  # 
+                        | (dfGWS.index.month == 4) & (dfGWS.index.day == 28)
+                        | (dfGWS.index.month == 5) & (dfGWS.index.day == 14)
+                        | (dfGWS.index.month == 5) & (dfGWS.index.day == 28)
+                        | (dfGWS.index.month == 6) & (dfGWS.index.day == 14)
+                        | (dfGWS.index.month == 6) & (dfGWS.index.day == 28)
+                        | (dfGWS.index.month == 7) & (dfGWS.index.day == 28)
+                        | (dfGWS.index.month == 7) & (dfGWS.index.day == 14)
+                        | (dfGWS.index.month == 8) & (dfGWS.index.day == 28)
+                        | (dfGWS.index.month == 8) & (dfGWS.index.day == 14)
+                        | (dfGWS.index.month == 9) & (dfGWS.index.day == 14)
+                        | (dfGWS.index.month == 9) & (dfGWS.index.day == 28))]
+    except IndexError:
+        print "jammer, niet gelukt"
+    #tot hier het experiment
     grouped_l = dfGLG.groupby(lambda x: x.year)
     extremen_l = grouped_l.nsmallest(3).to_frame(name='extremen_l')
     GLG = extremen_l.mean()

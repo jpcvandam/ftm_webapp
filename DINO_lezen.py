@@ -25,7 +25,7 @@ from dateutil import parser
 from pandas.tslib import parse_date
 import matplotlib.pyplot as plt
 import pylab
-from GxG_meet import GLG_berekening, GHG_berekening
+from GxG_mt import GLG_berekening, GHG_berekening
 
 bestandspad = "/home/john/Documenten/Afstuderen_Acacia_water/Data/Noorderzijlvest-gegevens/Noorderzijlvest/DINO/Uitgepakt/Grondwaterstanden_Put/" #"/home/john/Documenten/Afstuderen_Acacia_water/Data/dino_gedeelte_NZV/Grondwaterstanden_Put/"
 os.chdir(bestandspad)
